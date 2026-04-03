@@ -1,0 +1,513 @@
+"row_id","subject_id","hadm_id","chartdate","charttime","storetime","category","description","cgid","iserror","text"
+"1","10002","198765","2024-01-10","2024-01-10 08:15:00","2024-01-10 08:30:00","Nursing","Nursing Admission Note","1101","0","NURSING ADMISSION NOTE - 0815
+Patient: Mr. J. Doe | DOB: 1958-04-22 | MRN: 10002 | Bed: MICU-04
+Admission date: 2024-01-10 | Admitting diagnosis: Sepsis workup
+
+CHIEF COMPLAINT: Worsening fatigue x3 days, subjective fevers at home, decreased oral intake.
+
+HISTORY: 65-year-old male with PMHx of Type 2 Diabetes Mellitus, CKD Stage 2 (baseline Cr 1.1 mg/dL), and Hypertension. Wife reports patient has been increasingly lethargic over the past 3 days. Fevers at home up to 38.6C measured by wife. Decreased appetite and oral intake. Mild confusion noted this morning by family prior to calling 911.
+
+NEUROLOGICAL: Alert, oriented x3 on admission. Slow to respond to questions but answers appropriately. GCS 14 (E4V4M6). Pupils equal, round, reactive to light 3mm bilaterally. No focal deficits.
+
+RESPIRATORY: Mild shortness of breath reported on exertion. Denies chest pain or cough. SpO2 96% on 2L nasal cannula at triage. Breath sounds diminished at right base. No wheeze or stridor.
+
+CARDIOVASCULAR: Heart rate 88 bpm, regular rhythm. BP 118/74 mmHg on admission. No murmurs auscultated. Peripheral pulses 2+ bilateral. Capillary refill 2 seconds.
+
+GASTROINTESTINAL: Abdomen soft, non-tender, non-distended. Bowel sounds present x4 quadrants. Last bowel movement 2 days ago. Denies nausea or vomiting.
+
+GENITOURINARY: Foley catheter inserted on admission. Initial urine output: 55 mL/hr. Urine clear, light yellow. UA sent to lab.
+
+SKIN: Warm, slightly flushed. No rash, no petechiae, no wounds.
+
+TEMPERATURE: 38.2C (tympanic) on unit arrival, down from 38.6C in ED.
+
+VITALS ON ARRIVAL TO UNIT:
+- BP: 118/74 mmHg
+- HR: 88 bpm
+- RR: 16 breaths/min
+- SpO2: 96% on 2L NC
+- Temp: 38.2C
+
+ACCESS: 18G PIV right antecubital - patent, infusing NS at 75 mL/hr.
+
+LABS PENDING: CBC, BMP, Lactate, Blood cultures x2, Procalcitonin, UA/Urine Culture.
+
+PLAN: Admit to MICU. Sepsis protocol initiated. Vitals q2h. Fall precautions in place. Patient and family educated on plan of care. All questions answered. Full code status confirmed with patient.
+
+Signature: RN Chen, CGID 1101"
+"2","10002","198765","2024-01-10","2024-01-10 20:00:00","2024-01-10 20:25:00","Physician","Physician Attending Note","2201","0","PHYSICIAN ATTENDING NOTE - 2000
+Patient: Mr. J. Doe | MRN: 10002 | HADM: 198765 | MICU Day 1
+
+REASON FOR ADMISSION: Sepsis workup; elevated WBC; fever; altered mental status.
+
+HPI: 65-year-old male presenting with 3-day history of progressive fatigue, fevers (Tmax 38.6C at home), and decreased oral intake. Wife noted increasing confusion this morning. No localizing source of infection clearly identified in ED. UA showed mild pyuria (WBC 15-20). CXR with possible early right lower lobe infiltrate. No sick contacts. No recent travel. No recent antibiotics.
+
+PMHx: (1) Type 2 Diabetes Mellitus - on Metformin 1000mg BID; (2) CKD Stage 2 - baseline Cr 1.1 mg/dL; (3) Hypertension - on Lisinopril 10mg daily.
+PSHx: Appendectomy 1998. No cardiac history.
+Allergies: NKDA.
+Social Hx: Retired teacher. Non-smoker. Occasional alcohol. Lives with wife.
+Family Hx: Father - MI at 68. Mother - DM Type 2.
+
+REVIEW OF SYSTEMS:
+Positive: Fatigue, subjective fever, mild confusion per family, decreased urine output noted by wife, poor appetite, mild shortness of breath on exertion.
+Negative: Chest pain, palpitations, vomiting, diarrhea, rash, joint pain, urinary symptoms initially denied by patient.
+
+PHYSICAL EXAMINATION:
+General: Ill-appearing, lethargic but arousable to voice. Cooperative.
+HEENT: MMM. No JVD. No lymphadenopathy.
+Respiratory: Diminished breath sounds at right base. No overt wheeze. RR 18.
+Cardiovascular: RRR, no murmurs, rubs, or gallops. HR 92.
+Abdomen: Soft, NT/ND. BS+. No hepatosplenomegaly.
+Extremities: No edema. Warm. Peripheral pulses 2+ bilaterally.
+Neurological: A&Ox2 (person and place). Slow to respond. GCS 14.
+
+INITIAL LABS (resulted 1930):
+- WBC: 12.2 K/uL (HIGH, ref 4.5-11.0) - elevated, new infection marker
+- Hemoglobin: 11.8 g/dL (mild anemia, chronic)
+- Platelets: 210 K/uL (normal)
+- Creatinine: 1.3 mg/dL (above baseline of 1.1 - mild acute on chronic)
+- BUN: 28 mg/dL (elevated)
+- Glucose: 198 mg/dL (elevated, known DM)
+- Sodium: 134 mEq/L (mild hyponatremia)
+- Lactate: 2.4 mmol/L (ELEVATED - tissue hypoperfusion, concern for sepsis)
+- Procalcitonin: 18.4 ng/mL (markedly elevated - bacterial infection strongly suggested)
+
+MICROBIOLOGY:
+Blood cultures x2 drawn at 2045 prior to first antibiotic dose (correct order).
+UA: WBC 15-20, bacteria moderate - urosepsis cannot be excluded.
+
+IMAGING: CXR portable - possible early right lower lobe infiltrate. Repeat in AM.
+
+ASSESSMENT AND PLAN:
+
+1. SEPSIS - Possible sources: pneumonia (RLL infiltrate on CXR) vs urosepsis (pyuria on UA). Lactate 2.4 mmol/L meets Sepsis-3 criteria with suspected infection + organ dysfunction.
+   - Started Ceftriaxone 1g IV q24h empirically AFTER cultures drawn.
+   - IV fluid bolus 1L NS given in ED. NS maintenance at 100 mL/hr.
+   - Lactate trend in 4 hours (target clearance >10% per surviving sepsis guidelines).
+   - Strict fluid balance monitoring.
+
+2. ALTERED MENTAL STATUS - Likely septic encephalopathy. Baseline intact per wife.
+   - Avoid benzodiazepines and anticholinergics.
+   - Frequent reorientation. Family at bedside encouraged.
+   - Neurology curbside if does not improve with sepsis treatment.
+
+3. CKD STAGE 2 - Cr now 1.3, above baseline 1.1. Monitor closely for AKI progression.
+   - HOLD Metformin (lactic acidosis risk, contrast if needed).
+   - Hold Lisinopril (hypotension risk).
+   - Nephrology on standby if Cr worsens.
+
+4. DIABETES MELLITUS TYPE 2 - Glucose 198 on admission.
+   - Glucose monitoring q6h. Insulin sliding scale initiated per endocrine protocol.
+   - Target glucose 140-180 mg/dL per ICU glycemic protocol.
+
+5. HYPERTENSION - Hold antihypertensives given borderline BP. Resume when hemodynamically stable.
+
+DISPOSITION: Admit to MICU for close hemodynamic monitoring. Full code.
+Goals of care discussed with patient and wife - patient understands severity.
+
+Dr. Patel, Attending Physician | Pager: 4421 | Signed: 2024-01-10 20:25"
+"3","10002","198765","2024-01-10","2024-01-10 23:00:00","2024-01-10 23:20:00","Nursing","Nursing Progress Note","1102","0","NURSING PROGRESS NOTE - 2300
+Patient: Mr. J. Doe | MRN: 10002 | MICU Day 1 Night Shift
+
+NEUROLOGICAL: Alert, oriented x3. Slightly lethargic compared to this afternoon. Answers questions appropriately but slow. Wife at bedside providing ongoing reassurance. GCS remains 14. No agitation. No focal deficits noted.
+
+RESPIRATORY: Mild shortness of breath at rest, patient reporting it as 3/10. SpO2 95-96% on 2L nasal cannula. RR 18 breaths/min. Breath sounds diminished at right base, mild crackles on auscultation. No wheeze. No accessory muscle use. No cyanosis.
+
+CARDIOVASCULAR: HR 92 bpm regular. BP 112/70 mmHg. Peripheral perfusion adequate. Capillary refill 2 seconds. No new murmurs. Peripheral pulses palpable bilaterally.
+
+TEMPERATURE: 38.6C at 2130 - physician notified. Acetaminophen 650mg PO given at 2135. Temperature down to 38.2C at 2300. Fever ongoing - consistent with infection.
+
+GASTROINTESTINAL: Abdomen soft. Bowel sounds present x4. Patient tolerated small amount of water. Not eating - poor appetite. Wife brought in homemade food - patient declined.
+
+GENITOURINARY: Urine output 1800-2300 (5 hours): 175 mL = 35 mL/hr. Foley patent and draining. Urine clear, slightly darker than on admission. UA result: WBC 15-20, bacteria moderate - consistent with urosepsis component.
+
+SKIN: Warm, flushed. No new rash or petechiae. No pressure injuries. Repositioned q2h. Heel protectors in place.
+
+LABS RESULTED 1930:
+- WBC: 12.2 K/uL (HIGH - elevated, trending)
+- Lactate: 2.4 mmol/L (ELEVATED - mild tissue hypoperfusion)
+- Creatinine: 1.3 mg/dL (above baseline - monitor for AKI)
+- Procalcitonin: 18.4 ng/mL (markedly elevated - bacterial source confirmed)
+- Glucose: 198 mg/dL (elevated - insulin sliding scale initiated)
+- Sodium: 134 mEq/L (mild hyponatremia - monitoring)
+
+IV ACCESS: 18G PIV right antecubital patent. NS 100 mL/hr infusing without issue.
+
+MEDICATIONS GIVEN THIS SHIFT:
+- Ceftriaxone 1g IV at 2115 (blood cultures drawn at 2045 BEFORE antibiotic per protocol - correct order maintained).
+- Acetaminophen 650mg PO at 2135 for fever.
+- Insulin per sliding scale: 2 units regular insulin SC at 2300 (glucose 188 mg/dL at 2200 check).
+
+COMFORT: Patient anxious about hospitalization. Reassurance provided. Social work notified for support.
+
+PLAN: Continue monitoring vitals q2h. Reassess mental status at 0200. Notify MD if BP drops below 100 systolic or HR above 110. Repeat lactate due at 0200 per physician order.
+
+Signature: RN Williams, CGID 1102"
+"4","10002","198765","2024-01-11","2024-01-11 06:00:00","2024-01-11 06:22:00","Nursing","Nursing Progress Note","1102","0","NURSING PROGRESS NOTE - 0600
+Patient: Mr. J. Doe | MRN: 10002 | MICU Day 2 - Night to Morning Handoff
+
+OVERNIGHT EVENTS - CRITICAL DETERIORATION:
+At 0230: Patient developed hypotension. BP dropped to 94/60 mmHg. Dr. Patel notified immediately. 500mL NS bolus administered over 30 minutes. BP responded transiently to 104/68 mmHg. By 0400 BP again fell to 98/64 mmHg. Vasopressor discussion initiated. Norepinephrine drawn up and at bedside per physician order.
+
+Mental status also declined significantly overnight. At 0200, patient no longer responding to verbal commands consistently. Now only oriented to person - NOT oriented to place or time. GCS now 12 (E3V4M5). Wife extremely distressed - chaplain notified.
+
+NEUROLOGICAL: Altered mental status - worsening from baseline. GCS 12. Not following commands reliably. Moaning intermittently. Opens eyes to voice. Not oriented to place or time. Concern for septic encephalopathy progression.
+
+RESPIRATORY: SpO2 94-95% on 2L NC. Supplemental oxygen increased to 4L NC at 0300 - SpO2 improved to 95-96%. RR 20 breaths/min. Breath sounds: crackles at right base, now extending toward right mid-zone. No wheeze.
+
+CARDIOVASCULAR: BP 96/62 mmHg at 0600 despite two fluid boluses total (1.5L NS over 6 hours). HR 102 bpm - new tachycardia. MAP calculated 73 mmHg - borderline adequate. Skin: warm but mottled on bilateral lower extremities - new finding, concerning for poor perfusion.
+
+TEMPERATURE: 38.9C at 0600 - worsening fever despite acetaminophen.
+
+GENITOURINARY: CRITICAL - Urine output past 8 hours (2200-0600): 120 mL total = 15 mL/hr. Foley confirmed patent (irrigated at 0300, good return). Urine darkening - now amber colored. This meets oliguria criteria (<0.5 mL/kg/hr for >6 hours assuming weight ~80kg = <40 mL/hr). Nephrology notified at 0530.
+
+LABS RESULTED 0500 (morning draw):
+- WBC: 18.7 K/uL (HIGH - significant rise from 12.2 yesterday - worsening infection)
+- Lactate: 3.8 mmol/L (CRITICAL HIGH - tissue hypoperfusion, sepsis progression)
+- Creatinine: 1.6 mg/dL (worsening from 1.3 - acute kidney injury developing)
+- Platelets: 148 K/uL (trending DOWN from 210 on admission - concerning for early DIC)
+- BUN: 42 mg/dL (elevated, rising)
+- Procalcitonin: repeat pending.
+
+Blood cultures Day 1 (drawn 2024-01-10 2045): No growth at 8 hours - preliminary.
+
+INTERVENTIONS THIS SHIFT:
+- Two NS fluid boluses (500mL + 500mL) administered per physician orders.
+- Norepinephrine prepared and at bedside - not yet started, awaiting attending review at 0700 rounds.
+- Ceftriaxone Dose 2: 1g IV administered at 0200.
+- SpO2 monitoring continuous.
+- Foley output measured hourly.
+- Rapid response team notified at 0545.
+
+FAMILY: Wife and daughter at bedside overnight. Both extremely anxious. Physician to conduct family meeting at 0800.
+
+ASSESSMENT: Patient clinically deteriorating. Persistent hypotension despite fluid resuscitation. Worsening oliguria meeting criteria. Declining mental status. Rising lactate and WBC. Sepsis protocol escalated.
+
+Signature: RN Williams, CGID 1102"
+"5","10002","198765","2024-01-11","2024-01-11 10:30:00","2024-01-11 11:00:00","Physician","Physician Attending Note","2201","0","PHYSICIAN ATTENDING NOTE - 1030
+Patient: Mr. J. Doe | MRN: 10002 | MICU Day 2
+
+CLINICAL SUMMARY: Patient meets Sepsis-3 criteria with significant overnight deterioration. Primary source now confirmed as pneumonia (CXR progression) with secondary urosepsis component (UA/urine culture pending).
+
+INTERVAL EVENTS (since yesterday 2000):
+- BP nadir 94/60 mmHg at 0230. Total IV fluids given overnight: 1.5L NS. Still borderline hypotensive.
+- Urine output critically low: 15 mL/hr over the past 8 hours - meets oliguria definition per KDIGO criteria.
+- Mental status significantly declined: GCS now 12, previously 14 on admission.
+- New mottling bilateral lower extremities - peripheral hypoperfusion.
+
+VITALS AT 1000:
+- BP: 98/66 mmHg (on norepinephrine 0.04 mcg/kg/min started 0800)
+- HR: 104 bpm (tachycardia persistent)
+- RR: 22 breaths/min (tachypnea)
+- SpO2: 94% on 4L NC (worsening hypoxia)
+- Temp: 38.7C (persistent fever)
+- MAP: 77 mmHg (adequate on vasopressor)
+- Weight: 80 kg (per nursing)
+
+NEUROLOGICAL: GCS 12 (E3V4M5). Altered mental status - concern for septic encephalopathy. Neurology curbsided by phone - agrees metabolic/septic etiology most likely. No seizure activity. CT head not indicated at this time unless further deterioration.
+
+PHYSICAL EXAM:
+General: Ill-appearing, lethargic. Not following all commands.
+Respiratory: Crackles right lower and mid zones. SpO2 94% on 4L NC.
+CV: Tachycardia 104. BP supported on norepinephrine.
+Extremities: Bilateral lower extremity mottling - new. 1+ pedal edema bilateral.
+Skin: Mottled bilateral lower legs - peripheral perfusion compromised.
+
+MORNING LABS (0500):
+- WBC: 18.7 K/uL (HIGH - was 12.2 on admission. Rising trend = worsening infection)
+- Lactate: 3.8 mmol/L (CRITICAL - was 2.4 yesterday. Clearance not achieved. Target <2.0)
+- Creatinine: 1.6 mg/dL (above baseline 1.1. Rising - AKI Stage 1 by KDIGO: 1.6/1.1 = 1.45x)
+- BUN: 42 mg/dL (elevated and rising)
+- Platelets: 148 K/uL (down from 210 on admission - concerning trend)
+- Sodium: 132 mEq/L (worsening mild hyponatremia)
+
+SOFA SCORE CALCULATION (estimated):
+- Respiratory (PaO2/FiO2 ratio estimated from SpO2 94% on 4L): ~200 = SOFA 1
+- Coagulation (Platelets 148): SOFA 1
+- Liver (Bilirubin pending): SOFA 0 (estimated)
+- Cardiovascular (MAP on norepinephrine 0.04): SOFA 2
+- CNS (GCS 12): SOFA 1
+- Renal (Cr 1.6, UOP 15 mL/hr): SOFA 1
+- TOTAL ESTIMATED SOFA: 6
+
+ASSESSMENT AND PLAN:
+
+1. SEPSIS WITH MULTI-ORGAN DYSFUNCTION (SOFA 6):
+   - Source: Pneumonia (primary) + Urosepsis (secondary, E.coli suspected per UA pyuria).
+   - Broaden antibiotics: ADD Vancomycin IV 25 mg/kg loading dose (covers gram-positive organisms, MRSA possible with HAP component).
+   - Continue Ceftriaxone 1g IV q24h.
+   - Target MAP >65 mmHg - on norepinephrine 0.04 mcg/kg/min.
+   - Repeat Lactate every 4 hours - target clearance >10%.
+   - Infectious Disease consult placed.
+   - Surviving Sepsis Campaign bundles implemented: cultures before antibiotics (confirmed), fluids given, vasopressor started, lactate trend ongoing.
+
+2. ACUTE KIDNEY INJURY STAGE 1 (KDIGO):
+   - Cr 1.6 from baseline 1.1 = 1.45x increase.
+   - UOP 15 mL/hr = 0.19 mL/kg/hr x 8hrs - meets KDIGO oliguria AKI criteria.
+   - Nephrology formal consult placed.
+   - Hold all nephrotoxins: NSAIDs, ACEi (Lisinopril already held), IV contrast.
+   - Hold Metformin (already held - lactic acidosis risk doubled with AKI).
+   - Careful fluid balance - avoid additional fluid overload given worsening respiratory status.
+   - Monitor Cr, BUN, electrolytes, UOP q4h.
+
+3. SEPTIC ENCEPHALOPATHY:
+   - GCS 12, decline from 14. Likely sepsis-driven metabolic encephalopathy.
+   - Avoid sedatives. Family at bedside for reorientation.
+   - Daily awakening trial when hemodynamically stable.
+
+4. POSSIBLE DIC - EARLY:
+   - Platelets trending from 210 to 148. Monitor closely.
+   - Fibrinogen, D-Dimer, PT/PTT ordered.
+   - Hematology curbside if platelets fall below 100K or PT/PTT prolonged.
+
+5. COMMUNITY-ACQUIRED PNEUMONIA - SEVERE (CURB-65 = 4):
+   - Progressive right lower/mid lobe consolidation on CXR.
+   - Sputum culture sent. Respiratory therapy chest PT q4h.
+   - Continue antibiotics. Prone positioning discussed - not indicated yet.
+
+FAMILY MEETING: Conducted with wife and daughter at 0900. Prognosis explained - serious but treatable if responds to current management. DNR/DNI discussion held - family and patient (when arousable) confirm full code status. Palliative care notified for support.
+
+Dr. Patel, Attending | Dr. Singh, Fellow (co-sign) | Pager 4421"
+"6","10002","198765","2024-01-11","2024-01-11 14:00:00","2024-01-11 14:15:00","Nursing/Other","Shift Assessment","1103","0","SHIFT ASSESSMENT NOTE - 1400
+Patient: Mr. J. Doe | MRN: 10002 | MICU Day 2 Afternoon
+
+This note covers the 1400 nursing assessment following attending rounds.
+
+NEUROLOGICAL: Marginal improvement noted since morning. Patient now responding to commands about 60% of the time. Still disoriented - does not know date or location. Oriented to person only. Opens eyes to voice. GCS 13 (E3V4M6). Wife states ""he recognized me and squeezed my hand"" at 1300 - positive sign.
+
+RESPIRATORY: SpO2 95-96% on 4L NC. RR 19. Crackles right lower zone persist. Sputum: thick, yellow-green tinged. Respiratory therapy completed chest physiotherapy at 1300. Patient tolerated well. No respiratory distress at rest.
+
+CARDIOVASCULAR: BP 104/68 mmHg on norepinephrine 0.04 mcg/kg/min. MAP 80 mmHg - adequate. HR 98 bpm. Slightly improved hemodynamics compared to 0600.
+
+GENITOURINARY: Urine output 0600-1400 (8 hours): 185 mL = 23 mL/hr. Still below 0.5 mL/kg/hr threshold for weight 80kg (threshold = 40 mL/hr) but improved from 15 mL/hr earlier. Urine amber, concentrated. Nephrology reviewed patient at 1230 (see consult note).
+
+TEMPERATURE: 38.5C at 1400. Persistent fever. Second acetaminophen dose given at 1200.
+
+SKIN ASSESSMENT: Mottling on bilateral lower extremities slightly improved from morning. Skin warm to touch. No new pressure injuries. Repositioned every 2 hours. Foam dressings on bilateral heels. Mouth care with chlorhexidine q4h (VAP prevention bundle).
+
+MEDICATION RECONCILIATION:
+Active current medications:
+- Norepinephrine 0.04 mcg/kg/min IV continuous
+- Ceftriaxone 1g IV q24h (dose 3 at 0200 today)
+- Vancomycin: loading dose 2000mg IV given at 1100. Trough due before next dose.
+- Acetaminophen 650mg PO/NG q6h for fever
+- Insulin sliding scale per endocrine protocol (glucose 174 at 1200, 0 units given)
+- NS 75 mL/hr maintenance IV
+
+SAFETY: Fall risk score HIGH. Bed in lowest position. Side rails x4 up. Call bell in reach (though patient not reliably using it). Soft restraints NOT in use - patient not agitated.
+
+COMMUNICATION: Infectious Disease team reviewed at 1330 - recommends continuing current antibiotics pending culture results. Urine culture from Day 1 showing growth - speciation pending (preliminary gram-negative rods). 
+
+Signature: RN Thompson, CGID 1103"
+"7","10002","198765","2024-01-11","2024-01-11 16:00:00","2024-01-11 16:05:00","Nursing","Nursing Progress Note","1104","1","DUPLICATE ENTRY - ERROR
+This note was entered in error. Duplicate of ROW_ID 6. Wrong patient information copied from adjacent bed. Disregard entirely.
+This is the error row - agent must drop this. ISERROR=1.
+Patient referenced in this note is NOT Mr. J. Doe.
+DO NOT USE FOR CLINICAL DECISION MAKING."
+"8","10002","198765","2024-01-12","2024-01-12 05:45:00","2024-01-12 06:10:00","Nursing","Nursing Progress Note","1101","0","NURSING PROGRESS NOTE - 0545
+Patient: Mr. J. Doe | MRN: 10002 | MICU Day 3 Night to Morning Handoff
+
+OVERNIGHT SUMMARY: Patient on norepinephrine for hemodynamic support. BP more stable overnight ranging 104-112/66-72 mmHg. Tachycardia persisting HR 98-108. Mental status marginally improving - wife notes brief lucid moments.
+
+NEUROLOGICAL: More responsive this morning than at midnight. Opens eyes spontaneously. Briefly oriented to person and place at 0400 - could not state date. GCS 13 (E4V4M5). Wife reports he asked for water at 0330 - significant improvement from yesterday's unresponsiveness. Still not following complex commands reliably. No agitation.
+
+RESPIRATORY: SpO2 96% on 4L NC. RR 17. Breath sounds: crackles right base persist but reduced from yesterday. Sputum: thick, yellow-green (unchanged). Respiratory therapy chest PT completed at 0200 and 0500.
+
+CARDIOVASCULAR: BP 108/70 mmHg on norepinephrine 0.06 mcg/kg/min (dose increased at 0100 due to transient MAP drop to 60 at 0045 - resolved). HR 102 bpm. MAP 83 mmHg adequate. No new mottling.
+
+TEMPERATURE: 38.2C at 0545. Improving trend from 38.9C yesterday.
+
+GENITOURINARY: Urine output last 12 hours (1800-0600): 280 mL = 23 mL/hr. Stable but still below target. Urine remains amber-concentrated. Foley patent.
+
+LABS DRAW AT 0400 (results pending for rounds):
+Preliminary report received from lab for 0200 blood draw:
+- WBC flagged at 0200 draw: value 1.8 K/uL returned from lab. CRITICAL LOW FLAG.
+  ** PHYSICIAN NOTIFIED AT 0430 ** Dr. Singh reviewed and stated: ""This is physiologically implausible given WBC trend of 12.2 -> 15.4 -> 18.7 over prior 3 days. This value is almost certainly a lab error - specimen likely clotted or contaminated. A redraw has been ordered for 0600 STAT. Do NOT use 1.8 value in clinical decision-making pending confirmation.""
+  Redraw ordered. Lab aware. Prior 3-day WBC mean approximately 15.4, std deviation approximately 2.6. A value of 1.8 is approximately 13 standard deviations below mean - physiologically implausible for bacterial sepsis patient.
+- Repeat full labs including WBC, Creatinine, Lactate, CBC due at 0600.
+
+MEDICATIONS THIS SHIFT:
+- Vancomycin 1250mg IV at 2200 (vancomycin trough level due at 0600 before AM dose).
+- Ceftriaxone 1g IV at 0200 (Dose 4).
+- Acetaminophen 650mg PO at 0100 for temp 38.6C.
+- Norepinephrine 0.06 mcg/kg/min continuous.
+- Insulin: glucose 188 at midnight = 4 units regular SC given.
+
+SAFETY: All precautions maintained. Bed alarms on. Wife at bedside until 0100, returning at 0800.
+
+PLAN: Hold 0600 WBC interpretation pending redraw result. Notify team of all lab results immediately at rounds 0700.
+
+Signature: RN Chen, CGID 1101"
+"9","10002","198765","2024-01-12","2024-01-12 14:00:00","2024-01-12 14:30:00","Physician","Physician Attending Note","2202","0","PHYSICIAN ATTENDING NOTE - 1400
+Patient: Mr. J. Doe | MRN: 10002 | MICU Day 3
+
+CLINICAL TRAJECTORY: Slow but measurable improvement. Hemodynamically more stable on low-dose vasopressor. Mental status recovering.
+
+VITALS AT 1400:
+- BP: 112/72 mmHg (on norepinephrine 0.06 mcg/kg/min)
+- HR: 96 bpm (improving)
+- RR: 17 breaths/min (improving)
+- SpO2: 97% on 3L NC (weaned from 4L this morning - good sign)
+- Temp: 37.9C (improving trend - still low-grade fever)
+- MAP: 85 mmHg (adequate on vasopressor)
+
+LABORATORY UPDATE - 0600 LABS:
+
+** WBC LAB ERROR CONFIRMED **
+The WBC value of 1.8 K/uL reported from the 0200 draw was confirmed by the lab to be a CLOTTED SPECIMEN ERROR. The 0600 redraw returned WBC of 17.2 K/uL. Lab has formally flagged the 0200 value as invalid in the system. The 1.8 value is NOT to be used in any clinical calculation or documentation going forward.
+WBC trend (valid values only): 12.2 -> 15.4 -> 18.7 -> 17.2. The Day 3 value of 17.2 suggests possible early plateau or mild improvement, consistent with antibiotic effect beginning.
+
+All morning 0600 labs:
+- WBC: 17.2 K/uL (confirmed redraw; down slightly from 18.7 - early treatment response)
+- Lactate: 2.1 mmol/L (DOWN from 3.8 - significant improvement; approaching normal <2.0)
+- Creatinine: 1.8 mg/dL (UP from 1.6 - AKI worsening slightly to KDIGO Stage 1 upper range)
+- BUN: 48 mg/dL (rising - consistent with AKI)
+- Platelets: 132 K/uL (continued downward trend - monitor for DIC)
+- Vancomycin trough: 18.2 mcg/mL (therapeutic range 15-20, continue current dose)
+- Procalcitonin: 14.1 ng/mL (DOWN from 18.4 - treatment response, good sign)
+- Fibrinogen: 180 mg/dL (low-normal - DIC monitoring)
+- D-Dimer: 4.2 ug/mL (elevated - low-grade DIC possible, hematology aware)
+
+MICROBIOLOGY UPDATE:
+Urine culture (drawn Day 1): E. coli >100,000 CFU/mL. Sensitivities: Susceptible to Ceftriaxone, Ciprofloxacin, Nitrofurantoin. CONFIRMS urosepsis component.
+Blood cultures Day 1 (x2 sets): No growth at 48 hours - preliminary.
+Blood cultures Day 2: sent, pending.
+Sputum: Gram stain - WBC many, gram-negative rods moderate. Culture pending.
+
+IMAGING: Repeat CXR today - right lower and middle lobe consolidation unchanged from yesterday. No new infiltrates. No pneumothorax. Small right pleural effusion confirmed. Pulmonary vascular markings mildly increased.
+
+ASSESSMENT:
+
+1. SEPSIS (pneumonia + E.coli urosepsis) - IMPROVING:
+   Lactate clearance achieved: 3.8 -> 2.1 mmol/L = 45% clearance (target >10% per Surviving Sepsis). Good response to current antibiotic regimen.
+   De-escalation plan: Vancomycin to be discontinued tomorrow if blood cultures remain negative at 72h. Ceftriaxone continues - culture-directed for E.coli.
+   Infectious Disease agrees with current plan.
+
+2. AKI STAGE 1 (KDIGO) - WORSENING SLIGHTLY (Cr 1.6 -> 1.8):
+   Nephrology saw patient this AM (see consult note). No RRT indicated. Conservative fluid management. Monitor UOP hourly.
+   UOP improved to 23 mL/hr - still below target but trending better.
+
+3. SEPTIC ENCEPHALOPATHY - IMPROVING:
+   GCS improving: was 12, now 13. Patient had brief conversation with wife. Reorientation ongoing.
+
+4. POSSIBLE LOW-GRADE DIC:
+   Platelets 132 (from 210). Fibrinogen 180 (low-normal). D-Dimer elevated.
+   Hematology curbsided - monitoring only at this stage. No active treatment unless platelets <80K or active bleeding.
+
+PLAN:
+Continue current management. Attempt vasopressor wean tomorrow AM if BP holds MAP >65. Nutrition: Speech therapy swallow evaluation ordered. Start enteral nutrition via NG if fails swallow eval. Goals of care re-discussed with family - cautiously optimistic tone given lactate improvement.
+
+Dr. Rodriguez, Attending | Dr. Kim, Fellow (co-sign) | Pager 5512"
+"10","10002","198765","2024-01-12","","2024-01-12 22:00:00","Nursing","Nursing Progress Note","1103","0","NURSING PROGRESS NOTE - EVENING (charttime missing at entry - using chartdate only)
+Patient: Mr. J. Doe | MRN: 10002 | MICU Day 3 Evening
+
+This note has no charttime recorded (system entry error at nurse workstation - time field left blank). Chartdate 2024-01-12 is accurate.
+
+NEUROLOGICAL: Patient noticeably improved from this morning. Oriented x3 - knows name, hospital, and approximate date (stated ""January something""). Following commands consistently. GCS 14 (E4V5M5). Having brief conversations. Asking questions about what happened and about discharge. Wife overjoyed - tearful.
+
+RESPIRATORY: SpO2 97-98% on 3L NC. Crackles at right base only - significantly reduced from previous days. RR 15-16. Patient reports dyspnea much improved - ""I can breathe better now.""
+
+CARDIOVASCULAR: BP 114-120/70-76 mmHg on norepinephrine 0.06 mcg/kg/min. HR 94 bpm. Attending discussed possible vasopressor wean tomorrow if BP holds overnight.
+
+TEMPERATURE: 37.6C. Afebrile by clinical definition (below 38.0C). First afebrile reading since admission. Significant milestone.
+
+GENITOURINARY: Urine output 1200-2000 (8 hours): 320 mL = 40 mL/hr. Improved and approaching target threshold. Urine color lighter - pale yellow. Good sign for renal recovery.
+
+ORAL INTAKE: Speech therapy swallow evaluation completed at 1500 - PASSED. Regular diet with thin liquids started. Patient ate approximately half of dinner - significant improvement in appetite. IV maintenance fluids reduced to 50 mL/hr per physician order.
+
+SKIN: No mottling. Warm and well-perfused. Bilateral lower extremity mottling completely resolved. Good capillary refill 1-2 seconds throughout.
+
+PLAN: Continue monitoring. Vasopressor wean plan per attending for morning. Daily awakening trial at 0600 tomorrow if hemodynamically stable.
+
+Signature: RN Thompson, CGID 1103"
+"11","10002","198765","2024-01-13","2024-01-13 07:00:00","2024-01-13 07:25:00","Nursing","Nursing Progress Note","1101","0","NURSING PROGRESS NOTE - 0700
+Patient: Mr. J. Doe | MRN: 10002 | MICU Day 4 Morning
+
+OVERNIGHT SUMMARY: Major milestone overnight. Norepinephrine successfully weaned and discontinued at 0400. BP holding well without vasopressor support. Mental status continues to improve dramatically.
+
+NEUROLOGICAL: Alert and oriented x3 - knows name, hospital name, month and year. Following all commands. Having sustained conversations. GCS 15 (E4V5M6) - BACK TO BASELINE. Patient asking about diet, about going home, about what caused his illness. Appropriate affect. Wife reports ""He's back to himself."" No focal neurological deficits.
+
+RESPIRATORY: SpO2 97-98% on 2L NC (weaned from 3L at 0200). RR 15-16 breaths/min. Breath sounds: markedly improved. Crackles at right base only, decreased intensity. No wheeze. Patient reports feeling ""almost normal breathing.""
+
+CARDIOVASCULAR: BP 116/74 mmHg (OFF all vasopressors since 0400 - 3 hours vasopressor-free and holding well). HR 90 bpm. MAP 88 mmHg. Excellent perfusion. Warm, well-perfused, no mottling. Capillary refill <2 seconds throughout.
+
+TEMPERATURE: 37.4C - afebrile. Second consecutive afebrile reading.
+
+GENITOURINARY: Urine output past 12 hours (1900-0700): 510 mL = 42 mL/hr. Meets target (>0.5 mL/kg/hr for 80kg = >40 mL/hr). Urine clear, pale yellow - excellent sign of renal recovery. Creatinine trend pending morning labs.
+
+LABS 0500 TODAY:
+- WBC: 15.8 K/uL (DOWN from 17.2 - continuing to trend down - good antibiotic response)
+- Creatinine: 1.7 mg/dL (stable from 1.8 yesterday - AKI appears to be plateauing, not worsening)
+- Lactate: 1.4 mmol/L (NORMAL - down from 3.8 at peak - excellent perfusion restoration)
+- Platelets: 118 K/uL (continued mild decline - MD aware, monitoring)
+- Blood cultures Day 1: NO GROWTH x72h (FINAL - reassuring, no bacteremia).
+- Blood cultures Day 2: No growth x48h - preliminary.
+- Vancomycin: last dose given. Discontinuing per ID as blood cultures negative.
+
+ACTIVITY: Patient sitting up in bed with assistance. Physical therapy evaluation today.
+
+NUTRITION: Tolerating regular diet. Ate 75% of breakfast - significant improvement. Wife brought in homemade food - patient ate with appetite.
+
+ORAL MEDICATIONS: Levofloxacin 750mg PO started (step-down from IV Ceftriaxone per ID recommendation for E.coli urosepsis/pneumonia, culture-directed). Ceftriaxone discontinued.
+
+PLAN: Possible transfer to step-down unit today if afternoon vitals remain stable and vasopressor-free. Continue monitoring platelets. Nephrology rounding today.
+
+Signature: RN Chen, CGID 1101"
+"12","10002","198765","2024-01-13","2024-01-13 11:00:00","2024-01-13 11:20:00","Physician","Physician Attending Note","2202","0","PHYSICIAN ATTENDING NOTE - 1100
+Patient: Mr. J. Doe | MRN: 10002 | MICU Day 4 - Transfer Planning
+
+CLINICAL STATUS: Significant clinical improvement across all organ systems. Patient vasopressor-free for 7 hours. Mental status returned to baseline. Oral intake restored. Appropriate for step-down unit transfer pending bed availability.
+
+VITALS AT 1100:
+- BP: 118/76 mmHg (off all vasopressors)
+- HR: 88 bpm (resolved tachycardia)
+- RR: 15 breaths/min (normal)
+- SpO2: 98% on 2L NC (continued weaning possible)
+- Temp: 37.2C (afebrile)
+- MAP: 90 mmHg (excellent, no vasopressor)
+
+MORNING LABS (0500):
+- WBC: 15.8 K/uL (continuing to fall from peak 18.7 - treatment response confirmed)
+- Creatinine: 1.7 mg/dL (stable; trend 1.1 baseline -> 1.3 -> 1.6 -> 1.8 -> 1.7 - IMPROVING)
+- Lactate: 1.4 mmol/L (NORMALIZED - was 3.8 at peak, now within normal limits 0.5-2.0)
+- Platelets: 118 K/uL (slow decline - Fibrinogen 195 today, D-Dimer 3.1 - stable low-grade DIC)
+- Blood cultures x2 sets: NO GROWTH - FINAL. Bacteremia excluded.
+- Repeat UA: WBC 3-5 (markedly improved), no bacteria (urosepsis treated).
+- Glucose: 142 mg/dL (improving glycemic control)
+
+ORGAN SYSTEM REVIEW:
+
+SEPSIS: Clinically RESOLVING. Met all Surviving Sepsis Campaign resuscitation endpoints:
+(1) Lactate <2 mmol/L achieved (1.4 at Day 4)
+(2) MAP >65 mmHg off vasopressors
+(3) UOP >0.5 mL/kg/hr
+(4) Antibiotic therapy culture-directed (E.coli, sensitive to Levofloxacin)
+
+ACUTE KIDNEY INJURY: Creatinine 1.7, stable to improving. Oliguria resolved - UOP 42 mL/hr. AKI appears to be in recovery phase. Nephrology agrees - no RRT needed. Plan: Resume Lisinopril at 50% dose at discharge (5mg instead of 10mg). Recheck Cr in 1 week outpatient.
+
+PNEUMONIA: Right lower/middle lobe consolidation. Completing 7-day course PO Levofloxacin (started Day 3). Follow-up CXR in 6-8 weeks outpatient to confirm resolution (rule out underlying malignancy in smoker-age patient).
+
+MENTAL STATUS: Returned to baseline GCS 15. Septic encephalopathy resolved. No residual deficits.
+
+SOFA SCORE TODAY:
+- Respiratory: 0 (SpO2 98% on 2L, weaning)
+- Coagulation: 1 (Platelets 118)
+- Liver: 0 (Bilirubin normal)
+- Cardiovascular: 0 (off vasopressors)
+- CNS: 0 (GCS 15)
+- Renal: 1 (Cr 1.7, above baseline)
+- TOTAL SOFA: 2 (DOWN from peak of 6 on Day 2 - excellent trajectory)
+
+PLAN:
+1. Transfer to step-down unit today.
+2. Continue PO Levofloxacin 750mg daily x5 more days (7 day total course).
+3. Daily Creatinine and platelets on step-down.
+4. Lisinopril: restart at 5mg daily on step-down (50% of home dose).
+5. Metformin: HOLD until Cr returns to baseline 1.1 outpatient (lactic acidosis risk).
+6. Diabetic education: Endocrine consult placed for inpatient teaching.
+7. Discharge target: Day 6-7 if trajectory maintained.
+8. Follow-up: PCP within 1 week, Nephrology 2 weeks, ID 2 weeks, repeat CXR 6-8 weeks.
+
+FAMILY UPDATE: Wife and family updated - very relieved. Discharge planning education initiated by nursing. Home health evaluation ordered for post-discharge support.
+
+Dr. Rodriguez, Attending Physician | MICU Service | Pager 5512"

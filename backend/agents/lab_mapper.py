@@ -3,8 +3,6 @@ from pathlib import Path
 from backend.utils.lab_ranges import ICU_CRITICAL_LABS,PANIC_THRESHOLDS
 
 #path definition
-# BASE_DIR = Path(__file__).resolve().parent.parent
-# DATA_DIR = BASE_DIR / "data"
 
 LAB_FILE = "backend/data/LABEVENTS.csv"
 ICU_FILE = "backend/data/ICUSTAYS.csv"
@@ -78,7 +76,7 @@ class LabMapperAgent():
         else:
             return "falling", delta
 
-    # threshold detection
+    #threshold detection
     def check_flags(self, lab, value):
         lab_info = self.lab_lookup[lab]
         normal_low, normal_high = lab_info["normal"]
@@ -101,6 +99,7 @@ class LabMapperAgent():
         return above, below, critical, direction
     
     #output formatting
+    
     def build_output(self, df):
         timeline_by_test = {}
         critical_values = []
