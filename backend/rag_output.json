@@ -1,6 +1,5 @@
 {
   "agent": "guideline_rag",
-  "provider": "groq",
   "query_used": "Symptoms: hypotension (moderate; BP 92/58), altered mental status (moderate; confused and drowsy), oliguria (severe; urine output 15 mL/hr). Abnormal labs: Lactate 3.8 mmol/L elevated, Creatinine 1.9 mg/dL elevated, WBC 18.7 K/uL elevated. Retrieve the most relevant ICU clinical guideline evidence, thresholds, and diagnostic criteria for the flagged risks.",
   "citations": [
     {

@@ -132,7 +132,6 @@ def run_rag_agent(parsed_symptoms: list, critical_values: list, api_key: str = "
 
     return {
         "agent": "guideline_rag",
-        "provider": get_active_provider(),
         "query_used": query,
         "citations": citations,
         "guidelines_retrieved": len(citations),
