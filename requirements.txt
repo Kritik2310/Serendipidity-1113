@@ -11,3 +11,4 @@ pytest
 sentence-transformers
 fastapi
 uvicorn[standard]
+pymongo

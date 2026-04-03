@@ -1,11 +1,9 @@
 from __future__ import annotations
-
 import json
 import logging
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-
 import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
@@ -16,10 +14,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from utils.llm_client import get_active_provider, get_llm
 from backend.utils.outlier_rules import Z_THRESHOLD, IMPLAUSIBLE_LIMITS, check_delta
+from backend.utils.mongo_client import ensure_indexes          # ← NEW
+from backend.utils.mongo_store import save_chief_report        # ← NEW
 
 load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 
-# logger must be defined before any function that uses it
 logger       = logging.getLogger(__name__)
 OUTPUT_BASE  = Path("backend/outputs/chief_agent")
 HISTORY_FILE = Path("backend/data/PATIENT_HISTORY.csv")
@@ -60,8 +59,6 @@ Return a JSON object with exactly these keys:
 - doctor_handoff           (string — what the clinician must review next)
 - disease_progression      (array of objects: period, observation)"""
 
-
-#Historical baseline loader 
 def _load_patient_history(subject_id: int, hadm_id: int) -> dict:
     if not HISTORY_FILE.exists():
         logger.warning("PATIENT_HISTORY.csv not found — historical check skipped")
@@ -98,7 +95,6 @@ def _load_patient_history(subject_id: int, hadm_id: int) -> dict:
     )
     return result
 
-#Threelayer outlier detection — owned by Chief Agent
 def _detect_outliers_chief(
     lab_mapper_output: dict,
     subject_id: int,
@@ -119,7 +115,7 @@ def _detect_outliers_chief(
         timeline  = timeline_by_test.get(test, [])
         exclusion: dict | None = None
 
-        #physiological plausibility
+        # physiological plausibility
         limits = IMPLAUSIBLE_LIMITS.get(test)
         if limits and not (limits[0] < value < limits[1]):
             exclusion = {
@@ -136,7 +132,7 @@ def _detect_outliers_chief(
                 ),
                 "historical_baseline": history.get(test),
             }
-        #current admission z-score
+        # current admission z-score
         if not exclusion:
             current_values = [
                 e["value"] for e in timeline
@@ -165,7 +161,7 @@ def _detect_outliers_chief(
                             ),
                             "historical_baseline": history.get(test),
                         }
-        #historical baseline z-score
+        # historical baseline z-score
         if not exclusion and test in history:
             h      = history[test]
             h_std  = h["historical_std"]
@@ -191,7 +187,7 @@ def _detect_outliers_chief(
                         "historical_baseline": h,
                     }
 
-        #real-time delta check
+        # real-time delta check
         if not exclusion:
             delta_flag = check_delta(test, value, timestamp, timeline)
             if delta_flag:
@@ -223,9 +219,7 @@ def _detect_outliers_chief(
     )
     return clean_labs, excluded_outliers
 
-#Context builder
 def _build_clean_context(unified: dict, subject_id: int, hadm_id: int) -> dict:
-    """Build clean LLM input after outlier removal across all three layers."""
     lab_output = unified.get("lab_mapper_output", {})
     clean_labs, excluded_outliers = _detect_outliers_chief(
         lab_output, subject_id, hadm_id
@@ -252,9 +246,8 @@ def _build_clean_context(unified: dict, subject_id: int, hadm_id: int) -> dict:
         "excluded_outliers": excluded_outliers,
     }
 
-#LLM call 
+
 def _call_llm(subject_id: int, hadm_id: int, ctx: dict) -> dict:
-    """Send clean context to LLM, return parsed report dict."""
     llm    = get_llm(provider=get_active_provider(), request_timeout=60)
     prompt = ChatPromptTemplate.from_messages([
         ("system", SYSTEM_PROMPT),
@@ -276,7 +269,6 @@ def _call_llm(subject_id: int, hadm_id: int, ctx: dict) -> dict:
 
 
 def _parse_llm_response(raw: str) -> dict:
-    """Strip markdown fences and parse JSON from LLM output."""
     clean = raw.strip().replace("```json", "").replace("```", "").strip()
     try:
         return json.loads(clean)
@@ -285,9 +277,8 @@ def _parse_llm_response(raw: str) -> dict:
         if start != -1 and end > start:
             return json.loads(clean[start:end + 1])
         raise
-#Fallback report
+
 def _fallback_report(ctx: dict) -> dict:
-    """Built purely from structured data when LLM call fails."""
     prioritized = [
         {
             "risk_flag":        c["risk_flag"],
@@ -323,15 +314,7 @@ def _fallback_report(ctx: dict) -> dict:
         "disease_progression": [],
     }
 
-#Public entry point 
 def run_chief_agent(unified_input: dict | str | Path) -> dict:
-    """
-    Chief Agent pipeline:
-      1. Load unified JSON from orchestrator
-      2. Detect and remove outliers (four-layer check)
-      3. Call LLM with clean context
-      4. Attach metadata and return final report
-    """
     if isinstance(unified_input, (str, Path)):
         with open(unified_input, "r", encoding="utf-8") as f:
             unified = json.load(f)
@@ -378,10 +361,21 @@ def run_chief_agent(unified_input: dict | str | Path) -> dict:
         },
     })
 
+    
+    try:
+        ensure_indexes()                          
+        mongo_id = save_chief_report(report)
+        report["mongo_id"] = mongo_id             
+        logger.info("Report persisted to MongoDB with _id=%s", mongo_id)
+    except Exception as exc:
+        logger.error(
+            "MongoDB persistence failed — report still returned. Error: %s", exc
+        )
+        report["mongo_id"] = None
+    
     return report
-#Save helper 
+
 def save_chief_output(report: dict) -> Path:
-    """Save chief agent report to disk under outputs/chief_agent/sub_X/hadm_Y/"""
     sid = report["subject_id"]
     hid = report["hadm_id"]
     ts  = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
@@ -399,7 +393,7 @@ def save_chief_output(report: dict) -> Path:
 
 def _to_json(value) -> str:
     return json.dumps(value, indent=2, default=str)
-#Standalone run 
+
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(levelname)s — %(message)s")
 
@@ -411,4 +405,5 @@ if __name__ == "__main__":
     report   = run_chief_agent(files[0])
     out_file = save_chief_output(report)
     print(json.dumps(report, indent=2))
-    print(f"\nSaved → {out_file}")
+    print(f"\nSaved to disk → {out_file}")
+    print(f"Saved to MongoDB → _id={report.get('mongo_id')}")

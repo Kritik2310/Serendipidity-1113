@@ -1,0 +1,57 @@
+{
+  "primary_concern": "Acute Kidney Injury (AKI) Risk",
+  "clinical_summary": "Elevated serum creatinine (2.6 mg/dL) meets KDIGO AKI criteria for acute kidney injury. Concurrent anemia (hemoglobin 9.7 g/dL) is present but does not meet sepsis-3 criteria for systemic inflammation. No additional symptoms reported. Critical labs require immediate evaluation for renal function decline.",
+  "prioritized_risks": [
+    {
+      "risk_flag": "AKI_RISK",
+      "status": "Criteria Met",
+      "guideline_source": "KDIGO AKI Guidelines 2012",
+      "explanation": "Creatinine elevation exceeds 1.5\u00d7 baseline threshold",
+      "threshold": "Creatinine rise \u22650.3 mg/dL in 48h or \u22651.5\u00d7 baseline in 7 days"
+    },
+    {
+      "risk_flag": "SEPSIS_RISK",
+      "status": "Criteria Not Met",
+      "guideline_source": "Sepsis-3 Consensus Definitions",
+      "explanation": "No evidence of systemic inflammatory response syndrome (SIRS) criteria",
+      "threshold": "Suspected infection plus acute SOFA increase \u22652 points"
+    }
+  ],
+  "recommended_actions": [
+    "Obtain baseline creatinine to confirm 1.5\u00d7 increase",
+    "Assess for volume depletion, nephrotoxins, or obstructive uropathy",
+    "Order urinalysis for acute tubular necrosis indicators",
+    "Evaluate hemoglobin trend with CBC",
+    "Initiate hourly urine output monitoring"
+  ],
+  "doctor_handoff": "Prioritize renal function assessment and determine need for nephrology consultation. Review hemoglobin trend for potential blood loss or hemolysis.",
+  "disease_progression": [
+    {
+      "period": "2121-12-08 04:58",
+      "observation": "Creatinine 2.6 mg/dL (\u21911.5\u00d7 baseline), Hemoglobin 9.7 g/dL (\u219320% from normal)"
+    }
+  ],
+  "agent": "chief_agent",
+  "subject_id": 42321,
+  "hadm_id": 114648,
+  "generated_at": "2026-04-03T21:53:21.122753+00:00",
+  "excluded_outliers": [],
+  "outlier_summary": {
+    "total_checked": 2,
+    "total_excluded": 0,
+    "by_layer": {
+      "physiological": 0,
+      "current_admission": 0,
+      "historical_baseline": 0,
+      "realtime_delta": 0
+    }
+  },
+  "data_quality": {
+    "note_parser_available": true,
+    "lab_mapper_available": true,
+    "rag_available": true,
+    "outliers_removed_count": 0,
+    "sofa_coverage_pct": 66.7
+  },
+  "mongo_id": null
+}
