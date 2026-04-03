@@ -1,0 +1,309 @@
+{
+  "pipeline_run": {
+    "orchestrator": "OrchestratorAgent v1.2",
+    "subject_id": 42321,
+    "hadm_id": 114648,
+    "run_timestamp": "2026-04-03T21:17:10.609802Z",
+    "duration_ms": 410,
+    "agents_succeeded": [
+      "note_parser",
+      "lab_mapper",
+      "rag_agent"
+    ],
+    "agents_failed": [],
+    "errors": {}
+  },
+  "note_parser_output": {
+    "agent": "note_parser",
+    "subject_id": 42321,
+    "hadm_id": 114648,
+    "summary": {
+      "total_findings": 0,
+      "notes_processed": 0,
+      "notes_available": 0
+    },
+    "patient_timelines": [],
+    "parsed_symptoms": [],
+    "flagged_risks": [],
+    "note": "No notes found in CSV"
+  },
+  "lab_mapper_output": {
+    "agent": "lab_mapper",
+    "subject_id": 42321,
+    "hadm_id": 114648,
+    "timeline_by_test": {
+      "Creatinine": [
+        {
+          "timestamp": "2121-12-08T04:58:00",
+          "value": 2.6,
+          "unit": "mg/dL",
+          "delta": 0.0,
+          "delta_pct": 0,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "stable",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          },
+          "aki_stage": "No AKI"
+        },
+        {
+          "timestamp": "2121-12-08T16:18:00",
+          "value": 2.3,
+          "unit": "mg/dL",
+          "delta": -0.3,
+          "delta_pct": 11.5,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          },
+          "aki_stage": "No AKI"
+        },
+        {
+          "timestamp": "2121-12-09T02:08:00",
+          "value": 2.0,
+          "unit": "mg/dL",
+          "delta": -0.3,
+          "delta_pct": 13.0,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": -3.0,
+            "rolling_mean": 2.45,
+            "rolling_std": 0.15,
+            "redraw_required": false
+          },
+          "aki_stage": "No AKI"
+        }
+      ],
+      "Hemoglobin": [
+        {
+          "timestamp": "2121-12-08T04:58:00",
+          "value": 9.7,
+          "unit": "g/dL",
+          "delta": 0.0,
+          "delta_pct": 0,
+          "above_normal": false,
+          "below_normal": true,
+          "trend": "stable",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2121-12-09T02:08:00",
+          "value": 8.6,
+          "unit": "g/dL",
+          "delta": -1.1,
+          "delta_pct": 11.3,
+          "above_normal": false,
+          "below_normal": true,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          }
+        }
+      ],
+      "Lactate": [
+        {
+          "timestamp": "2121-12-07T21:20:00",
+          "value": 1.4,
+          "unit": "mmol/L",
+          "delta": 0.0,
+          "delta_pct": 0,
+          "above_normal": false,
+          "below_normal": false,
+          "trend": "stable",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          }
+        }
+      ],
+      "Platelets": [
+        {
+          "timestamp": "2121-12-08T04:58:00",
+          "value": 261.0,
+          "unit": "K/uL",
+          "delta": 0.0,
+          "delta_pct": 0,
+          "above_normal": false,
+          "below_normal": false,
+          "trend": "stable",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2121-12-09T02:08:00",
+          "value": 274.0,
+          "unit": "K/uL",
+          "delta": 13.0,
+          "delta_pct": 5.0,
+          "above_normal": false,
+          "below_normal": false,
+          "trend": "stable",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          }
+        }
+      ]
+    },
+    "critical_values": [
+      {
+        "test": "Creatinine",
+        "value": 2.6,
+        "direction": "high",
+        "timestamp": "2121-12-08T04:58:00",
+        "is_outlier": false
+      },
+      {
+        "test": "Hemoglobin",
+        "value": 9.7,
+        "direction": "low",
+        "timestamp": "2121-12-08T04:58:00",
+        "is_outlier": false
+      }
+    ],
+    "abnormal_values": [
+      {
+        "test": "Creatinine",
+        "value": 2.6,
+        "timestamp": "2121-12-08T04:58:00",
+        "type": "high"
+      },
+      {
+        "test": "Creatinine",
+        "value": 2.3,
+        "timestamp": "2121-12-08T16:18:00",
+        "type": "high"
+      },
+      {
+        "test": "Creatinine",
+        "value": 2.0,
+        "timestamp": "2121-12-09T02:08:00",
+        "type": "high"
+      },
+      {
+        "test": "Hemoglobin",
+        "value": 9.7,
+        "timestamp": "2121-12-08T04:58:00",
+        "type": "low"
+      },
+      {
+        "test": "Hemoglobin",
+        "value": 8.6,
+        "timestamp": "2121-12-09T02:08:00",
+        "type": "low"
+      }
+    ],
+    "outlier_flags": [],
+    "icu_duration_hours": 45.9,
+    "days_of_data": 2,
+    "labs_available": [
+      "Creatinine",
+      "Hemoglobin",
+      "Lactate",
+      "Platelets"
+    ],
+    "sofa_inputs_available": "{'Platelets', 'Lactate', 'Hemoglobin', 'Creatinine'}",
+    "sofa_coverage_pct": 66.7
+  },
+  "rag_guidelines_output": {
+    "agent": "guideline_rag",
+    "query_used": "Abnormal labs: Creatinine 2.6 elevated, Hemoglobin 9.7 decreased. Retrieve the most relevant ICU clinical guideline evidence, thresholds, and diagnostic criteria for the flagged risks.",
+    "citations": [
+      {
+        "risk_flag": "SEPSIS_RISK",
+        "source": "Sepsis-3 Consensus Definitions",
+        "category": "sepsis",
+        "page": 3,
+        "rationale": "SEPSIS_RISK matched: creatinine elevated. Guideline from Sepsis-3 Consensus Definitions supports this risk. Evidence: SECTION 1 Sepsis-3 Definitions and Diagnostic Criteria Source: Singer M, et al. The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3). JAMA. 2016;315",
+        "criteria_met": false,
+        "threshold": "Sepsis-3: suspected infection plus acute SOFA increase >= 2",
+        "matched_findings": [
+          "creatinine elevated"
+        ]
+      },
+      {
+        "risk_flag": "AKI_RISK",
+        "source": "KDIGO AKI Guidelines 2012",
+        "category": "aki",
+        "page": 13,
+        "rationale": "AKI_RISK matched: creatinine elevated. Guideline from KDIGO AKI Guidelines 2012 supports this risk. Evidence: KDIGO AKI definition: creatinine rise >=0.3 mg/dL in 48 hours, or >=1.5x baseline in 7 days, or urine output <0.5 mL/kg/hour for >=6 hours.",
+        "criteria_met": true,
+        "threshold": "KDIGO AKI: creatinine rise >= 0.3 mg/dL in 48h or urine output < 0.5 mL/kg/hr for >= 6h",
+        "matched_findings": [
+          "creatinine elevated"
+        ]
+      }
+    ],
+    "guidelines_retrieved": 2,
+    "top_relevance_score": 0.587
+  },
+  "flagged_risks": [
+    {
+      "source": "lab_mapper",
+      "type": "critical_lab",
+      "signal": "Creatinine",
+      "value": 2.6,
+      "direction": "high",
+      "timestamp": "2121-12-08T04:58:00"
+    },
+    {
+      "source": "lab_mapper",
+      "type": "critical_lab",
+      "signal": "Hemoglobin",
+      "value": 9.7,
+      "direction": "low",
+      "timestamp": "2121-12-08T04:58:00"
+    }
+  ],
+  "outlier_flags": [],
+  "data_completeness": {
+    "note_parser_available": true,
+    "lab_mapper_available": true,
+    "rag_available": true,
+    "sofa_coverage_pct": 66.7,
+    "labs_available": [
+      "Creatinine",
+      "Hemoglobin",
+      "Lactate",
+      "Platelets"
+    ],
+    "total_flagged_risks": 2,
+    "outlier_flags_active": 0,
+    "guidelines_retrieved": 2
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "subject_id": 10002,
+  "hadm_id": 198765,
+  "updated_at": "2026-04-03T21:17:26.205856+00:00",
+  "stage": "Early Sepsis \u2014 Monitoring Required",
+  "trendDirection": "worsening",
+  "summary": "Patient presents with progressive sepsis markers including leukocytosis (WBC 13.85 K/uL), lactic acidosis (2.67 mmol/L), and acute kidney injury (Creat 1.59 mg/dL). Thrombocytopenia (94.53 K/uL) suggests multi-organ dysfunction consistent with Sepsis-3 criteria.",
+  "timeline": [
+    {
+      "time": "03 Apr, 20:34",
+      "score": 29.9,
+      "source": "Real-time",
+      "summary": "Round 3 \u2014 score 29.9"
+    },
+    {
+      "time": "03 Apr, 20:34",
+      "score": 33.7,
+      "source": "Real-time",
+      "summary": "Round 4 \u2014 score 33.7"
+    },
+    {
+      "time": "03 Apr, 20:35",
+      "score": 34.3,
+      "source": "Real-time",
+      "summary": "Round 5 \u2014 score 34.3"
+    },
+    {
+      "time": "03 Apr, 20:35",
+      "score": 32.5,
+      "source": "Real-time",
+      "summary": "Round 6 \u2014 score 32.5"
+    },
+    {
+      "time": "03 Apr, 20:36",
+      "score": 31.0,
+      "source": "Real-time",
+      "summary": "Round 7 \u2014 score 31.0"
+    },
+    {
+      "time": "03 Apr, 20:37",
+      "score": 29.4,
+      "source": "Real-time",
+      "summary": "Round 8 \u2014 score 29.4"
+    },
+    {
+      "time": "03 Apr, 20:37",
+      "score": 30.8,
+      "source": "Real-time",
+      "summary": "Round 9 \u2014 score 30.8"
+    },
+    {
+      "time": "03 Apr, 20:38",
+      "score": 32.2,
+      "source": "Real-time",
+      "summary": "Round 10 \u2014 score 32.2"
+    },
+    {
+      "time": "03 Apr, 20:53",
+      "score": 24.1,
+      "source": "Real-time",
+      "summary": "Round 1 \u2014 score 24.1"
+    },
+    {
+      "time": "03 Apr, 20:56",
+      "score": 23.2,
+      "source": "Real-time",
+      "summary": "Round 1 \u2014 score 23.2"
+    },
+    {
+      "time": "03 Apr, 20:57",
+      "score": 27.4,
+      "source": "Real-time",
+      "summary": "Round 2 \u2014 score 27.4"
+    },
+    {
+      "time": "03 Apr, 20:58",
+      "score": 29.5,
+      "source": "Real-time",
+      "summary": "Round 3 \u2014 score 29.5"
+    },
+    {
+      "time": "03 Apr, 20:58",
+      "score": 28.1,
+      "source": "Real-time",
+      "summary": "Round 4 \u2014 score 28.1"
+    },
+    {
+      "time": "03 Apr, 20:59",
+      "score": 31.2,
+      "source": "Real-time",
+      "summary": "Round 5 \u2014 score 31.2"
+    },
+    {
+      "time": "03 Apr, 21:10",
+      "score": 20.5,
+      "source": "Real-time",
+      "summary": "Round 1 \u2014 score 20.5"
+    },
+    {
+      "time": "03 Apr, 21:12",
+      "score": 20.8,
+      "source": "Real-time",
+      "summary": "Round 1 \u2014 score 20.8"
+    },
+    {
+      "time": "03 Apr, 21:12",
+      "score": 24.0,
+      "source": "Real-time",
+      "summary": "Round 1 \u2014 score 24.0"
+    },
+    {
+      "time": "03 Apr, 21:16",
+      "score": 23.8,
+      "source": "Real-time",
+      "summary": "Round 1 \u2014 score 23.8"
+    },
+    {
+      "time": "03 Apr, 21:16",
+      "score": 25.9,
+      "source": "Real-time",
+      "summary": "Round 2 \u2014 score 25.9"
+    },
+    {
+      "time": "03 Apr, 21:17",
+      "score": 32.1,
+      "source": "Real-time",
+      "summary": "Round 3 \u2014 score 32.1"
+    }
+  ],
+  "historicInsights": [
+    {
+      "id": "session_0",
+      "window": "Session 1 \u2014 03 Apr, 21:10",
+      "signal": "Avg score 20.5 \u00b7 Peak 20.5 \u00b7 Low 20.5",
+      "impact": "1 readings \u00b7 Trend: stable (03 Apr, 21:10 \u2192 03 Apr, 21:10)"
+    },
+    {
+      "id": "session_1",
+      "window": "Session 2 \u2014 03 Apr, 21:12",
+      "signal": "Avg score 20.8 \u00b7 Peak 20.8 \u00b7 Low 20.8",
+      "impact": "1 readings \u00b7 Trend: stable (03 Apr, 21:12 \u2192 03 Apr, 21:12)"
+    },
+    {
+      "id": "session_2",
+      "window": "Session 3 \u2014 03 Apr, 21:12",
+      "signal": "Avg score 24.0 \u00b7 Peak 24.0 \u00b7 Low 24.0",
+      "impact": "1 readings \u00b7 Trend: stable (03 Apr, 21:12 \u2192 03 Apr, 21:12)"
+    },
+    {
+      "id": "session_3",
+      "window": "Session 4 \u2014 unknown",
+      "signal": "Avg score 29.1 \u00b7 Peak 34.3 \u00b7 Low 22.4",
+      "impact": "16 readings \u00b7 Trend: worsening (03 Apr, 20:32 \u2192 03 Apr, 20:59)"
+    }
+  ],
+  "realTimeInsights": [
+    {
+      "id": "rt_creat",
+      "metric": "Creatinine",
+      "value": "1.59 mg/dL",
+      "status": "watch",
+      "updatedAt": "03/04/2026, 21:17:26"
+    },
+    {
+      "id": "rt_lactate",
+      "metric": "Lactate",
+      "value": "2.67 mmol/L",
+      "status": "watch",
+      "updatedAt": "03/04/2026, 21:17:26"
+    },
+    {
+      "id": "rt_wbc",
+      "metric": "WBC",
+      "value": "13.85 K/uL",
+      "status": "watch",
+      "updatedAt": "03/04/2026, 21:17:26"
+    },
+    {
+      "id": "rt_plt",
+      "metric": "Platelets",
+      "value": "94.53 K/uL",
+      "status": "watch",
+      "updatedAt": "03/04/2026, 21:17:26"
+    }
+  ]
+}

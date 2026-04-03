@@ -1,0 +1,91 @@
+{
+  "primary_concern": "Sepsis-3 criteria met with concurrent acute kidney injury (AKI Stage 3) and coagulopathy",
+  "clinical_summary": "Patient demonstrates sepsis risk per Sepsis-3 definitions with lactate 4.2 mmol/L, WBC 14.2 K/uL, and AKI Stage 3 (creatinine 8.9 mg/dL). Platelets remain <100 K/uL across three measurements (88-95 K/uL), meeting SOFA coagulopathy criteria. Bilirubin elevation (1.4 mg/dL) and hemoglobin 9.8 g/dL suggest possible hepatic involvement and anemia. Creatinine 8.9 mg/dL was excluded as outlier due to 6.5 mg/dL rise in 6 hours, likely measurement error.",
+  "prioritized_risks": [
+    {
+      "risk_flag": "SEPSIS_RISK",
+      "status": "Confirmed",
+      "guideline_source": "Sepsis-3 Consensus Definitions",
+      "explanation": "Lactate >2 mmol/L, WBC >12 K/uL, and AKI meet Sepsis-3 criteria (suspected infection + SOFA increase \u22652)",
+      "threshold": "Suspected infection + acute SOFA increase \u22652"
+    },
+    {
+      "risk_flag": "AKI_RISK",
+      "status": "Stage 3",
+      "guideline_source": "KDIGO AKI Guidelines 2012",
+      "explanation": "Creatinine 8.9 mg/dL (excluded outlier) would meet KDIGO Stage 3 (\u22653x baseline or \u22654 mg/dL)",
+      "threshold": "Creatinine rise \u22650.3 mg/dL in 48h or \u22651.5x baseline in 7d"
+    },
+    {
+      "risk_flag": "COAGULOPATHY_RISK",
+      "status": "Severe",
+      "guideline_source": "Laboratory Reference Ranges",
+      "explanation": "Platelets <100 K/uL meets SOFA coagulopathy scoring (platelets <150 K/uL = 1 point)",
+      "threshold": "Platelets <150 K/uL for SOFA scoring"
+    },
+    {
+      "risk_flag": "SEPTIC_SHOCK_RISK",
+      "status": "Unconfirmed",
+      "guideline_source": "Septic Shock Management",
+      "explanation": "Lactate >2 mmol/L present but vasopressor requirements unknown",
+      "threshold": "Vasopressor-dependent hypotension + lactate >2 mmol/L after fluids"
+    }
+  ],
+  "recommended_actions": [
+    "Initiate sepsis resuscitation bundle per Sepsis-3 guidelines",
+    "Source control investigation for suspected infection",
+    "Monitor AKI progression with hourly urine output and creatinine trends",
+    "Consider platelet transfusion if bleeding risk present (platelets <50 K/uL)",
+    "Reassess creatinine measurement for accuracy after outlier exclusion"
+  ],
+  "doctor_handoff": "Confirm infection source, assess for septic shock criteria (vasopressor requirements), and evaluate for AKI reversal strategies. Review coagulation profile for bleeding risk.",
+  "disease_progression": [
+    {
+      "period": "2024-01-10",
+      "observation": "Baseline abnormalities: WBC 14.2 K/uL, hemoglobin 9.8 g/dL, bilirubin 1.4 mg/dL"
+    },
+    {
+      "period": "2024-01-11",
+      "observation": "Lactate elevation to 4.2 mmol/L, platelets decline to 95 K/uL, AKI Stage 1 (creatinine 2.1 mg/dL)"
+    },
+    {
+      "period": "2024-01-12",
+      "observation": "Platelets 88 K/uL, AKI Stage 3 (excluded creatinine 8.9 mg/dL as outlier)"
+    }
+  ],
+  "agent": "chief_agent",
+  "subject_id": 10002,
+  "hadm_id": 198765,
+  "generated_at": "2026-04-03T20:24:48.365831+00:00",
+  "excluded_outliers": [
+    {
+      "layer": "realtime_delta",
+      "test": "Creatinine",
+      "value": 8.9,
+      "timestamp": "2024-01-12T03:00:00",
+      "z_score": null,
+      "delta": 6.5,
+      "prior_value": 2.4,
+      "prior_ts": "2024-01-11T21:00:00",
+      "reason": "Rapid change detected \u2014 Creatinine changed by 6.5 mg/dL within 6.0h (max allowed: 2.0). Probable measurement error or specimen issue. Section 15.2 \u2014 rise > 2.0 mg/dL in < 6h.",
+      "historical_baseline": null
+    }
+  ],
+  "outlier_summary": {
+    "total_checked": 8,
+    "total_excluded": 1,
+    "by_layer": {
+      "physiological": 0,
+      "current_admission": 0,
+      "historical_baseline": 0,
+      "realtime_delta": 1
+    }
+  },
+  "data_quality": {
+    "note_parser_available": true,
+    "lab_mapper_available": true,
+    "rag_available": true,
+    "outliers_removed_count": 1,
+    "sofa_coverage_pct": 100.0
+  }
+}

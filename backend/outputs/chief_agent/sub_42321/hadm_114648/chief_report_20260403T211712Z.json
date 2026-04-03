@@ -1,0 +1,56 @@
+{
+  "primary_concern": "Acute Kidney Injury (AKI) Risk with Concurrent Anemia",
+  "clinical_summary": "Elevated serum creatinine (2.6 mg/dL) meets KDIGO criteria for AKI, indicating acute renal dysfunction. Concurrent hemoglobin of 9.7 g/dL suggests moderate anemia. No symptomatic findings reported at this time. Sepsis-3 criteria not yet met despite creatinine elevation, requiring further monitoring for infection or organ dysfunction.",
+  "prioritized_risks": [
+    {
+      "risk_flag": "AKI_RISK",
+      "status": "confirmed",
+      "guideline_source": "KDIGO AKI Guidelines 2012",
+      "explanation": "Creatinine elevation exceeds 1.5\u00d7 baseline threshold per KDIGO definition",
+      "threshold": "Creatinine rise \u22650.3 mg/dL in 48h or \u22651.5\u00d7 baseline in 7 days"
+    },
+    {
+      "risk_flag": "SEPSIS_RISK",
+      "status": "possible",
+      "guideline_source": "Sepsis-3 Consensus Definitions",
+      "explanation": "Single organ dysfunction (kidney) identified; requires additional criteria for sepsis diagnosis",
+      "threshold": "Suspected infection plus acute SOFA increase \u22652 points"
+    }
+  ],
+  "recommended_actions": [
+    "Assess for acute kidney injury etiology (pre-renal, intrinsic, post-renal)",
+    "Evaluate urine output and volume status per KDIGO management guidelines",
+    "Review baseline creatinine to confirm 1.5\u00d7 increase threshold",
+    "Consider blood transfusion if hemoglobin < 7 g/dL or active bleeding",
+    "Monitor for signs of sepsis (fever, leukocytosis, hypotension)"
+  ],
+  "doctor_handoff": "Review baseline renal function, assess for infection sources, and confirm urine output documentation. Consider cross-matching for potential transfusion if anemia worsens.",
+  "disease_progression": [
+    {
+      "period": "Present admission",
+      "observation": "Creatinine elevation to 2.6 mg/dL with concurrent hemoglobin of 9.7 g/dL"
+    }
+  ],
+  "agent": "chief_agent",
+  "subject_id": 42321,
+  "hadm_id": 114648,
+  "generated_at": "2026-04-03T21:17:12.944474+00:00",
+  "excluded_outliers": [],
+  "outlier_summary": {
+    "total_checked": 2,
+    "total_excluded": 0,
+    "by_layer": {
+      "physiological": 0,
+      "current_admission": 0,
+      "historical_baseline": 0,
+      "realtime_delta": 0
+    }
+  },
+  "data_quality": {
+    "note_parser_available": true,
+    "lab_mapper_available": true,
+    "rag_available": true,
+    "outliers_removed_count": 0,
+    "sofa_coverage_pct": 66.7
+  }
+}

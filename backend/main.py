@@ -43,43 +43,58 @@ app.add_middleware(
 OUTPUTS_BASE = Path("backend/outputs")
 @app.get("/stream/{subject_id}/{hadm_id}")
 async def stream_patient(subject_id: int, hadm_id: int):
-    """
-    Server-Sent Events stream for a patient.
-    Frontend connects once — server pushes updates when new data arrives.
-    Shows the judge that the system is truly real-time.
-    """
+    """SSE stream — pushes update payload when a newer chief report is saved."""
+
     async def event_generator():
-        last_report_time = None
+        last_report_time: str | None = None
 
         while True:
-            # Check if a newer chief report exists on disk
-            report = _latest_chief_report(subject_id, hadm_id)
+            try:
+                report = _latest_chief_report(subject_id, hadm_id)
+                if report:
+                    report_time = report.get("generated_at", "")
+                    if report_time and report_time != last_report_time:
+                        last_report_time = report_time
+                        payload = json.dumps({
+                            "subject_id":      subject_id,
+                            "hadm_id":         hadm_id,
+                            "primary_concern": report.get("primary_concern", ""),
+                            "generated_at":    report_time,
+                            "data_quality":    report.get("data_quality", {}),
+                        })
+                        yield f"data: {payload}\n\n"
+            except Exception as e:
+                logger.error("SSE generator error: %s", e)
 
-            if report:
-                report_time = report.get("generated_at", "")
-                if report_time != last_report_time:
-                    last_report_time = report_time
-                    # Push the update to frontend
-                    payload = json.dumps({
-                        "subject_id":     subject_id,
-                        "hadm_id":        hadm_id,
-                        "primary_concern": report.get("primary_concern", ""),
-                        "generated_at":   report_time,
-                        "data_quality":   report.get("data_quality", {}),
-                    })
-                    yield f"data: {payload}\n\n"
-
-            # Heartbeat every 5s so connection stays alive
-            yield f": heartbeat\n\n"
+            # SSE comment line — keeps connection alive, never triggers onmessage
+            yield ": heartbeat\n\n"
             await asyncio.sleep(5)
+
     return StreamingResponse(
         event_generator(),
         media_type="text/event-stream",
         headers={
-            "Cache-Control": "no-cache",
+            "Cache-Control":    "no-cache",
             "X-Accel-Buffering": "no",
+            "Connection":        "keep-alive",
         },
     )
+
+
+@app.get("/progression/{subject_id}/{hadm_id}")
+def get_disease_progression(subject_id: int, hadm_id: int):
+    """
+    Returns merged disease progression JSON written by simulate_icu.py.
+    Contains historical + real-time timeline for DiseaseProgressionPanel.
+    """
+    prog_file = OUTPUTS_BASE / "disease_progression.json"
+    if not prog_file.exists():
+        raise HTTPException(
+            status_code=404,
+            detail="No progression data yet. Run simulate_icu.py first."
+        )
+    with open(prog_file, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 #Request/Response schemas

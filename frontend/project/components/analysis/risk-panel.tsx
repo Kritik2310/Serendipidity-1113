@@ -1,14 +1,18 @@
 import { AlertTriangle, CheckCircle, AlertCircle } from "lucide-react"
 import { cn } from "@/lib/utils"
-import type { Patient } from "@/lib/patient-data"
+import type { PrioritizedRisk } from "@/lib/api"
+import type { RiskLevel } from "@/lib/patient-data"
 
 interface RiskPanelProps {
-  patient: Patient
+  primaryConcern: string
+  riskLevel: RiskLevel
+  prioritizedRisks: PrioritizedRisk[]
 }
 
-export function RiskPanel({ patient }: RiskPanelProps) {
-  const isHighRisk = patient.riskLevel === "high"
-  const isMediumRisk = patient.riskLevel === "medium"
+export function RiskPanel({ primaryConcern, riskLevel, prioritizedRisks }: RiskPanelProps) {
+  const isHighRisk = riskLevel === "high"
+  const isMediumRisk = riskLevel === "medium"
+  const supportedCount = prioritizedRisks.filter((risk) => risk.status === "supported").length
 
   return (
     <div
@@ -62,13 +66,11 @@ export function RiskPanel({ patient }: RiskPanelProps) {
                 </span>
               )}
             </div>
-            <p className="mt-1 text-lg font-medium text-foreground">
-              {patient.condition}
-            </p>
+            <p className="mt-1 text-lg font-medium text-foreground">{primaryConcern}</p>
           </div>
         </div>
         <div className="text-right">
-          <p className="text-sm text-muted-foreground">Confidence</p>
+          <p className="text-sm text-muted-foreground">Supported Risks</p>
           <p
             className={cn(
               "text-3xl font-bold",
@@ -79,7 +81,7 @@ export function RiskPanel({ patient }: RiskPanelProps) {
                 : "text-risk-low"
             )}
           >
-            {isHighRisk ? "89%" : isMediumRisk ? "72%" : "95%"}
+            {supportedCount}/{prioritizedRisks.length}
           </p>
         </div>
       </div>

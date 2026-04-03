@@ -1,0 +1,84 @@
+{
+  "primary_concern": "Sepsis risk with multi-organ dysfunction",
+  "clinical_summary": "Elevated lactate (4.2 mmol/L) combined with leukocytosis (14.2 K/uL) and evidence of acute kidney injury (AKI Stage 1) meet Sepsis-3 criteria for sepsis risk. Thrombocytopenia (88-95 K/uL) suggests coagulopathy, while bilirubin elevation (1.4 mg/dL) indicates hepatic stress. Hemoglobin of 9.8 g/dL raises concern for anemia. Rapid creatinine rise to 8.9 mg/dL was excluded as outlier but AKI Stage 1 (2.1 mg/dL) remains.",
+  "prioritized_risks": [
+    {
+      "risk_flag": "SEPSIS_RISK",
+      "status": "Criteria met",
+      "guideline_source": "Sepsis-3 Consensus Definitions",
+      "explanation": "Lactate >2 mmol/L, WBC >12 K/uL, and AKI meet Sepsis-3 criteria (suspected infection + SOFA increase \u22652)",
+      "threshold": "Suspected infection + acute SOFA increase \u22652"
+    },
+    {
+      "risk_flag": "AKI_RISK",
+      "status": "Stage 1 confirmed",
+      "guideline_source": "KDIGO AKI Guidelines 2012",
+      "explanation": "Creatinine elevation to 2.1 mg/dL (\u22650.3 mg/dL increase) meets KDIGO Stage 1 criteria",
+      "threshold": "Creatinine rise \u22650.3 mg/dL in 48h or urine output <0.5 mL/kg/hr for \u22656h"
+    },
+    {
+      "risk_flag": "COAGULOPATHY_RISK",
+      "status": "Platelets <100 K/uL",
+      "guideline_source": "Laboratory Reference Ranges",
+      "explanation": "Platelets \u226495 K/uL meets SOFA coagulopathy scoring threshold",
+      "threshold": "SOFA coag score \u22651: platelets <150 K/uL"
+    }
+  ],
+  "recommended_actions": [
+    "Initiate sepsis bundle: obtain cultures, administer broad-spectrum antibiotics",
+    "Assess for source of infection (imaging, clinical exam)",
+    "Monitor AKI progression with hourly urine output and creatinine trends",
+    "Consider platelet transfusion if thrombocytopenia <50 K/uL or active bleeding",
+    "Reassess fluid status and vasopressor requirements for hypotension"
+  ],
+  "doctor_handoff": "Review for new infection sources, confirm sepsis bundle completion, and evaluate need for renal replacement therapy given AKI Stage 1 progression.",
+  "disease_progression": [
+    {
+      "period": "2024-01-10 09:00",
+      "observation": "Baseline abnormalities: WBC 14.2 K/uL, Hgb 9.8 g/dL, Bilirubin 1.4 mg/dL"
+    },
+    {
+      "period": "2024-01-11 09:00",
+      "observation": "AKI Stage 1 (Cr 2.1 mg/dL), Platelets 95 K/uL"
+    },
+    {
+      "period": "2024-01-11 21:00",
+      "observation": "Lactate 4.2 mmol/L, Platelets 88 K/uL"
+    }
+  ],
+  "agent": "chief_agent",
+  "subject_id": 10002,
+  "hadm_id": 198765,
+  "generated_at": "2026-04-03T20:26:36.821432+00:00",
+  "excluded_outliers": [
+    {
+      "layer": "realtime_delta",
+      "test": "Creatinine",
+      "value": 8.9,
+      "timestamp": "2024-01-12T03:00:00",
+      "z_score": null,
+      "delta": 6.5,
+      "prior_value": 2.4,
+      "prior_ts": "2024-01-11T21:00:00",
+      "reason": "Rapid change detected \u2014 Creatinine changed by 6.5 mg/dL within 6.0h (max allowed: 2.0). Probable measurement error or specimen issue. Section 15.2 \u2014 rise > 2.0 mg/dL in < 6h.",
+      "historical_baseline": null
+    }
+  ],
+  "outlier_summary": {
+    "total_checked": 8,
+    "total_excluded": 1,
+    "by_layer": {
+      "physiological": 0,
+      "current_admission": 0,
+      "historical_baseline": 0,
+      "realtime_delta": 1
+    }
+  },
+  "data_quality": {
+    "note_parser_available": true,
+    "lab_mapper_available": true,
+    "rag_available": true,
+    "outliers_removed_count": 1,
+    "sofa_coverage_pct": 100.0
+  }
+}

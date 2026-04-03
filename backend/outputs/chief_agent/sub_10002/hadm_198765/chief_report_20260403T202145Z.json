@@ -1,0 +1,92 @@
+{
+  "primary_concern": "Sepsis with acute kidney injury (AKI) and coagulopathy",
+  "clinical_summary": "The patient presents with fever, fatigue, confusion, and elevated procalcitonin (18.4 ng/mL), consistent with suspected bacterial infection. Lactate is markedly elevated (4.2 mmol/L), meeting Sepsis-3 criteria for organ dysfunction. Concurrent AKI Stage 3 (creatinine 8.9 mg/dL) and severe thrombocytopenia (92 K/uL) suggest multi-organ involvement. Urinary findings (pyuria, decreased output) raise concern for urosepsis. Glucose elevation in known diabetes and mild hyponatremia add complexity.",
+  "prioritized_risks": [
+    {
+      "risk_flag": "SEPSIS_RISK",
+      "status": "Confirmed",
+      "guideline_source": "Sepsis-3 Consensus Definitions",
+      "explanation": "Lactate >2 mmol/L, WBC >12 K/uL, and creatinine elevation meet Sepsis-3 criteria for suspected infection with organ dysfunction.",
+      "threshold": "Suspected infection plus acute SOFA increase \u22652"
+    },
+    {
+      "risk_flag": "AKI_RISK",
+      "status": "Stage 3",
+      "guideline_source": "KDIGO AKI Guidelines 2012",
+      "explanation": "Creatinine rose from 1.3 to 8.9 mg/dL (after outlier removal) with urine output decline, fulfilling KDIGO Stage 3 criteria.",
+      "threshold": "Creatinine \u22653x baseline or \u22654 mg/dL"
+    },
+    {
+      "risk_flag": "COAGULOPATHY_RISK",
+      "status": "Severe",
+      "guideline_source": "Laboratory Reference Ranges and Clinical Thresholds",
+      "explanation": "Platelets <100 K/uL meet SOFA score 4 criteria for severe coagulopathy with spontaneous bleeding risk.",
+      "threshold": "Platelets <20 K/uL (SOFA score 4)"
+    },
+    {
+      "risk_flag": "SEPTIC_SHOCK_RISK",
+      "status": "Unconfirmed",
+      "guideline_source": "Septic Shock Identification and Management",
+      "explanation": "Lactate >2 mmol/L present, but hypotension requiring vasopressors not documented.",
+      "threshold": "Vasopressor-dependent hypotension + lactate >2 mmol/L after fluids"
+    }
+  ],
+  "recommended_actions": [
+    "Initiate broad-spectrum antibiotics for suspected sepsis (e.g., piperacillin-tazobactam + vancomycin)",
+    "Aggressive fluid resuscitation per sepsis bundles (30 mL/kg crystalloid)",
+    "Start vasopressors if hypotension persists despite fluids",
+    "Urgent urology consultation for possible urosepsis source control",
+    "Continuous renal replacement therapy (CRRT) evaluation for Stage 3 AKI",
+    "Platelet transfusion if bleeding risk or invasive procedures planned"
+  ],
+  "doctor_handoff": "Prioritize source control for suspected urosepsis. Monitor response to fluids/vasopressors. Reassess lactate and creatinine trends hourly. Confirm need for ICU transfer if not already admitted.",
+  "disease_progression": [
+    {
+      "period": "2024-01-10 20:00",
+      "observation": "Baseline findings: fever, confusion, pyuria, WBC 12.2 K/uL, creatinine 1.3 mg/dL"
+    },
+    {
+      "period": "2024-01-11 21:00",
+      "observation": "Lactate rises to 4.2 mmol/L; platelets fall to 95 K/uL; creatinine increases to 2.1 mg/dL (AKI Stage 1)"
+    },
+    {
+      "period": "2024-01-12 03:00",
+      "observation": "Creatinine jumps to 8.9 mg/dL (AKI Stage 3), platelets 88 K/uL, confirming multi-organ dysfunction"
+    }
+  ],
+  "agent": "chief_agent",
+  "subject_id": 10002,
+  "hadm_id": 198765,
+  "generated_at": "2026-04-03T20:21:45.513640+00:00",
+  "excluded_outliers": [
+    {
+      "layer": "realtime_delta",
+      "test": "Creatinine",
+      "value": 8.9,
+      "timestamp": "2024-01-12T03:00:00",
+      "z_score": null,
+      "delta": 6.5,
+      "prior_value": 2.4,
+      "prior_ts": "2024-01-11T21:00:00",
+      "reason": "Rapid change detected \u2014 Creatinine changed by 6.5 mg/dL within 6.0h (max allowed: 2.0). Probable measurement error or specimen issue. Section 15.2 \u2014 rise > 2.0 mg/dL in < 6h.",
+      "historical_baseline": null
+    }
+  ],
+  "outlier_summary": {
+    "total_checked": 8,
+    "total_excluded": 1,
+    "by_layer": {
+      "physiological": 0,
+      "current_admission": 0,
+      "historical_baseline": 0,
+      "realtime_delta": 1
+    }
+  },
+  "data_quality": {
+    "note_parser_available": true,
+    "lab_mapper_available": true,
+    "rag_available": true,
+    "outliers_removed_count": 1,
+    "sofa_coverage_pct": 100.0
+  }
+}

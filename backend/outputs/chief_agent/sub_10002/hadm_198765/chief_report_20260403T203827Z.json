@@ -1,0 +1,91 @@
+{
+  "primary_concern": "Sepsis with multi-organ dysfunction and acute kidney injury",
+  "clinical_summary": "Patient demonstrates elevated lactate (4.2 mmol/L), consistent with tissue hypoperfusion. Thrombocytopenia (88-95 K/uL) meets SOFA coagulation criteria. Concurrent findings include anemia (Hgb 9.8 g/dL), elevated WBC (14.2 K/uL), and bilirubin (1.4 mg/dL), suggesting systemic inflammation. AKI stage 1-3 progression is documented with creatinine peaks (excluded outlier at 8.9 mg/dL). No clinical notes confirm infection source.",
+  "prioritized_risks": [
+    {
+      "risk_flag": "SEPSIS_RISK",
+      "status": "Active",
+      "guideline_source": "Sepsis-3 Consensus Definitions",
+      "explanation": "Lactate >2 mmol/L, WBC >12 K/uL, and creatinine elevation meet Sepsis-3 criteria for suspected infection plus SOFA increase \u22652",
+      "threshold": "Suspected infection + acute SOFA increase \u22652"
+    },
+    {
+      "risk_flag": "AKI_RISK",
+      "status": "Active",
+      "guideline_source": "KDIGO AKI Guidelines 2012",
+      "explanation": "Creatinine elevation with AKI stage progression (Stage 1 to Stage 3) documented over 48 hours",
+      "threshold": "Creatinine rise \u22650.3 mg/dL in 48h or \u22651.5x baseline"
+    },
+    {
+      "risk_flag": "COAGULOPATHY_RISK",
+      "status": "Active",
+      "guideline_source": "Laboratory Reference Ranges",
+      "explanation": "Platelets <100 K/uL meets SOFA coagulopathy criteria and increases bleeding risk",
+      "threshold": "Platelets <150 K/uL (SOFA score \u22651)"
+    },
+    {
+      "risk_flag": "SEPTIC_SHOCK_RISK",
+      "status": "Pending",
+      "guideline_source": "Septic Shock Management",
+      "explanation": "Lactate >2 mmol/L present but vasopressor requirements and fluid resuscitation status unknown",
+      "threshold": "Vasopressor-dependent hypotension + lactate >2 mmol/L post-fluids"
+    }
+  ],
+  "recommended_actions": [
+    "Initiate broad-spectrum antibiotics per sepsis protocol",
+    "Order blood cultures and infection source workup",
+    "Assess for AKI reversibility factors (e.g., hypovolemia, nephrotoxins)",
+    "Consider platelet transfusion if <50 K/uL or active bleeding",
+    "Monitor for septic shock progression (MAP, lactate trends, fluid responsiveness)"
+  ],
+  "doctor_handoff": "Review for infection source (urine, imaging, clinical exam). Confirm AKI etiology (prerenal vs intrinsic). Assess need for vasopressors if hypotension develops. Validate creatinine outlier (8.9 mg/dL) for measurement accuracy.",
+  "disease_progression": [
+    {
+      "period": "2024-01-10 09:00",
+      "observation": "Baseline abnormalities: WBC 14.2 K/uL, Hgb 9.8 g/dL, Bilirubin 1.4 mg/dL"
+    },
+    {
+      "period": "2024-01-11 09:00",
+      "observation": "AKI Stage 1 (Cr 2.1 mg/dL), Platelets 95 K/uL"
+    },
+    {
+      "period": "2024-01-12 03:00",
+      "observation": "AKI Stage 3 (Cr 8.9 mg/dL excluded as outlier), Platelets 88 K/uL"
+    }
+  ],
+  "agent": "chief_agent",
+  "subject_id": 10002,
+  "hadm_id": 198765,
+  "generated_at": "2026-04-03T20:38:27.353911+00:00",
+  "excluded_outliers": [
+    {
+      "layer": "realtime_delta",
+      "test": "Creatinine",
+      "value": 8.9,
+      "timestamp": "2024-01-12T03:00:00",
+      "z_score": null,
+      "delta": 6.5,
+      "prior_value": 2.4,
+      "prior_ts": "2024-01-11T21:00:00",
+      "reason": "Rapid change detected \u2014 Creatinine changed by 6.5 mg/dL within 6.0h (max allowed: 2.0). Probable measurement error or specimen issue. Section 15.2 \u2014 rise > 2.0 mg/dL in < 6h.",
+      "historical_baseline": null
+    }
+  ],
+  "outlier_summary": {
+    "total_checked": 8,
+    "total_excluded": 1,
+    "by_layer": {
+      "physiological": 0,
+      "current_admission": 0,
+      "historical_baseline": 0,
+      "realtime_delta": 1
+    }
+  },
+  "data_quality": {
+    "note_parser_available": true,
+    "lab_mapper_available": true,
+    "rag_available": true,
+    "outliers_removed_count": 1,
+    "sofa_coverage_pct": 100.0
+  }
+}

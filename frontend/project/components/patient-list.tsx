@@ -1,7 +1,7 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import { patients, type RiskLevel } from "@/lib/patient-data"
 import { cn } from "@/lib/utils"
 import {
   Table,
@@ -12,7 +12,9 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
-import { ChevronRight, Heart, Thermometer, Droplets } from "lucide-react"
+import { ChevronRight } from "lucide-react"
+import { fetchPatientSummaries, type PatientSummary } from "@/lib/api"
+import type { RiskLevel } from "@/lib/patient-data"
 
 function getRiskBadgeStyles(risk: RiskLevel) {
   switch (risk) {
@@ -49,6 +51,40 @@ function getRiskDot(risk: RiskLevel) {
 
 export function PatientList() {
   const router = useRouter()
+  const [patients, setPatients] = useState<PatientSummary[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    let active = true
+
+    async function loadPatients() {
+      try {
+        const summaries = await fetchPatientSummaries()
+        if (active) {
+          setPatients(summaries)
+        }
+      } catch (err) {
+        if (active) {
+          setError(err instanceof Error ? err.message : "Failed to load patients")
+        }
+      } finally {
+        if (active) {
+          setLoading(false)
+        }
+      }
+    }
+
+    void loadPatients()
+    const intervalId = window.setInterval(() => {
+      void loadPatients()
+    }, 10000)
+
+    return () => {
+      active = false
+      window.clearInterval(intervalId)
+    }
+  }, [])
 
   return (
     <section className="p-8">
@@ -56,7 +92,7 @@ export function PatientList() {
         <div>
           <h2 className="text-3xl font-semibold text-foreground">Patient Overview</h2>
           <p className="mt-1 text-base text-muted-foreground">
-            {patients.length} patients currently in ICU
+            {loading ? "Loading analyzed cases..." : `${patients.length} analyzed ICU cases`}
           </p>
         </div>
         <div className="flex items-center gap-5 text-base">
@@ -75,79 +111,60 @@ export function PatientList() {
         </div>
       </div>
 
-      <div className="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
+      <div className="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
         <Table>
           <TableHeader>
             <TableRow className="hover:bg-transparent">
-              <TableHead className="w-[100px] py-4 text-sm font-semibold uppercase tracking-wide text-foreground">Patient ID</TableHead>
-              <TableHead className="py-4 text-sm font-semibold uppercase tracking-wide text-foreground">Name</TableHead>
-              <TableHead className="w-[80px] py-4 text-sm font-semibold uppercase tracking-wide text-foreground">Age</TableHead>
-              <TableHead className="py-4 text-sm font-semibold uppercase tracking-wide text-foreground">Bed</TableHead>
-              <TableHead className="py-4 text-sm font-semibold uppercase tracking-wide text-foreground">Condition</TableHead>
-              <TableHead className="py-4 text-sm font-semibold uppercase tracking-wide text-foreground">Vitals</TableHead>
+              <TableHead className="w-[110px] py-4 text-sm font-semibold uppercase tracking-wide text-foreground">Subject</TableHead>
+              <TableHead className="w-[120px] py-4 text-sm font-semibold uppercase tracking-wide text-foreground">Admission</TableHead>
+              <TableHead className="w-[120px] py-4 text-sm font-semibold uppercase tracking-wide text-foreground">Status</TableHead>
+              <TableHead className="py-4 text-sm font-semibold uppercase tracking-wide text-foreground">Primary Concern</TableHead>
+              <TableHead className="py-4 text-sm font-semibold uppercase tracking-wide text-foreground">Last Updated</TableHead>
               <TableHead className="py-4 text-sm font-semibold uppercase tracking-wide text-foreground">Risk Level</TableHead>
               <TableHead className="w-[50px]"></TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
+            {error && (
+              <TableRow>
+                <TableCell colSpan={7} className="py-10 text-center text-sm text-risk-high">
+                  {error}
+                </TableCell>
+              </TableRow>
+            )}
+            {!loading && !error && patients.length === 0 && (
+              <TableRow>
+                <TableCell colSpan={7} className="py-10 text-center text-sm text-muted-foreground">
+                  No analyzed patients found yet.
+                </TableCell>
+              </TableRow>
+            )}
             {patients.map((patient) => (
               <TableRow
-                key={patient.id}
+                key={patient.analysisId}
                 className={cn(
                   "group cursor-pointer transition-colors hover:bg-muted/50",
                   patient.riskLevel === "high" && "bg-risk-high/[0.04] hover:bg-risk-high/[0.08]",
                   patient.riskLevel === "medium" && "bg-risk-medium/[0.03] hover:bg-risk-medium/[0.06]"
                 )}
-                onClick={() => router.push(`/analysis/${patient.id}`)}
+                onClick={() => router.push(`/analysis/${patient.analysisId}`)}
               >
                 <TableCell className="py-5 font-mono text-base text-muted-foreground">
-                  {patient.id}
+                  {patient.subjectId}
+                </TableCell>
+                <TableCell className="font-mono text-base text-foreground">
+                  {patient.hadmId}
+                </TableCell>
+                <TableCell className="text-base capitalize text-muted-foreground">
+                  {patient.status}
                 </TableCell>
                 <TableCell>
-                  <div className="flex items-center gap-3">
-                    <div
-                      className={cn(
-                        "flex h-11 w-11 items-center justify-center rounded-full text-base font-semibold",
-                        patient.riskLevel === "high"
-                          ? "bg-risk-high/15 text-risk-high ring-2 ring-risk-high/20"
-                          : patient.riskLevel === "medium"
-                          ? "bg-risk-medium/15 text-risk-medium ring-2 ring-risk-medium/20"
-                          : "bg-risk-low/12 text-risk-low ring-2 ring-risk-low/20"
-                      )}
-                    >
-                      {patient.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </div>
-                    <div>
-                      <p className="text-lg font-semibold text-foreground">{patient.name}</p>
-                      <p className="text-sm text-muted-foreground">{patient.gender}</p>
-                    </div>
-                  </div>
-                </TableCell>
-                <TableCell className="text-base text-muted-foreground">{patient.age}</TableCell>
-                <TableCell>
-                  <span className="font-mono text-base font-medium">{patient.bedNumber}</span>
+                  <span className="text-base font-medium text-foreground">{patient.primaryConcern}</span>
                 </TableCell>
                 <TableCell>
-                  <span className="text-base font-medium text-foreground">{patient.condition}</span>
-                </TableCell>
-                <TableCell>
-                  <div className="flex items-center gap-5 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-1.5">
-                      <Heart className="h-4 w-4" />
-                      <span className="font-medium">{patient.vitals.heartRate}</span>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <Thermometer className="h-4 w-4" />
-                      <span>{patient.vitals.temperature}°C</span>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <Droplets className="h-4 w-4" />
-                      <span>{patient.vitals.oxygenSaturation}%</span>
-                    </div>
-                  </div>
+                  <span className="text-sm text-muted-foreground">
+                    {new Date(patient.lastAnalyzed).toLocaleString()}
+                  </span>
                 </TableCell>
                 <TableCell>
                   <Badge

@@ -1,0 +1,96 @@
+{
+  "primary_concern": "Sepsis with acute kidney injury (AKI) and coagulopathy",
+  "clinical_summary": "Elevated lactate (4.2 mmol/L) combined with leukocytosis (WBC 14.2 K/uL), anemia (Hgb 9.8 g/dL), and thrombocytopenia (88-95 K/uL) meet Sepsis-3 criteria. Bilirubin elevation (1.4 mg/dL) suggests possible hepatic involvement. AKI progression is evident with stage 1 (Cr 2.1 mg/dL) escalating to stage 3 (Cr 8.9 mg/dL), though the latter was excluded as an outlier. Platelet counts remain below 100 K/uL, indicating SOFA coagulation score \u22651.",
+  "prioritized_risks": [
+    {
+      "risk_flag": "SEPSIS_RISK",
+      "status": "Confirmed",
+      "guideline_source": "Sepsis-3 Consensus Definitions",
+      "explanation": "Lactate >2 mmol/L, WBC >12 K/uL, and creatinine elevation meet Sepsis-3 criteria for suspected infection plus SOFA increase \u22652",
+      "threshold": "Suspected infection + acute SOFA increase \u22652"
+    },
+    {
+      "risk_flag": "AKI_RISK",
+      "status": "Confirmed",
+      "guideline_source": "KDIGO AKI Guidelines 2012",
+      "explanation": "Creatinine elevation meets KDIGO stage 1 criteria (1.5\u00d7 baseline) with progression to stage 3 excluded as outlier",
+      "threshold": "Creatinine rise \u22650.3 mg/dL in 48h or \u22651.5\u00d7 baseline in 7d"
+    },
+    {
+      "risk_flag": "COAGULOPATHY_RISK",
+      "status": "Confirmed",
+      "guideline_source": "Laboratory Reference Ranges",
+      "explanation": "Platelets <100 K/uL meets SOFA coagulation score threshold for coagulopathy",
+      "threshold": "Platelets <150 K/uL (SOFA score \u22651)"
+    },
+    {
+      "risk_flag": "SEPTIC_SHOCK_RISK",
+      "status": "Unconfirmed",
+      "guideline_source": "Septic Shock Management",
+      "explanation": "Lactate >2 mmol/L present but vasopressor requirements and hypotension status unknown",
+      "threshold": "Vasopressor-dependent hypotension + lactate >2 mmol/L after fluid resuscitation"
+    }
+  ],
+  "recommended_actions": [
+    "Initiate broad-spectrum antibiotics per sepsis protocol",
+    "Perform fluid resuscitation and reassess perfusion status",
+    "Order blood cultures and source control evaluation",
+    "Monitor for progression to septic shock (MAP \u226565, lactate trends)",
+    "Consider platelet transfusion if <50 K/uL or active bleeding",
+    "Implement AKI management bundle (diuresis, electrolyte monitoring)"
+  ],
+  "doctor_handoff": "Review for infection source localization, reassess AKI stage progression, and evaluate for vasopressor requirements. Confirm accuracy of excluded creatinine outlier (8.9 mg/dL) due to rapid 6.5 mg/dL rise.",
+  "disease_progression": [
+    {
+      "period": "Jan 10 09:00",
+      "observation": "Baseline abnormalities: WBC 14.2, Hgb 9.8, Bilirubin 1.4"
+    },
+    {
+      "period": "Jan 11 09:00",
+      "observation": "AKI stage 1 (Cr 2.1) with platelets 95 K/uL"
+    },
+    {
+      "period": "Jan 11 21:00",
+      "observation": "Lactate 4.2 mmol/L with persistent thrombocytopenia"
+    },
+    {
+      "period": "Jan 12 03:00",
+      "observation": "AKI stage 3 (Cr 8.9 excluded as outlier), platelets 88 K/uL"
+    }
+  ],
+  "agent": "chief_agent",
+  "subject_id": 10002,
+  "hadm_id": 198765,
+  "generated_at": "2026-04-03T20:58:09.831640+00:00",
+  "excluded_outliers": [
+    {
+      "layer": "realtime_delta",
+      "test": "Creatinine",
+      "value": 8.9,
+      "timestamp": "2024-01-12T03:00:00",
+      "z_score": null,
+      "delta": 6.5,
+      "prior_value": 2.4,
+      "prior_ts": "2024-01-11T21:00:00",
+      "reason": "Rapid change detected \u2014 Creatinine changed by 6.5 mg/dL within 6.0h (max allowed: 2.0). Probable measurement error or specimen issue. Section 15.2 \u2014 rise > 2.0 mg/dL in < 6h.",
+      "historical_baseline": null
+    }
+  ],
+  "outlier_summary": {
+    "total_checked": 8,
+    "total_excluded": 1,
+    "by_layer": {
+      "physiological": 0,
+      "current_admission": 0,
+      "historical_baseline": 0,
+      "realtime_delta": 1
+    }
+  },
+  "data_quality": {
+    "note_parser_available": true,
+    "lab_mapper_available": true,
+    "rag_available": true,
+    "outliers_removed_count": 1,
+    "sofa_coverage_pct": 100.0
+  }
+}

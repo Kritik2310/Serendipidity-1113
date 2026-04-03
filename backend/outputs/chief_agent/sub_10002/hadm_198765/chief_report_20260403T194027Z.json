@@ -1,0 +1,84 @@
+{
+  "primary_concern": "Sepsis with septic shock and acute kidney injury",
+  "clinical_summary": "Patient presents with progressive sepsis markers including leukocytosis (WBC 18.7 K/uL), lactic acidosis (4.2 mmol/L), and acute kidney injury (Creat 1.6 mg/dL, AKI Stage 3). Hypotension (BP 94/60 mmHg), peripheral hypoperfusion, and altered mental status (GCS 12) meet Sepsis-3 criteria. Oliguria, thrombocytopenia (88 K/uL), and worsening hyponatremia (132 mEq/L) suggest multi-organ dysfunction.",
+  "prioritized_risks": [
+    {
+      "risk_flag": "SEPTIC_SHOCK_RISK",
+      "status": "Critical",
+      "guideline_source": "Septic Shock Identification and Management",
+      "explanation": "Persistent hypotension requiring vasopressors and lactate > 2 mmol/L after fluid resuscitation",
+      "threshold": "Vasopressor-dependent MAP \u226565 mmHg with lactate >2 mmol/L"
+    },
+    {
+      "risk_flag": "AKI_RISK",
+      "status": "Critical",
+      "guideline_source": "KDIGO AKI Guidelines 2012",
+      "explanation": "Creatinine 8.9 mg/dL (Stage 3 AKI) with oliguria <0.5 mL/kg/hr",
+      "threshold": "Creatinine rise \u22650.3 mg/dL in 48h or \u22651.5x baseline"
+    },
+    {
+      "risk_flag": "COAGULOPATHY_RISK",
+      "status": "High",
+      "guideline_source": "Sepsis-3 Consensus Definitions",
+      "explanation": "Platelets 88 K/uL (<100 K/uL threshold) indicating consumptive coagulopathy",
+      "threshold": "Platelets <150 K/uL for SOFA scoring"
+    }
+  ],
+  "recommended_actions": [
+    "Initiate broad-spectrum antibiotics per local sepsis protocol",
+    "Administer 30 mL/kg crystalloid for fluid resuscitation",
+    "Start norepinephrine infusion to maintain MAP \u226565 mmHg",
+    "Perform urgent source control investigation for urosepsis",
+    "Initiate continuous renal replacement therapy (CRRT) for AKI Stage 3"
+  ],
+  "doctor_handoff": "Review urine culture results for targeted antimicrobial therapy. Assess for potential surgical source of infection. Monitor lactate clearance and urine output response to fluids. Evaluate need for vasopressin augmentation.",
+  "disease_progression": [
+    {
+      "period": "01/10 20:00",
+      "observation": "Initial sepsis markers: fever, WBC 12.2 K/uL, mild AKI"
+    },
+    {
+      "period": "01/11 10:30",
+      "observation": "Progression to septic shock: lactate 3.8 mmol/L, MAP 60 mmHg, GCS 12"
+    },
+    {
+      "period": "01/12 03:00",
+      "observation": "AKI Stage 3 with creatinine 8.9 mg/dL (outlier excluded) and oliguria"
+    }
+  ],
+  "agent": "chief_agent",
+  "subject_id": 10002,
+  "hadm_id": 198765,
+  "generated_at": "2026-04-03T19:40:27.281718+00:00",
+  "excluded_outliers": [
+    {
+      "layer": "realtime_delta",
+      "test": "Creatinine",
+      "value": 8.9,
+      "timestamp": "2024-01-12T03:00:00",
+      "z_score": null,
+      "delta": 6.5,
+      "prior_value": 2.4,
+      "prior_ts": "2024-01-11T21:00:00",
+      "reason": "Rapid change detected \u2014 Creatinine changed by 6.5 mg/dL within 6.0h (max allowed: 2.0). Probable measurement error or specimen issue. Section 15.2 \u2014 rise > 2.0 mg/dL in < 6h.",
+      "historical_baseline": null
+    }
+  ],
+  "outlier_summary": {
+    "total_checked": 8,
+    "total_excluded": 1,
+    "by_layer": {
+      "physiological": 0,
+      "current_admission": 0,
+      "historical_baseline": 0,
+      "realtime_delta": 1
+    }
+  },
+  "data_quality": {
+    "note_parser_available": true,
+    "lab_mapper_available": true,
+    "rag_available": true,
+    "outliers_removed_count": 1,
+    "sofa_coverage_pct": 100.0
+  }
+}

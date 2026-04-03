@@ -25,15 +25,15 @@ function getChartDirectionStyles(progression: DiseaseProgression) {
 
   if (lastScore > firstScore) {
     return {
-      line: "#16a34a",
-      glow: "rgba(22, 163, 74, 0.28)",
+      line: "#dc2626",
+      glow: "rgba(220, 38, 38, 0.28)",
     }
   }
 
   if (lastScore < firstScore) {
     return {
-      line: "#dc2626",
-      glow: "rgba(220, 38, 38, 0.28)",
+      line: "#16a34a",
+      glow: "rgba(22, 163, 74, 0.28)",
     }
   }
 
@@ -92,12 +92,17 @@ export function DiseaseProgressionPanel({ progression }: DiseaseProgressionPanel
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={progression.timeline}>
               <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
-              <XAxis dataKey="time" tick={{ fontSize: 15, fontWeight: 700 }} stroke="currentColor" />
-              <YAxis hide domain={[30, 90]} />
+              <XAxis
+                dataKey="time"
+                minTickGap={32}
+                tick={{ fontSize: 12, fontWeight: 700 }}
+                stroke="currentColor"
+              />
+              <YAxis hide domain={[30, 100]} />
               <Tooltip
                 formatter={(value: number, _name, payload) => [
                   `Score ${value}`,
-                  payload?.payload.source,
+                  payload?.payload.summary || payload?.payload.source,
                 ]}
                 contentStyle={{
                   backgroundColor: "hsl(var(--card))",
@@ -105,7 +110,14 @@ export function DiseaseProgressionPanel({ progression }: DiseaseProgressionPanel
                   borderRadius: "8px",
                 }}
               />
-              <ReferenceArea x1="-30m" x2="Now" fill="hsl(var(--primary))" fillOpacity={0.08} />
+              {progression.timeline.length >= 2 && (
+                <ReferenceArea
+                  x1={progression.timeline[Math.max(progression.timeline.length - 2, 0)]?.time}
+                  x2={progression.timeline[progression.timeline.length - 1]?.time}
+                  fill="hsl(var(--primary))"
+                  fillOpacity={0.08}
+                />
+              )}
               <Line
                 type="monotone"
                 dataKey="score"
