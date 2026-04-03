@@ -2,3 +2,10 @@ pandas
 langchain-openai
 openai
 python-dotenv
+chromadb
+langchain-core
+numpy
+pandas
+pdfplumber
+pytest
+sentence-transformers

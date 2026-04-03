@@ -1,0 +1,54 @@
+# Python bytecode and cache directories
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Test and coverage artifacts
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Type checker / tooling caches
+.mypy_cache/
+.ruff_cache/
+.pyre/
+
+# Jupyter / notebook artifacts
+.ipynb_checkpoints/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Local vector database and generated runtime data
+backend/data/chroma_db/
+chroma.sqlite3
+*.sqlite3
+*.bin
+*.sqlite3-*
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+
+# Local outputs
+note_parser_output.json
+
+# Backup files
+*.bak
+*.backup
+* backup*
