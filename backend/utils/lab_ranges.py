@@ -1,3 +1,4 @@
+#lab_ranges.py
 ICU_CRITICAL_LABS = {
     51300: {"name": "WBC", "normal": [4.5, 11.0]},
     50813: {"name": "Lactate", "normal": [0.5, 2.0]},

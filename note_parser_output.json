@@ -1,7 +1,7 @@
 {
   "agent": "note_parser",
   "summary": {
-    "total_findings": 124,
+    "total_findings": 154,
     "unique_patients": 1
   },
   "patient_timelines": [
@@ -68,15 +68,6 @@
               "raw_text": "BP 118/74 mmHg"
             },
             {
-              "symptom": "respiratory rate",
-              "severity": "unknown",
-              "category": "vital_sign",
-              "value": 16,
-              "unit": "breaths/min",
-              "trend": "stable",
-              "raw_text": "RR: 16 breaths/min"
-            },
-            {
               "symptom": "oxygen saturation",
               "severity": "unknown",
               "category": "vital_sign",
@@ -84,6 +75,15 @@
               "unit": "%",
               "trend": "stable",
               "raw_text": "SpO2 96% on 2L nasal cannula"
+            },
+            {
+              "symptom": "respiratory rate",
+              "severity": "unknown",
+              "category": "vital_sign",
+              "value": 16,
+              "unit": "breaths/min",
+              "trend": "stable",
+              "raw_text": "RR: 16 breaths/min"
             },
             {
               "symptom": "temperature",
@@ -134,7 +134,16 @@
               "value": null,
               "unit": null,
               "trend": "unknown",
-              "raw_text": "increasing confusion"
+              "raw_text": "mild confusion per family"
+            },
+            {
+              "symptom": "shortness of breath",
+              "severity": "mild",
+              "category": "symptom",
+              "value": null,
+              "unit": null,
+              "trend": "unknown",
+              "raw_text": "mild shortness of breath on exertion"
             },
             {
               "symptom": "pyuria",
@@ -146,13 +155,13 @@
               "raw_text": "mild pyuria (WBC 15-20)"
             },
             {
-              "symptom": "infiltrate",
-              "severity": "unknown",
-              "category": "imaging",
-              "value": null,
-              "unit": null,
+              "symptom": "lactate",
+              "severity": "severe",
+              "category": "lab_result",
+              "value": 2.4,
+              "unit": "mmol/L",
               "trend": "unknown",
-              "raw_text": "possible early right lower lobe infiltrate"
+              "raw_text": "Lactate: 2.4 mmol/L (ELEVATED - tissue hypoperfusion, concern for sepsis)"
             },
             {
               "symptom": "wbc",
@@ -161,7 +170,7 @@
               "value": 12.2,
               "unit": "K/uL",
               "trend": "unknown",
-              "raw_text": "WBC: 12.2 K/uL (HIGH, ref 4.5-11.0)"
+              "raw_text": "WBC: 12.2 K/uL (HIGH, ref 4.5-11.0) - elevated, new infection marker"
             },
             {
               "symptom": "hemoglobin",
@@ -173,22 +182,13 @@
               "raw_text": "Hemoglobin: 11.8 g/dL (mild anemia, chronic)"
             },
             {
-              "symptom": "lactate",
-              "severity": "severe",
+              "symptom": "creatinine",
+              "severity": "mild",
               "category": "lab_result",
-              "value": 2.4,
-              "unit": "mmol/L",
+              "value": 1.3,
+              "unit": "mg/dL",
               "trend": "unknown",
-              "raw_text": "Lactate: 2.4 mmol/L (ELEVATED - tissue hypoperfusion, concern for sepsis)"
-            },
-            {
-              "symptom": "procalcitonin",
-              "severity": "severe",
-              "category": "lab_result",
-              "value": 18.4,
-              "unit": "ng/mL",
-              "trend": "unknown",
-              "raw_text": "Procalcitonin: 18.4 ng/mL (markedly elevated - bacterial infection strongly suggested)"
+              "raw_text": "Creatinine: 1.3 mg/dL (above baseline of 1.1 - mild acute on chronic)"
             },
             {
               "symptom": "glucose",
@@ -209,44 +209,8 @@
               "raw_text": "Sodium: 134 mEq/L (mild hyponatremia)"
             },
             {
-              "symptom": "creatinine",
-              "severity": "mild",
-              "category": "lab_result",
-              "value": 1.3,
-              "unit": "mg/dL",
-              "trend": "unknown",
-              "raw_text": "Creatinine: 1.3 mg/dL (above baseline of 1.1 - mild acute on chronic)"
-            },
-            {
-              "symptom": "bun",
-              "severity": "severe",
-              "category": "lab_result",
-              "value": 28,
-              "unit": "mg/dL",
-              "trend": "unknown",
-              "raw_text": "BUN: 28 mg/dL (elevated)"
-            },
-            {
-              "symptom": "urine output",
-              "severity": "unknown",
-              "category": "fluid_output",
-              "value": null,
-              "unit": null,
-              "trend": "unknown",
-              "raw_text": "decreased urine output noted by wife"
-            },
-            {
-              "symptom": "shortness of breath",
-              "severity": "mild",
-              "category": "symptom",
-              "value": null,
-              "unit": null,
-              "trend": "unknown",
-              "raw_text": "mild shortness of breath on exertion"
-            },
-            {
               "symptom": "heart rate",
-              "severity": "unknown",
+              "severity": "moderate",
               "category": "vital_sign",
               "value": 92,
               "unit": "bpm",
@@ -255,12 +219,30 @@
             },
             {
               "symptom": "respiratory rate",
-              "severity": "unknown",
+              "severity": "moderate",
               "category": "vital_sign",
               "value": 18,
               "unit": "breaths/min",
               "trend": "unknown",
               "raw_text": "RR 18"
+            },
+            {
+              "symptom": "urine output",
+              "severity": "mild",
+              "category": "fluid_output",
+              "value": null,
+              "unit": null,
+              "trend": "unknown",
+              "raw_text": "decreased urine output noted by wife"
+            },
+            {
+              "symptom": "glasgow coma scale",
+              "severity": "mild",
+              "category": "mental_status",
+              "value": 14,
+              "unit": null,
+              "trend": "unknown",
+              "raw_text": "GCS 14"
             }
           ]
         },
@@ -271,7 +253,7 @@
             {
               "symptom": "lethargy",
               "severity": "mild",
-              "category": "mental_status",
+              "category": "symptom",
               "value": null,
               "unit": null,
               "trend": "worsening",
@@ -285,6 +267,15 @@
               "unit": "/10",
               "trend": "stable",
               "raw_text": "Mild shortness of breath at rest, patient reporting it as 3/10"
+            },
+            {
+              "symptom": "gcs",
+              "severity": "unknown",
+              "category": "neurological",
+              "value": 14,
+              "unit": null,
+              "trend": "stable",
+              "raw_text": "GCS remains 14"
             },
             {
               "symptom": "spo2",
@@ -329,7 +320,7 @@
               "value": 38.6,
               "unit": "C",
               "trend": "worsening",
-              "raw_text": "Temperature: 38.6C at 2130"
+              "raw_text": "38.6C at 2130"
             },
             {
               "symptom": "temperature",
@@ -360,11 +351,11 @@
             },
             {
               "symptom": "lactate",
-              "severity": "moderate",
+              "severity": "mild",
               "category": "lab_result",
               "value": 2.4,
               "unit": "mmol/L",
-              "trend": "unknown",
+              "trend": "stable",
               "raw_text": "Lactate: 2.4 mmol/L (ELEVATED - mild tissue hypoperfusion)"
             },
             {
@@ -382,7 +373,7 @@
               "category": "lab_result",
               "value": 18.4,
               "unit": "ng/mL",
-              "trend": "unknown",
+              "trend": "worsening",
               "raw_text": "Procalcitonin: 18.4 ng/mL (markedly elevated - bacterial source confirmed)"
             },
             {
@@ -400,7 +391,7 @@
               "category": "lab_result",
               "value": 134,
               "unit": "mEq/L",
-              "trend": "unknown",
+              "trend": "stable",
               "raw_text": "Sodium: 134 mEq/L (mild hyponatremia - monitoring)"
             },
             {
@@ -411,15 +402,6 @@
               "unit": null,
               "trend": "stable",
               "raw_text": "Patient anxious about hospitalization"
-            },
-            {
-              "symptom": "gcs",
-              "severity": "unknown",
-              "category": "neurological",
-              "value": 14,
-              "unit": null,
-              "trend": "stable",
-              "raw_text": "GCS remains 14"
             }
           ]
         },
@@ -561,7 +543,7 @@
             },
             {
               "symptom": "oliguria",
-              "severity": "severe",
+              "severity": "critical",
               "category": "fluid_output",
               "value": 15,
               "unit": "mL/hr",
@@ -579,8 +561,8 @@
             },
             {
               "symptom": "peripheral hypoperfusion",
-              "severity": "severe",
-              "category": "other",
+              "severity": "moderate",
+              "category": "symptom",
               "value": null,
               "unit": null,
               "trend": "worsening",
@@ -792,7 +774,7 @@
             },
             {
               "symptom": "glucose",
-              "severity": "mild",
+              "severity": "moderate",
               "category": "lab_result",
               "value": 174,
               "unit": "mg/dL",
@@ -833,13 +815,13 @@
               "raw_text": "SpO2 97-98% on 3L NC"
             },
             {
-              "symptom": "crackles",
+              "symptom": "dyspnea",
               "severity": "mild",
-              "category": "respiratory",
+              "category": "symptom",
               "value": null,
               "unit": null,
               "trend": "improving",
-              "raw_text": "Crackles at right base only - significantly reduced from previous days"
+              "raw_text": "Patient reports dyspnea much improved - 'I can breathe better now.'"
             },
             {
               "symptom": "respiratory rate",
@@ -849,15 +831,6 @@
               "unit": "breaths per minute",
               "trend": "stable",
               "raw_text": "RR 15-16"
-            },
-            {
-              "symptom": "dyspnea",
-              "severity": "mild",
-              "category": "symptom",
-              "value": null,
-              "unit": null,
-              "trend": "improving",
-              "raw_text": "Patient reports dyspnea much improved - 'I can breathe better now.'"
             },
             {
               "symptom": "blood pressure",
@@ -884,7 +857,7 @@
               "value": 37.6,
               "unit": "C",
               "trend": "improving",
-              "raw_text": "TEMPERATURE: 37.6C. Afebrile by clinical definition (below 38.0C)"
+              "raw_text": "TEMPERATURE: 37.6C. Afebrile by clinical definition (below 38.0C)."
             },
             {
               "symptom": "urine output",
@@ -907,11 +880,11 @@
             {
               "symptom": "skin perfusion",
               "severity": "mild",
-              "category": "other",
+              "category": "symptom",
               "value": null,
               "unit": null,
               "trend": "improving",
-              "raw_text": "No mottling. Warm and well-perfused. Bilateral lower extremity mottling completely resolved"
+              "raw_text": "No mottling. Warm and well-perfused. Bilateral lower extremity mottling completely resolved."
             }
           ]
         },
@@ -989,7 +962,7 @@
               "value": 38.2,
               "unit": "C",
               "trend": "improving",
-              "raw_text": "Temperature: 38.2C at 0545"
+              "raw_text": "TEMPERATURE: 38.2C at 0545"
             },
             {
               "symptom": "urine output",
@@ -1026,6 +999,183 @@
               "unit": "mg/dL",
               "trend": "stable",
               "raw_text": "glucose 188 at midnight"
+            }
+          ]
+        },
+        {
+          "timestamp": "2024-01-12 14:00:00",
+          "note_type": "Physician",
+          "findings": [
+            {
+              "symptom": "blood pressure",
+              "severity": "unknown",
+              "category": "vital_sign",
+              "value": 112,
+              "unit": "mmHg",
+              "trend": "stable",
+              "raw_text": "BP: 112/72 mmHg"
+            },
+            {
+              "symptom": "heart rate",
+              "severity": "unknown",
+              "category": "vital_sign",
+              "value": 96,
+              "unit": "bpm",
+              "trend": "improving",
+              "raw_text": "HR: 96 bpm"
+            },
+            {
+              "symptom": "respiratory rate",
+              "severity": "unknown",
+              "category": "vital_sign",
+              "value": 17,
+              "unit": "breaths/min",
+              "trend": "improving",
+              "raw_text": "RR: 17 breaths/min"
+            },
+            {
+              "symptom": "oxygen saturation",
+              "severity": "unknown",
+              "category": "vital_sign",
+              "value": 97,
+              "unit": "%",
+              "trend": "stable",
+              "raw_text": "SpO2: 97% on 3L NC"
+            },
+            {
+              "symptom": "temperature",
+              "severity": "unknown",
+              "category": "vital_sign",
+              "value": 37.9,
+              "unit": "C",
+              "trend": "improving",
+              "raw_text": "Temp: 37.9C"
+            },
+            {
+              "symptom": "mean arterial pressure",
+              "severity": "unknown",
+              "category": "vital_sign",
+              "value": 85,
+              "unit": "mmHg",
+              "trend": "stable",
+              "raw_text": "MAP: 85 mmHg"
+            },
+            {
+              "symptom": "white blood cell count",
+              "severity": "unknown",
+              "category": "lab_result",
+              "value": 17.2,
+              "unit": "K/uL",
+              "trend": "improving",
+              "raw_text": "WBC: 17.2 K/uL"
+            },
+            {
+              "symptom": "lactate",
+              "severity": "unknown",
+              "category": "lab_result",
+              "value": 2.1,
+              "unit": "mmol/L",
+              "trend": "improving",
+              "raw_text": "Lactate: 2.1 mmol/L"
+            },
+            {
+              "symptom": "creatinine",
+              "severity": "unknown",
+              "category": "lab_result",
+              "value": 1.8,
+              "unit": "mg/dL",
+              "trend": "worsening",
+              "raw_text": "Creatinine: 1.8 mg/dL"
+            },
+            {
+              "symptom": "blood urea nitrogen",
+              "severity": "unknown",
+              "category": "lab_result",
+              "value": 48,
+              "unit": "mg/dL",
+              "trend": "worsening",
+              "raw_text": "BUN: 48 mg/dL"
+            },
+            {
+              "symptom": "platelet count",
+              "severity": "unknown",
+              "category": "lab_result",
+              "value": 132,
+              "unit": "K/uL",
+              "trend": "worsening",
+              "raw_text": "Platelets: 132 K/uL"
+            },
+            {
+              "symptom": "vancomycin trough",
+              "severity": "unknown",
+              "category": "lab_result",
+              "value": 18.2,
+              "unit": "mcg/mL",
+              "trend": "stable",
+              "raw_text": "Vancomycin trough: 18.2 mcg/mL"
+            },
+            {
+              "symptom": "procalcitonin",
+              "severity": "unknown",
+              "category": "lab_result",
+              "value": 14.1,
+              "unit": "ng/mL",
+              "trend": "improving",
+              "raw_text": "Procalcitonin: 14.1 ng/mL"
+            },
+            {
+              "symptom": "fibrinogen",
+              "severity": "unknown",
+              "category": "lab_result",
+              "value": 180,
+              "unit": "mg/dL",
+              "trend": "stable",
+              "raw_text": "Fibrinogen: 180 mg/dL"
+            },
+            {
+              "symptom": "d-dimer",
+              "severity": "unknown",
+              "category": "lab_result",
+              "value": 4.2,
+              "unit": "ug/mL",
+              "trend": "worsening",
+              "raw_text": "D-Dimer: 4.2 ug/mL"
+            },
+            {
+              "symptom": "sepsis",
+              "severity": "moderate",
+              "category": "diagnosis",
+              "value": null,
+              "unit": null,
+              "trend": "improving",
+              "raw_text": "SEPSIS (pneumonia + E.coli urosepsis) - IMPROVING"
+            },
+            {
+              "symptom": "acute kidney injury",
+              "severity": "moderate",
+              "category": "diagnosis",
+              "value": null,
+              "unit": null,
+              "trend": "worsening",
+              "raw_text": "AKI STAGE 1 (KDIGO) - WORSENING SLIGHTLY"
+            },
+            {
+              "symptom": "septic encephalopathy",
+              "severity": "moderate",
+              "category": "diagnosis",
+              "value": null,
+              "unit": null,
+              "trend": "improving",
+              "raw_text": "SEPTIC ENCEPHALOPATHY - IMPROVING"
+            },
+            {
+              "symptom": "disseminated intravascular coagulation",
+              "severity": "mild",
+              "category": "diagnosis",
+              "value": null,
+              "unit": null,
+              "trend": "worsening",
+              "raw_text": "POSSIBLE LOW-GRADE DIC"
             }
           ]
         },
@@ -1143,39 +1293,171 @@
             },
             {
               "symptom": "platelet count",
-              "severity": "mild",
+              "severity": "moderate",
               "category": "lab_result",
               "value": 118,
               "unit": "K/uL",
               "trend": "worsening",
               "raw_text": "Platelets: 118 K/uL (continued mild decline"
+            }
+          ]
+        },
+        {
+          "timestamp": "2024-01-13 11:00:00",
+          "note_type": "Physician",
+          "findings": [
+            {
+              "symptom": "blood pressure",
+              "severity": "unknown",
+              "category": "vital_sign",
+              "value": 118,
+              "unit": "mmHg",
+              "trend": "stable",
+              "raw_text": "BP: 118/76 mmHg"
             },
             {
-              "symptom": "norepinephrine",
+              "symptom": "diastolic blood pressure",
               "severity": "unknown",
-              "category": "medication",
+              "category": "vital_sign",
+              "value": 76,
+              "unit": "mmHg",
+              "trend": "stable",
+              "raw_text": "BP: 118/76 mmHg"
+            },
+            {
+              "symptom": "heart rate",
+              "severity": "unknown",
+              "category": "vital_sign",
+              "value": 88,
+              "unit": "bpm",
+              "trend": "improving",
+              "raw_text": "HR: 88 bpm"
+            },
+            {
+              "symptom": "respiratory rate",
+              "severity": "unknown",
+              "category": "vital_sign",
+              "value": 15,
+              "unit": "breaths/min",
+              "trend": "stable",
+              "raw_text": "RR: 15 breaths/min"
+            },
+            {
+              "symptom": "oxygen saturation",
+              "severity": "unknown",
+              "category": "vital_sign",
+              "value": 98,
+              "unit": "%",
+              "trend": "stable",
+              "raw_text": "SpO2: 98% on 2L NC"
+            },
+            {
+              "symptom": "temperature",
+              "severity": "unknown",
+              "category": "vital_sign",
+              "value": 37.2,
+              "unit": "C",
+              "trend": "stable",
+              "raw_text": "Temp: 37.2C"
+            },
+            {
+              "symptom": "mean arterial pressure",
+              "severity": "unknown",
+              "category": "vital_sign",
+              "value": 90,
+              "unit": "mmHg",
+              "trend": "stable",
+              "raw_text": "MAP: 90 mmHg"
+            },
+            {
+              "symptom": "white blood cell count",
+              "severity": "moderate",
+              "category": "lab_result",
+              "value": 15.8,
+              "unit": "K/uL",
+              "trend": "improving",
+              "raw_text": "WBC: 15.8 K/uL"
+            },
+            {
+              "symptom": "creatinine",
+              "severity": "moderate",
+              "category": "lab_result",
+              "value": 1.7,
+              "unit": "mg/dL",
+              "trend": "improving",
+              "raw_text": "Creatinine: 1.7 mg/dL"
+            },
+            {
+              "symptom": "lactate",
+              "severity": "unknown",
+              "category": "lab_result",
+              "value": 1.4,
+              "unit": "mmol/L",
+              "trend": "improving",
+              "raw_text": "Lactate: 1.4 mmol/L"
+            },
+            {
+              "symptom": "platelets",
+              "severity": "moderate",
+              "category": "lab_result",
+              "value": 118,
+              "unit": "K/uL",
+              "trend": "worsening",
+              "raw_text": "Platelets: 118 K/uL"
+            },
+            {
+              "symptom": "glucose",
+              "severity": "unknown",
+              "category": "lab_result",
+              "value": 142,
+              "unit": "mg/dL",
+              "trend": "improving",
+              "raw_text": "Glucose: 142 mg/dL"
+            },
+            {
+              "symptom": "sepsis",
+              "severity": "moderate",
+              "category": "diagnosis",
               "value": null,
               "unit": null,
               "trend": "improving",
-              "raw_text": "Norepinephrine successfully weaned and discontinued at 0400"
+              "raw_text": "SEPSIS: Clinically RESOLVING"
             },
             {
-              "symptom": "levofloxacin",
-              "severity": "unknown",
-              "category": "medication",
-              "value": 750,
-              "unit": "mg",
-              "trend": "new",
-              "raw_text": "Levofloxacin 750mg PO started"
-            },
-            {
-              "symptom": "ceftriaxone",
-              "severity": "unknown",
-              "category": "medication",
+              "symptom": "acute kidney injury",
+              "severity": "moderate",
+              "category": "diagnosis",
               "value": null,
               "unit": null,
-              "trend": "worsening",
-              "raw_text": "Ceftriaxone discontinued"
+              "trend": "improving",
+              "raw_text": "ACUTE KIDNEY INJURY: Creatinine 1.7, stable to improving"
+            },
+            {
+              "symptom": "pneumonia",
+              "severity": "moderate",
+              "category": "diagnosis",
+              "value": null,
+              "unit": null,
+              "trend": "improving",
+              "raw_text": "PNEUMONIA: Right lower/middle lobe consolidation"
+            },
+            {
+              "symptom": "mental status",
+              "severity": "unknown",
+              "category": "mental_status",
+              "value": 15,
+              "unit": "GCS",
+              "trend": "improving",
+              "raw_text": "MENTAL STATUS: Returned to baseline GCS 15"
+            },
+            {
+              "symptom": "urine output",
+              "severity": "unknown",
+              "category": "fluid_output",
+              "value": 42,
+              "unit": "mL/hr",
+              "trend": "improving",
+              "raw_text": "UOP: 42 mL/hr"
             }
           ]
         }

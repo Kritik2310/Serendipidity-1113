@@ -1,0 +1,303 @@
+{
+  "pipeline_run": {
+    "orchestrator": "OrchestratorAgent v1.1",
+    "subject_id": 99999,
+    "hadm_id": 88888,
+    "run_timestamp": "2026-04-03T14:00:00Z",
+    "duration_ms": 4120,
+    "agents_succeeded": [
+      "note_parser",
+      "lab_mapper",
+      "rag_agent"
+    ],
+    "agents_failed": [],
+    "errors": {}
+  },
+  "note_parser_output": {
+    "agent": "note_parser",
+    "subject_id": 99999,
+    "hadm_id": 88888,
+    "summary": {
+      "total_findings": 6,
+      "unique_patients": 1
+    },
+    "patient_timelines": [
+      {
+        "patient_id": 99999,
+        "admission_id": 88888,
+        "symptom_timeline": [
+          {
+            "timestamp": "2026-04-03T08:15:00Z",
+            "findings": [
+              {
+                "symptom": "fever",
+                "severity": "moderate",
+                "raw_text": "Patient febrile to 39.1C with chills.",
+                "trend": "worsening"
+              },
+              {
+                "symptom": "altered mental status",
+                "severity": "moderate",
+                "raw_text": "Patient became acutely confused during the night.",
+                "trend": "worsening"
+              },
+              {
+                "symptom": "hypotension",
+                "severity": "severe",
+                "raw_text": "Blood pressure dropped to 88/54 mmHg.",
+                "trend": "worsening"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "parsed_symptoms": [
+      {
+        "finding": "fever",
+        "severity": "moderate",
+        "raw_text": "Patient febrile to 39.1C with chills.",
+        "timestamp": "2026-04-03T08:15:00Z",
+        "trend": "worsening"
+      },
+      {
+        "finding": "altered mental status",
+        "severity": "moderate",
+        "raw_text": "Patient became acutely confused during the night.",
+        "timestamp": "2026-04-03T08:15:00Z",
+        "trend": "worsening"
+      },
+      {
+        "finding": "hypotension",
+        "severity": "severe",
+        "raw_text": "Blood pressure dropped to 88/54 mmHg.",
+        "timestamp": "2026-04-03T08:15:00Z",
+        "trend": "worsening"
+      }
+    ],
+    "flagged_risks": [
+      "fever",
+      "altered mental status",
+      "hypotension"
+    ]
+  },
+  "lab_mapper_output": {
+    "agent": "lab_mapper",
+    "subject_id": 99999,
+    "hadm_id": 88888,
+    "timeline_by_test": {
+      "WBC": [
+        {
+          "timestamp": "2026-04-03T08:00:00Z",
+          "value": 78.5,
+          "unit": "K/uL",
+          "delta": 61.3,
+          "delta_pct": 355.8,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "sharply_rising",
+          "outlier": {
+            "is_outlier": true,
+            "z_score": 8.9,
+            "rolling_mean": 17.2,
+            "rolling_std": 6.9,
+            "redraw_required": true
+          }
+        }
+      ],
+      "Creatinine": [
+        {
+          "timestamp": "2026-04-03T08:00:00Z",
+          "value": 2.4,
+          "unit": "mg/dL",
+          "delta": 0.5,
+          "delta_pct": 26.3,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "rising",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": 1.6,
+            "rolling_mean": 1.9,
+            "rolling_std": 0.3,
+            "redraw_required": false
+          },
+          "aki_stage": "Stage 1"
+        }
+      ],
+      "Lactate": [
+        {
+          "timestamp": "2026-04-03T08:00:00Z",
+          "value": 3.9,
+          "unit": "mmol/L",
+          "delta": 1.7,
+          "delta_pct": 77.3,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "rising",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": 1.8,
+            "rolling_mean": 2.2,
+            "rolling_std": 0.9,
+            "redraw_required": false
+          }
+        }
+      ]
+    },
+    "critical_values": [
+      {
+        "test": "WBC",
+        "value": 78.5,
+        "timestamp": "2026-04-03T08:00:00Z",
+        "direction": "high",
+        "is_outlier": true
+      },
+      {
+        "test": "Creatinine",
+        "value": 2.4,
+        "timestamp": "2026-04-03T08:00:00Z",
+        "direction": "high",
+        "is_outlier": false
+      },
+      {
+        "test": "Lactate",
+        "value": 3.9,
+        "timestamp": "2026-04-03T08:00:00Z",
+        "direction": "high",
+        "is_outlier": false
+      }
+    ],
+    "abnormal_values": [
+      {
+        "test": "WBC",
+        "value": 78.5,
+        "timestamp": "2026-04-03T08:00:00Z",
+        "type": "high"
+      },
+      {
+        "test": "Creatinine",
+        "value": 2.4,
+        "timestamp": "2026-04-03T08:00:00Z",
+        "type": "high"
+      },
+      {
+        "test": "Lactate",
+        "value": 3.9,
+        "timestamp": "2026-04-03T08:00:00Z",
+        "type": "high"
+      }
+    ],
+    "outlier_flags": [
+      {
+        "test": "WBC",
+        "signal": "WBC",
+        "value": 78.5,
+        "z_score": 8.9,
+        "timestamp": "2026-04-03T08:00:00Z"
+      }
+    ],
+    "icu_duration_hours": 12.0,
+    "days_of_data": 1,
+    "labs_available": [
+      "WBC",
+      "Creatinine",
+      "Lactate"
+    ],
+    "sofa_inputs_available": "{'WBC', 'Creatinine', 'Lactate'}",
+    "sofa_coverage_pct": 50.0
+  },
+  "rag_guidelines_output": {
+    "agent": "guideline_rag",
+    "query_used": "Symptoms: fever, altered mental status, hypotension. Abnormal labs: WBC 78.5 elevated, Creatinine 2.4 elevated, Lactate 3.9 elevated. Retrieve the most relevant ICU clinical guideline evidence, thresholds, and diagnostic criteria for the flagged risks.",
+    "citations": [
+      {
+        "risk_flag": "SEPSIS_RISK",
+        "source": "Sepsis-3 Consensus Definitions",
+        "category": "sepsis",
+        "page": 3,
+        "rationale": "SEPSIS_RISK matched findings: fever, hypotension, altered mental status, WBC, lactate > 2 mmol/L, creatinine elevated. Retrieved guideline from Sepsis-3 Consensus Definitions supports this risk.",
+        "criteria_met": true,
+        "threshold": "Sepsis-3: suspected infection plus acute SOFA increase >= 2",
+        "matched_findings": [
+          "fever",
+          "hypotension",
+          "altered mental status",
+          "WBC",
+          "lactate > 2 mmol/L",
+          "creatinine elevated"
+        ]
+      },
+      {
+        "risk_flag": "AKI_RISK",
+        "source": "KDIGO AKI Guidelines 2012",
+        "category": "aki",
+        "page": 13,
+        "rationale": "AKI_RISK matched findings: creatinine elevated. Retrieved guideline from KDIGO AKI Guidelines 2012 supports this risk.",
+        "criteria_met": true,
+        "threshold": "KDIGO AKI: creatinine rise >= 0.3 mg/dL in 48h or urine output < 0.5 mL/kg/hr for >= 6h",
+        "matched_findings": [
+          "creatinine elevated"
+        ]
+      }
+    ],
+    "guidelines_retrieved": 2,
+    "top_relevance_score": 0.731
+  },
+  "flagged_risks": [
+    {
+      "source": "note_parser",
+      "type": "symptom",
+      "signal": "fever"
+    },
+    {
+      "source": "note_parser",
+      "type": "symptom",
+      "signal": "altered mental status"
+    },
+    {
+      "source": "note_parser",
+      "type": "symptom",
+      "signal": "hypotension"
+    },
+    {
+      "source": "lab_mapper",
+      "type": "critical_lab",
+      "signal": "WBC",
+      "value": 78.5,
+      "direction": "high",
+      "timestamp": "2026-04-03T08:00:00Z"
+    },
+    {
+      "source": "lab_mapper",
+      "type": "critical_lab",
+      "signal": "Creatinine",
+      "value": 2.4,
+      "direction": "high",
+      "timestamp": "2026-04-03T08:00:00Z"
+    }
+  ],
+  "outlier_flags": [
+    {
+      "test": "WBC",
+      "signal": "WBC",
+      "value": 78.5,
+      "z_score": 8.9,
+      "timestamp": "2026-04-03T08:00:00Z"
+    }
+  ],
+  "data_completeness": {
+    "note_parser_available": true,
+    "lab_mapper_available": true,
+    "rag_available": true,
+    "sofa_coverage_pct": 50.0,
+    "labs_available": [
+      "WBC",
+      "Creatinine",
+      "Lactate"
+    ],
+    "total_flagged_risks": 5,
+    "outlier_flags_active": 1,
+    "guidelines_retrieved": 2
+  }
+}

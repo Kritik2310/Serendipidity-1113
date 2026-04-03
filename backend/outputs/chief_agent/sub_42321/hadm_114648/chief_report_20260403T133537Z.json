@@ -1,0 +1,38 @@
+{
+  "primary_concern": "SEPSIS_RISK",
+  "clinical_summary": "Patient summary generated from unified agent outputs after excluding outlier-tainted values. Retained lab evidence: Creatinine 2.6 (high).",
+  "prioritized_risks": [
+    {
+      "risk_flag": "SEPSIS_RISK",
+      "status": "possible",
+      "guideline_source": "Sepsis-3 Consensus Definitions",
+      "explanation": "SEPSIS_RISK matched findings: creatinine elevated. Retrieved guideline from Sepsis-3 Consensus Definitions supports this risk. Relevant evidence: SECTION 1 Sepsis-3 Definitions and Diagnostic Criteria Source: Singer M, et al. The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3). JAMA. 2016;315",
+      "threshold": "Sepsis-3: suspected infection plus acute SOFA increase >= 2"
+    },
+    {
+      "risk_flag": "AKI_RISK",
+      "status": "supported",
+      "guideline_source": "KDIGO AKI Guidelines 2012",
+      "explanation": "AKI_RISK matched findings: creatinine elevated. Retrieved guideline from KDIGO AKI Guidelines 2012 supports this risk. Relevant evidence: KDIGO AKI definition: creatinine rise >=0.3 mg/dL in 48 hours, or >=1.5x baseline in 7 days, or urine output <0.5 mL/kg/hour for >=6 hours.",
+      "threshold": "KDIGO AKI: creatinine rise >= 0.3 mg/dL in 48h or urine output < 0.5 mL/kg/hr for >= 6h"
+    }
+  ],
+  "recommended_actions": [
+    "Review prioritized risks with a clinician.",
+    "Cross-check retained labs against the bedside picture.",
+    "Reassess any trend changes in the next review cycle."
+  ],
+  "doctor_handoff": "This report is a decision-support summary. Review the cited guideline evidence and retained labs before acting.",
+  "agent": "chief_agent",
+  "subject_id": 42321,
+  "hadm_id": 114648,
+  "generated_at": "2026-04-03T13:35:37.649719+00:00",
+  "excluded_outliers": [],
+  "data_quality": {
+    "note_parser_available": true,
+    "lab_mapper_available": true,
+    "rag_available": true,
+    "outliers_removed_count": 0,
+    "sofa_coverage_pct": 33.3
+  }
+}
