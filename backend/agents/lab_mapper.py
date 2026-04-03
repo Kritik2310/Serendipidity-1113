@@ -171,7 +171,7 @@ class LabMapperAgent():
                 }
 
                 timeline.append(entry)
-                history.append(val)   # append AFTER outlier check
+                history.append(val)  
                 prev = val
 
                 if critical:
@@ -251,18 +251,19 @@ class LabMapperAgent():
             "sofa_inputs_available": sofa_coverage,    
             "sofa_coverage_pct":   round(len(sofa_coverage) / len(sofa_labs_needed) * 100, 1)
         }
-def run_lab_mapper(lab_input):
+        
+def run_lab_mapper(lab_input: dict) -> dict:
     subject_id = lab_input["subject_id"]
-    hadm_id = lab_input["hadm_id"]
+    hadm_id    = lab_input["hadm_id"]
+    agent      = LabMapperAgent()
+    result     = agent.process(subject_id, hadm_id)
+    return result                  
 
-    agent = LabMapperAgent()
-    process =  agent.process(subject_id, hadm_id)
-    print(process)
 
 def save_lab_mapper_output(result: dict, base_dir: str = "backend/outputs") -> Path:
     subject_id = result["subject_id"]
     hadm_id    = result["hadm_id"]
-    timestamp  = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+    timestamp  = datetime.datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")  
 
     out_dir = (
         Path(base_dir)
@@ -280,6 +281,6 @@ def save_lab_mapper_output(result: dict, base_dir: str = "backend/outputs") -> P
     print(f"Saved: {out_file}")
     return out_file
 
-lab_input = {"subject_id": 42321,"hadm_id": 114648}
-result = run_lab_mapper(lab_input)
+lab_input = {"subject_id": 42321, "hadm_id": 114648}
+result    = run_lab_mapper(lab_input)
 save_lab_mapper_output(result)
