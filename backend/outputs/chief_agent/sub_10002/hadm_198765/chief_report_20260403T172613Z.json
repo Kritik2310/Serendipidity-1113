@@ -1,0 +1,53 @@
+{
+  "primary_concern": "SEPSIS_RISK",
+  "clinical_summary": "Report generated from structured agent outputs after outlier removal. Retained lab evidence: Creatinine 1.66 (high), Lactate 2.49 (high), WBC 13.57 (high). LLM synthesis unavailable.",
+  "prioritized_risks": [
+    {
+      "risk_flag": "SEPSIS_RISK",
+      "status": "supported",
+      "guideline_source": "Sepsis-3 Consensus Definitions",
+      "explanation": "SEPSIS_RISK matched: hypotension, altered mental status, oliguria, lactate > 2 mmol/L, WBC > 12 K/uL, creatinine elevated. Guideline from Sepsis-3 Consensus Definitions supports this risk. Evidence: SECTION 1 Sepsis-3 Definitions and Diagnostic Criteria Source: Singer M, et al. The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3). JAMA. 2016;315",
+      "threshold": "Sepsis-3: suspected infection plus acute SOFA increase >= 2"
+    },
+    {
+      "risk_flag": "SEPTIC_SHOCK_RISK",
+      "status": "supported",
+      "guideline_source": "Septic Shock Identification and Management",
+      "explanation": "SEPTIC_SHOCK_RISK matched: persistent hypotension, lactate > 2 mmol/L. Guideline from Septic Shock Identification and Management supports this risk. Evidence: Septic shock requires sepsis plus persistent hypotension needing vasopressors to maintain MAP >=65 mmHg and lactate >2 mmol/L despite adequate fluid resuscitation.",
+      "threshold": "Septic shock: vasopressor-dependent MAP >= 65 with lactate > 2 mmol/L after fluids"
+    },
+    {
+      "risk_flag": "AKI_RISK",
+      "status": "supported",
+      "guideline_source": "KDIGO AKI Guidelines 2012",
+      "explanation": "AKI_RISK matched: oliguria, creatinine elevated. Guideline from KDIGO AKI Guidelines 2012 supports this risk. Evidence: KDIGO AKI definition: creatinine rise >=0.3 mg/dL in 48 hours, or >=1.5x baseline in 7 days, or urine output <0.5 mL/kg/hour for >=6 hours.",
+      "threshold": "KDIGO AKI: creatinine rise >= 0.3 mg/dL in 48h or urine output < 0.5 mL/kg/hr for >= 6h"
+    },
+    {
+      "risk_flag": "EARLY_WARNING_ESCALATION",
+      "status": "supported",
+      "guideline_source": "NEWS2 Early Warning Score",
+      "explanation": "EARLY_WARNING_ESCALATION matched: hypotension, altered mental status, tachycardia. Guideline from NEWS2 Early Warning Score supports this risk. Evidence: SECTION 9 National Early Warning Score 2 (NEWS2) Source: Royal College of Physicians. National Early Warning Score (NEWS) 2. Updated report of a working party. London: RCP, 2017. 9",
+      "threshold": "NEWS2 high risk: score >= 7 or any single severe parameter"
+    }
+  ],
+  "recommended_actions": [
+    "Review prioritized risks with attending clinician.",
+    "Cross-check retained labs against bedside observation.",
+    "Reassess on next clinical review cycle."
+  ],
+  "doctor_handoff": "LLM synthesis failed \u2014 report built from structured data only. Manual review of raw agent outputs is advised.",
+  "disease_progression": [],
+  "agent": "chief_agent",
+  "subject_id": 10002,
+  "hadm_id": 198765,
+  "generated_at": "2026-04-03T17:26:13.940388+00:00",
+  "excluded_outliers": [],
+  "data_quality": {
+    "note_parser_available": true,
+    "lab_mapper_available": true,
+    "rag_available": true,
+    "outliers_removed_count": 0,
+    "sofa_coverage_pct": 50.0
+  }
+}

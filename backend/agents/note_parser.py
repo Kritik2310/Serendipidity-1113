@@ -1,40 +1,28 @@
+from __future__ import annotations
 import csv
 import json
+import logging
 import os
 import re
+from pathlib import Path
+
+import pandas as pd
 from dotenv import load_dotenv
 from groq import Groq
 
-def load_notes_from_csv(file_path):
-    notes = []
-    with open(file_path, "r", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
+load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 
-        for row in reader:
-            text = row.get("text", "").strip()
+logger = logging.getLogger(__name__)
 
-            if not text or row.get("iserror") == "1":
-                continue
+# Max notes sent to LLM per patient
+MAX_NOTES = 10
 
-            notes.append({
-                "row_id": row.get("row_id"),
-                "subject_id": row.get("subject_id"),
-                "hadm_id": row.get("hadm_id"),
-                "note_type": row.get("category", "Unknown"),
-                "timestamp": row.get("charttime") or row.get("chartdate"),
-                "text": text
-            })
-
-    return notes
-
+# Priority order
+CATEGORY_PRIORITY = ["Physician", "Nursing/Other", "Nursing"]
 
 SYSTEM_PROMPT = """You are a clinical NLP specialist.
-
 Extract structured medical findings from ICU notes.
-
-Return ONLY a JSON array.
-
-Each object must contain:
+Return ONLY a JSON array. Each object must contain:
 {
   "symptom": "name",
   "severity": "mild | moderate | severe | critical | unknown",
@@ -43,153 +31,247 @@ Each object must contain:
   "unit": string or null,
   "trend": "improving | worsening | stable | new | unknown",
   "raw_text": "exact phrase from note"
-}
-"""
+}"""
 
-def extract_findings(note, client):
-    user_msg = f"""
-Note Type: {note['note_type']}
-Timestamp: {note['timestamp']}
 
-NOTE:
-{note['text']}
-"""
+#Data loading 
 
-    response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        temperature=0,
-        max_tokens=1500,
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": user_msg},
-        ]
+def _load_patient_notes(file_path: str, subject_id: int, hadm_id: int) -> list[dict]:
+    """Load CSV, filter to one patient, drop errors, sort chronologically."""
+    df = pd.read_csv(file_path, dtype={"subject_id": int, "hadm_id": int})
+
+    # Filter to this patient only done before any other processing
+    df = df[(df["subject_id"] == subject_id) & (df["hadm_id"] == hadm_id)]
+
+    # Drop error flagged and empty notes
+    df = df[df["iserror"] != 1]
+    df = df[df["text"].notna() & (df["text"].str.strip() != "")]
+
+    #Sort chronologically 
+    df["charttime"] = pd.to_datetime(df["charttime"], errors="coerce")
+    df = df.sort_values("charttime", ascending=True).reset_index(drop=True)
+
+    return df.to_dict("records")
+
+
+def _select_notes(notes: list[dict]) -> list[dict]:
+    """
+    Pick up to MAX_NOTES notes, prioritising by clinical weight.
+    """
+    buckets: dict[str, list] = {cat: [] for cat in CATEGORY_PRIORITY}
+    other: list[dict] = []
+
+    for note in notes:
+        cat = note.get("category", "")
+        if cat in buckets:
+            buckets[cat].append(note)
+        else:
+            other.append(note)
+
+    # Slots 
+    limits = {"Physician": 4, "Nursing/Other": 3, "Nursing": 3}
+    selected: list[dict] = []
+
+    for cat in CATEGORY_PRIORITY:
+        pool = buckets[cat]
+        selected.extend(pool[-limits[cat]:]) 
+
+    # Fill remaining slots with any uncategorised notes
+    remaining = MAX_NOTES - len(selected)
+    if remaining > 0:
+        selected.extend(other[-remaining:])
+
+    return selected[:MAX_NOTES]
+
+
+#LLM extraction 
+def _extract_findings(note: dict, client: Groq) -> list[dict]:
+    """Send one note to Groq, parse JSON response. Returns [] on any failure."""
+    user_msg = (
+        f"Note Type: {note.get('category', 'Unknown')}\n"
+        f"Timestamp: {note.get('charttime', '')}\n\n"
+        f"NOTE:\n{note['text']}"
     )
 
-    return response.choices[0].message.content.strip()
+    try:
+        response = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            temperature=0,
+            max_tokens=1500,
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user",   "content": user_msg},
+            ],
+        )
+        raw = response.choices[0].message.content.strip()
+        return _parse_llm_response(raw, note)
 
-def parse_response(raw, note):
-    clean = raw.strip()
-    clean = re.sub(r"```json", "", clean)
-    clean = re.sub(r"```", "", clean)
+    except Exception as e:
+        logger.warning("Note %s skipped: %s", note.get("row_id"), e)
+        return []
+
+def _parse_llm_response(raw: str, note: dict) -> list[dict]:
+    clean = re.sub(r"```json|```", "", raw).strip()
 
     try:
         data = json.loads(clean)
-    except:
+    except json.JSONDecodeError:
+        logger.warning("JSON parse failed for note %s", note.get("row_id"))
         return []
-    
-    findings = []
 
+    findings = []
     for item in data:
-        if not isinstance(item, dict):
+        if not isinstance(item, dict) or not item.get("symptom"):
             continue
         findings.append({
             "subject_id": note["subject_id"],
-            "hadm_id": note["hadm_id"],
-            "timestamp": note["timestamp"],
-            "note_type": note["note_type"],
-            "symptom": item.get("symptom", "").lower(),
-            "severity": item.get("severity", "unknown"),
-            "category": item.get("category", "other"),
-            "value": item.get("value"),
-            "unit": item.get("unit"),
-            "trend": item.get("trend", "unknown"),
-            "raw_text": item.get("raw_text", "")
+            "hadm_id":    note["hadm_id"],
+            "timestamp":  str(note.get("charttime", "")),
+            "note_type":  note.get("category", "Unknown"),
+            "symptom":    item.get("symptom", "").lower().strip(),
+            "severity":   item.get("severity", "unknown"),
+            "category":   item.get("category", "other"),
+            "value":      item.get("value"),
+            "unit":       item.get("unit"),
+            "trend":      item.get("trend", "unknown"),
+            "raw_text":   item.get("raw_text", ""),
         })
-
     return findings
 
-def patient_timeline(findings):
-    patients = {}
+#Output assembly 
+def _build_timeline(findings: list[dict]) -> list[dict]:
+    """Group findings by timestamp into a chronological timeline."""
+    slots: dict[str, dict] = {}
+
     for f in findings:
-        key = f["subject_id"] + "_" + f["hadm_id"]
-        if key not in patients:
-            patients[key] = {
-                "patient_id": f["subject_id"],
-                "admission_id": f["hadm_id"],
-                "symptom_timeline": {}
-            }
-
-        timeline = patients[key]["symptom_timeline"]
         ts = f["timestamp"]
-
-        if ts not in timeline:
-            timeline[ts] = {
+        if ts not in slots:
+            slots[ts] = {
                 "timestamp": ts,
                 "note_type": f["note_type"],
-                "findings": []
+                "findings":  [],
             }
-
-        timeline[ts]["findings"].append({
-            "symptom": f["symptom"],
+        slots[ts]["findings"].append({
+            "symptom":  f["symptom"],
             "severity": f["severity"],
             "category": f["category"],
-            "value": f["value"],
-            "unit": f["unit"],
-            "trend": f["trend"],
-            "raw_text": f["raw_text"]
+            "value":    f["value"],
+            "unit":     f["unit"],
+            "trend":    f["trend"],
+            "raw_text": f["raw_text"],
         })
 
-    final_output = []
+    return sorted(slots.values(), key=lambda x: x["timestamp"])
+def _build_parsed_symptoms(findings: list[dict]) -> list[dict]:
+    """Flat symptom list consumed by the RAG agent."""
+    return [
+        {
+            "finding":   f["symptom"],
+            "severity":  f["severity"],
+            "raw_text":  f["raw_text"],
+            "timestamp": f["timestamp"],
+            "trend":     f["trend"],
+        }
+        for f in findings
+    ]
 
-    for patient in patients.values():
-        timeline_list = list(patient["symptom_timeline"].values())
-        timeline_list.sort(key=lambda x: x["timestamp"])
 
-        patient["symptom_timeline"] = timeline_list
-        final_output.append(patient)
+def _build_flagged_risks(findings: list[dict]) -> list[str]:
+    HIGH_SEVERITY = {"moderate", "severe", "critical"}
+    seen, flagged = set(), []
+    for f in findings:
+        if f["severity"] in HIGH_SEVERITY and f["symptom"] not in seen:
+            seen.add(f["symptom"])
+            flagged.append(f["symptom"])
+    return flagged
 
-    return final_output
 
-def summary(findings):
-    return{
-        "total_findings": len(findings),
-        "unique_patients": len(set(f["subject_id"] for f in findings))
-    }
+#Public entry point 
+def run_parser(file_path: str, api_key: str, subject_id: int, hadm_id: int) -> dict:
+    #load and filter to this patient
+    all_notes = _load_patient_notes(file_path, subject_id, hadm_id)
 
-def run_parser(file_path, api_key):
-    notes = load_notes_from_csv(file_path)
-    print(f"Loaded {len(notes)} notes from CSV.")
+    if not all_notes:
+        logger.warning("No notes found for subject=%s hadm=%s", subject_id, hadm_id)
+        return _empty_result(subject_id, hadm_id, reason="No notes found in CSV")
+    #select up to max_notes by clinical priority
+    selected = _select_notes(all_notes)
+    logger.info("Processing %d/%d notes for subject=%s", len(selected), len(all_notes), subject_id)
 
-    if notes:
-        print("Sample Note:", notes[0])
-
+    #extract findings from each note via Groq
     client = Groq(api_key=api_key)
+    all_findings: list[dict] = []
 
-    all_findings = []
+    for i, note in enumerate(selected, 1):
+        logger.info("  Note %d/%d — %s", i, len(selected), note.get("category"))
+        findings = _extract_findings(note, client)
+        all_findings.extend(findings)
 
-    for i, note in enumerate(notes):
-        print(f"Processing {i+1}/{len(notes)}")
+    #assemble output
+    timeline = _build_timeline(all_findings)
+    parsed_symptoms = _build_parsed_symptoms(all_findings)
+    flagged_risks = _build_flagged_risks(all_findings)
 
-        try:
-            raw = extract_findings(note, client)
-            findings = parse_response(raw, note)
-
-            print(f" - {len(findings)} findings")
-
-            all_findings.extend(findings)
-
-        except Exception as e:
-            print("Error:", e)
-            continue
-
-    patient_data = patient_timeline(all_findings)
-
-    result = {
-        "agent": "note_parser",
-        "summary": summary(all_findings),
-        "patient_timelines": patient_data   
+    return {
+        "agent":      "note_parser",
+        "subject_id": subject_id,
+        "hadm_id":    hadm_id,
+        "summary": {
+            "total_findings":  len(all_findings),
+            "notes_processed": len(selected),
+            "notes_available": len(all_notes),
+        },
+        "patient_timelines": [
+            {
+                "patient_id":       subject_id,
+                "admission_id":     hadm_id,
+                "symptom_timeline": timeline,
+            }
+        ],
+        "parsed_symptoms": parsed_symptoms,
+        "flagged_risks":   flagged_risks,
+    }
+def _empty_result(subject_id: int, hadm_id: int, reason: str = "") -> dict:
+    return {
+        "agent":             "note_parser",
+        "subject_id":        subject_id,
+        "hadm_id":           hadm_id,
+        "summary":           {"total_findings": 0, "notes_processed": 0, "notes_available": 0},
+        "patient_timelines": [],
+        "parsed_symptoms":   [],
+        "flagged_risks":     [],
+        "note":              reason,
     }
 
-    return result
 
+# Helper
+def save_note_parser_output(result: dict, base_dir: str = "backend/outputs") -> Path:
+    from datetime import datetime
+    sid = result["subject_id"]
+    hid = result["hadm_id"]
+    ts  = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
 
-if __name__ == "__main__":
-    load_dotenv()
-    FILE_PATH = "backend/data/NOTEEVENTS1.csv" 
-    API_KEY = os.getenv("GROQ_API_KEY")
-    result = run_parser(FILE_PATH, API_KEY)
-    with open("note_parser_output.json", "w") as f:
+    out_dir = Path(base_dir) / "note_parser" / f"sub_{sid}" / f"hadm_{hid}"
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    out_file = out_dir / f"note_parser_{ts}.json"
+    with open(out_file, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2)
 
-    print("Done. Output saved to note_parser_output.json")
+    logger.info("Saved: %s", out_file)
+    return out_file
+# Standalone run 
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s — %(message)s")
+
+    result = run_parser(
+        file_path  = "backend/data/NOTEEVENTS1.csv",
+        api_key    = os.getenv("GROQ_API_KEY"),
+        subject_id = 10002,
+        hadm_id    = 198765,
+    )
+
+    out_file = save_note_parser_output(result)
     print(json.dumps(result["summary"], indent=2))
+    print(f"Flagged risks : {result['flagged_risks']}")
+    print(f"Saved         : {out_file}")
