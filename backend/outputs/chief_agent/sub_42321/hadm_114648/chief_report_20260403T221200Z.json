@@ -1,0 +1,52 @@
+{
+  "primary_concern": "Elevated creatinine and low hemoglobin requiring urgent evaluation",
+  "clinical_summary": "Patient presents with significantly elevated creatinine (2.6 mg/dL) indicating potential acute or chronic kidney injury. Concurrent low hemoglobin (9.7 g/dL) suggests anemia requiring investigation. No associated symptoms reported. Both abnormalities are recent and non-outlier values. Requires correlation with clinical context and serial measurements.",
+  "prioritized_risks": [
+    {
+      "risk_flag": "Elevated Creatinine",
+      "status": "Active",
+      "guideline_source": "",
+      "explanation": "Creatinine >2.0 mg/dL in adults raises concern for acute kidney injury (AKI) stage 2 or chronic kidney disease progression",
+      "threshold": "Normal range: 0.6-1.2 mg/dL (varies by lab)"
+    },
+    {
+      "risk_flag": "Low Hemoglobin",
+      "status": "Active",
+      "guideline_source": "",
+      "explanation": "Hemoglobin <10.0 g/dL in adults indicates moderate anemia requiring etiology investigation",
+      "threshold": "Normal range: 13.5-17.5 g/dL (males), 12.0-15.5 g/dL (females)"
+    }
+  ],
+  "recommended_actions": [
+    "Assess for acute kidney injury (AKI) using KDIGO criteria",
+    "Evaluate anemia etiology (iron deficiency, chronic disease, hemolysis)",
+    "Review recent medications for nephrotoxicity",
+    "Order urinalysis, BUN, eGFR, and reticulocyte count",
+    "Consider cross-matching for potential transfusion if symptomatic"
+  ],
+  "doctor_handoff": "Review serial creatinine trends and urine output. Confirm hemoglobin stability with repeat testing. Prioritize imaging for obstructive uropathy if AKI suspected.",
+  "disease_progression": [],
+  "agent": "chief_agent",
+  "subject_id": 42321,
+  "hadm_id": 114648,
+  "generated_at": "2026-04-03T22:11:54.940954+00:00",
+  "excluded_outliers": [],
+  "outlier_summary": {
+    "total_checked": 2,
+    "total_excluded": 0,
+    "by_layer": {
+      "physiological": 0,
+      "current_admission": 0,
+      "historical_baseline": 0,
+      "realtime_delta": 0
+    }
+  },
+  "data_quality": {
+    "note_parser_available": true,
+    "lab_mapper_available": true,
+    "rag_available": false,
+    "outliers_removed_count": 0,
+    "sofa_coverage_pct": 66.7
+  },
+  "mongo_id": null
+}

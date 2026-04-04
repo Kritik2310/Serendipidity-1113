@@ -1,12 +1,10 @@
 from __future__ import annotations
-
 import json
 import logging
 import os
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-
 import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
@@ -17,6 +15,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from utils.llm_client import get_active_provider, get_llm
 from backend.utils.outlier_rules import Z_THRESHOLD, IMPLAUSIBLE_LIMITS, check_delta
+from backend.utils.mongo_client import ensure_indexes          # ← NEW
+from backend.utils.mongo_store import save_chief_report        # ← NEW
 
 from backend.utils.mongo_client import ensure_indexes
 from backend.utils.mongo_store import save_chief_report
@@ -201,7 +201,6 @@ def _detect_outliers_chief(
                 "status":              "pending_confirmation",
                 "historical_baseline": history.get(test),
             }
-
         if not exclusion:
             current_values = [
                 e["value"] for e in timeline
@@ -231,7 +230,6 @@ def _detect_outliers_chief(
                             "status":              "pending_confirmation",
                             "historical_baseline": history.get(test),
                         }
-
         if not exclusion and test in history:
             h      = history[test]
             h_std  = h["historical_std"]
@@ -328,7 +326,6 @@ def _build_clean_context(unified: dict, subject_id: int, hadm_id: int) -> dict:
 
 
 def _call_llm(subject_id: int, hadm_id: int, ctx: dict) -> dict:
-    """Send clean context to LLM, return parsed report dict."""
     llm    = get_llm(provider=get_active_provider(), request_timeout=60)
     prompt = ChatPromptTemplate.from_messages([
         ("system", SYSTEM_PROMPT),
@@ -350,7 +347,6 @@ def _call_llm(subject_id: int, hadm_id: int, ctx: dict) -> dict:
 
 
 def _parse_llm_response(raw: str) -> dict:
-    """Strip markdown fences and parse JSON from LLM output."""
     clean = raw.strip().replace("```json", "").replace("```", "").strip()
     try:
         return json.loads(clean)
@@ -574,7 +570,6 @@ def _generate_family_communication(
 # ── Fallback report (no LLM) ──────────────────────────────────────────────────
 
 def _fallback_report(ctx: dict) -> dict:
-    """Built purely from structured data when LLM call fails."""
     prioritized = [
         {
             "risk_flag":        c["risk_flag"],
@@ -695,7 +690,6 @@ def run_chief_agent(unified_input: dict | str | Path) -> dict:
 
 
 def save_chief_output(report: dict) -> Path:
-    """Save chief agent report to disk under outputs/chief_agent/sub_X/hadm_Y/"""
     sid = report["subject_id"]
     hid = report["hadm_id"]
     ts  = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
