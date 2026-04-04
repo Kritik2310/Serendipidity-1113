@@ -94,9 +94,6 @@ Simulation sessions are logged with a session ID (timestamp-based). On restart, 
 | `FastAPI` | REST API server — exposes `/analyze` endpoint that triggers the full agent pipeline |
 | `uvicorn` | ASGI server running the FastAPI app |
 | `pymongo` | MongoDB driver — persists generated Diagnostic Risk Reports |
-| `pandas` + `numpy` | Lab data loading, MIMIC-III CSV processing, severity score computation |
-| `python-dotenv` | Environment variable management (API keys, DB URIs) |
-| `pytest` | Test suite |
 
 ### Data
 | Source | Role |
@@ -109,13 +106,11 @@ Simulation sessions are logged with a session ID (timestamp-based). On restart, 
 |---|---|
 | `Next.js` (TypeScript) | React-based frontend — patient list, analysis dashboard, report view |
 | `CSS` | Component styling |
-| Vercel / AWS S3 / CloudFront | Deployment targets for frontend static assets |
 
-### Infrastructure
+### Deployment Scope
 | Tool | Role |
 |---|---|
 | Docker | Containerization of backend services |
-| Kubernetes | Cluster orchestration and horizontal scaling |
 | AWS / GCP | Cloud deployment targets |
 | MongoDB | Report storage and retrieval |
 
