@@ -82,7 +82,7 @@ Simulation sessions are logged with a session ID (timestamp-based). On restart, 
 ### AI & Agent Orchestration
 | Tool | Role |
 |---|---|
-| `groq llm` | LLM backbone for all four agents (GPT-4 via OpenAI API) |
+| `groq llm` | LLM backbone for all four agents (via API) |
 | `langchain-core` | Agent orchestration, prompt chaining, output parsing |
 | `sentence-transformers` | Local embedding model for RAG query encoding |
 | `chromadb` | Vector store for medical guideline retrieval (RAG pipeline) |
