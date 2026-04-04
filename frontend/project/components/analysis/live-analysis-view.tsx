@@ -10,6 +10,8 @@ import { NotesPanel } from "@/components/analysis/notes-panel"
 import { GuidelinesPanel } from "@/components/analysis/guidelines-panel"
 import { DiseaseProgressionPanel } from "@/components/analysis/disease-progression-panel"
 import { ActionButton } from "@/components/analysis/action-button"
+import { FamilyCommunicationPanel } from "@/components/family/family-communication-panel"
+import { Button } from "@/components/ui/button"
 import {
   deriveRiskLevel,
   fetchProgression,
@@ -24,6 +26,7 @@ import {
   type AnalyzeResponse,
 } from "@/lib/api"
 import type { DiseaseProgression } from "@/lib/patient-data"
+import { formatDate } from "@/lib/format-date";
 
 interface LiveAnalysisViewProps {
   initialReport: AnalyzeResponse
@@ -32,6 +35,7 @@ interface LiveAnalysisViewProps {
 export function LiveAnalysisView({ initialReport }: LiveAnalysisViewProps) {
   const [report, setReport]           = useState<AnalyzeResponse>(initialReport)
   const [liveProgression, setLiveProgression] = useState<DiseaseProgression | null>(null)
+  const [activeTab, setActiveTab]     = useState<"clinical" | "family">("clinical")
   const progressionIntervalRef        = useRef<ReturnType<typeof setInterval> | null>(null)
 
   // ── SSE: refresh report whenever backend saves a new chief report ──────────
@@ -98,29 +102,59 @@ export function LiveAnalysisView({ initialReport }: LiveAnalysisViewProps) {
       />
 
       <div className="p-8 pb-32">
-        <div className="mb-6">
-          <RiskPanel
-            primaryConcern={report.primary_concern}
-            riskLevel={riskLevel}
-            prioritizedRisks={report.prioritized_risks}
-          />
+        {/* ── Tab switcher ───────────────────────────────────────────────── */}
+        <div className="mb-6 flex items-center gap-3">
+          <Button
+            variant={activeTab === "clinical" ? "default" : "outline"}
+            onClick={() => setActiveTab("clinical")}
+          >
+            Clinical Analysis
+          </Button>
+          <Button
+            variant={activeTab === "family" ? "default" : "outline"}
+            onClick={() => setActiveTab("family")}
+          >
+            Family Communication
+          </Button>
         </div>
 
-        {progression && (
-          <div className="mb-6">
-            <DiseaseProgressionPanel progression={progression} />
-          </div>
+        {/* ── Family tab ─────────────────────────────────────────────────── */}
+        {activeTab === "family" ? (
+          report.family_communication ? (
+            <FamilyCommunicationPanel familyCommunication={report.family_communication} />
+          ) : (
+            <div className="rounded-lg border border-border bg-muted/20 p-8 text-center text-muted-foreground">
+              Family communication has not been generated yet. Run a fresh analysis to populate this section.
+            </div>
+          )
+        ) : (
+          /* ── Clinical tab ──────────────────────────────────────────────── */
+          <>
+            <div className="mb-6">
+              <RiskPanel
+                primaryConcern={report.primary_concern}
+                riskLevel={riskLevel}
+                prioritizedRisks={report.prioritized_risks}
+              />
+            </div>
+
+            {progression && (
+              <div className="mb-6">
+                <DiseaseProgressionPanel progression={progression} />
+              </div>
+            )}
+
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              <LabTrends labs={labs} />
+              <AlertsPanel alerts={alerts} />
+            </div>
+
+            <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
+              <NotesPanel notes={notes} />
+              <GuidelinesPanel guidelines={guidelines} />
+            </div>
+          </>
         )}
-
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <LabTrends labs={labs} />
-          <AlertsPanel alerts={alerts} />
-        </div>
-
-        <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <NotesPanel notes={notes} />
-          <GuidelinesPanel guidelines={guidelines} />
-        </div>
       </div>
 
       <ActionButton

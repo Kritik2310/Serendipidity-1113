@@ -58,6 +58,14 @@ export interface AnalyzeResponse {
   doctor_handoff: string
   generated_at: string
   disease_timeline: DiseaseTimelineEvent[]
+  family_communication: {
+    time_window_hours: number
+    regional_language: string
+    regional_language_code: string
+    english_summary: string
+    regional_summary: string
+    generated_at: string
+  }
   disease_progression?: Array<{
     period: string
     observation: string
@@ -79,6 +87,11 @@ export interface PatientSummary {
   primaryConcern: string
   riskLevel: RiskLevel
   lastAnalyzed: string
+}
+
+export interface PatientReportBundle {
+  summary: PatientSummary
+  report: AnalyzeResponse | null
 }
 
 export interface StreamPayload {
@@ -231,6 +244,40 @@ export async function fetchPatientSummaries(): Promise<PatientSummary[]> {
           riskLevel: "low" as RiskLevel,
           lastAnalyzed: new Date(entry.last_analyzed * 1000).toISOString(),
         }
+      }
+    })
+  )
+}
+
+export async function fetchAllPatientReports(): Promise<PatientReportBundle[]> {
+  const directory = await fetchPatients()
+
+  return Promise.all(
+    directory.map(async (entry) => {
+      const summary: PatientSummary = {
+        analysisId: buildAnalysisId(entry.subject_id, entry.hadm_id),
+        subjectId: entry.subject_id,
+        hadmId: entry.hadm_id,
+        status: "unknown",
+        primaryConcern: "Report unavailable",
+        riskLevel: "low",
+        lastAnalyzed: new Date(entry.last_analyzed * 1000).toISOString(),
+      }
+
+      try {
+        const report = await fetchReport(entry.subject_id, entry.hadm_id)
+        return {
+          summary: {
+            ...summary,
+            status: report.status,
+            primaryConcern: report.primary_concern,
+            riskLevel: deriveRiskLevel(report),
+            lastAnalyzed: report.generated_at,
+          },
+          report,
+        }
+      } catch {
+        return { summary, report: null }
       }
     })
   )

@@ -16,10 +16,10 @@ export function AlertsPanel({ alerts }: AlertsPanelProps) {
       <CardHeader className="pb-2">
         <CardTitle className="text-lg font-semibold">Alerts</CardTitle>
       </CardHeader>
-      <CardContent className="flex flex-col gap-4">
+      <CardContent className="flex flex-col gap-4 text-lg">
         {criticalAlerts.length > 0 && (
           <div>
-            <h4 className="mb-2 flex items-center gap-2 text-sm font-semibold text-risk-high">
+            <h4 className="mb-2 flex items-center gap-2 text-xl font-semibold text-risk-high">
               <AlertTriangle className="h-4 w-4" />
               Critical Alerts
             </h4>
@@ -29,10 +29,10 @@ export function AlertsPanel({ alerts }: AlertsPanelProps) {
                   key={alert.id}
                   className="rounded-lg border border-risk-high/20 bg-risk-high/5 p-3"
                 >
-                  <p className="text-sm font-medium text-foreground">
+                  <p className="text-lg font-medium text-foreground">
                     {alert.message}
                   </p>
-                  <p className="mt-1 text-xs text-muted-foreground">
+                  <p className="mt-1 text-lg text-muted-foreground">
                     {alert.timestamp}
                   </p>
                 </div>

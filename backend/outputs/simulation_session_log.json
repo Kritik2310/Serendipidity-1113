@@ -148,5 +148,357 @@
     "summary": "Round 3 \u2014 score 32.1",
     "logged_at": "2026-04-03T21:17:26.195599+00:00",
     "session_id": "20260403T211614"
+  },
+  {
+    "time": "03 Apr, 21:22",
+    "score": 21.0,
+    "source": "Real-time",
+    "summary": "Round 1 \u2014 score 21.0",
+    "logged_at": "2026-04-03T21:22:26.862698+00:00",
+    "session_id": "20260403T212226"
+  },
+  {
+    "time": "03 Apr, 21:23",
+    "score": 23.3,
+    "source": "Real-time",
+    "summary": "Round 2 \u2014 score 23.3",
+    "logged_at": "2026-04-03T21:23:03.180139+00:00",
+    "session_id": "20260403T212226"
+  },
+  {
+    "time": "03 Apr, 21:23",
+    "score": 25.6,
+    "source": "Real-time",
+    "summary": "Round 3 \u2014 score 25.6",
+    "logged_at": "2026-04-03T21:23:38.916800+00:00",
+    "session_id": "20260403T212226"
+  },
+  {
+    "time": "03 Apr, 21:24",
+    "score": 29.9,
+    "source": "Real-time",
+    "summary": "Round 4 \u2014 score 29.9",
+    "logged_at": "2026-04-03T21:24:14.255696+00:00",
+    "session_id": "20260403T212226"
+  },
+  {
+    "time": "03 Apr, 21:24",
+    "score": 33.6,
+    "source": "Real-time",
+    "summary": "Round 5 \u2014 score 33.6",
+    "logged_at": "2026-04-03T21:24:49.769049+00:00",
+    "session_id": "20260403T212226"
+  },
+  {
+    "time": "03 Apr, 21:53",
+    "score": 19.3,
+    "source": "Real-time",
+    "summary": "Round 1 \u2014 score 19.3",
+    "logged_at": "2026-04-03T21:53:36.754378+00:00",
+    "session_id": "20260403T215336"
+  },
+  {
+    "time": "03 Apr, 21:54",
+    "score": 20.6,
+    "source": "Real-time",
+    "summary": "Round 2 \u2014 score 20.6",
+    "logged_at": "2026-04-03T21:54:25.245437+00:00",
+    "session_id": "20260403T215336"
+  },
+  {
+    "time": "03 Apr, 21:55",
+    "score": 22.5,
+    "source": "Real-time",
+    "summary": "Round 3 \u2014 score 22.5",
+    "logged_at": "2026-04-03T21:55:30.428489+00:00",
+    "session_id": "20260403T215336"
+  },
+  {
+    "time": "03 Apr, 21:56",
+    "score": 23.4,
+    "source": "Real-time",
+    "summary": "Round 4 \u2014 score 23.4",
+    "logged_at": "2026-04-03T21:56:26.704963+00:00",
+    "session_id": "20260403T215336"
+  },
+  {
+    "time": "03 Apr, 21:57",
+    "score": 25.7,
+    "source": "Real-time",
+    "summary": "Round 5 \u2014 score 25.7",
+    "logged_at": "2026-04-03T21:57:23.215591+00:00",
+    "session_id": "20260403T215336"
+  },
+  {
+    "time": "03 Apr, 21:58",
+    "score": 29.2,
+    "source": "Real-time",
+    "summary": "Round 6 \u2014 score 29.2",
+    "logged_at": "2026-04-03T21:58:21.591051+00:00",
+    "session_id": "20260403T215336"
+  },
+  {
+    "time": "03 Apr, 21:59",
+    "score": 34.1,
+    "source": "Real-time",
+    "summary": "Round 7 \u2014 score 34.1",
+    "logged_at": "2026-04-03T21:59:22.491585+00:00",
+    "session_id": "20260403T215336"
+  },
+  {
+    "time": "03 Apr, 22:00",
+    "score": 30.7,
+    "source": "Real-time",
+    "summary": "Round 8 \u2014 score 30.7",
+    "logged_at": "2026-04-03T22:00:19.423179+00:00",
+    "session_id": "20260403T215336"
+  },
+  {
+    "time": "03 Apr, 22:01",
+    "score": 34.7,
+    "source": "Real-time",
+    "summary": "Round 9 \u2014 score 34.7",
+    "logged_at": "2026-04-03T22:01:06.030786+00:00",
+    "session_id": "20260403T215336"
+  },
+  {
+    "time": "03 Apr, 22:02",
+    "score": 36.3,
+    "source": "Real-time",
+    "summary": "Round 10 \u2014 score 36.3",
+    "logged_at": "2026-04-03T22:02:03.080773+00:00",
+    "session_id": "20260403T215336"
+  },
+  {
+    "time": "03 Apr, 22:03",
+    "score": 40.6,
+    "source": "Real-time",
+    "summary": "Round 11 \u2014 score 40.6",
+    "logged_at": "2026-04-03T22:03:00.468733+00:00",
+    "session_id": "20260403T215336"
+  },
+  {
+    "time": "03 Apr, 22:11",
+    "score": 20.3,
+    "source": "Real-time",
+    "summary": "Round 1 \u2014 score 20.3",
+    "logged_at": "2026-04-03T22:11:18.778667+00:00",
+    "session_id": "20260403T221118"
+  },
+  {
+    "time": "03 Apr, 22:11",
+    "score": 22.1,
+    "source": "Real-time",
+    "summary": "Round 2 \u2014 score 22.1",
+    "logged_at": "2026-04-03T22:11:57.193442+00:00",
+    "session_id": "20260403T221118"
+  },
+  {
+    "time": "03 Apr, 22:13",
+    "score": 24.7,
+    "source": "Real-time",
+    "summary": "Round 3 \u2014 score 24.7",
+    "logged_at": "2026-04-03T22:13:08.329565+00:00",
+    "session_id": "20260403T221118"
+  },
+  {
+    "time": "03 Apr, 22:14",
+    "score": 26.9,
+    "source": "Real-time",
+    "summary": "Round 4 \u2014 score 26.9",
+    "logged_at": "2026-04-03T22:14:08.902730+00:00",
+    "session_id": "20260403T221118"
+  },
+  {
+    "time": "03 Apr, 22:43",
+    "score": 25.8,
+    "source": "Real-time",
+    "summary": "Round 1 \u2014 score 25.8",
+    "logged_at": "2026-04-03T22:43:38.356663+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 22:44",
+    "score": 23.0,
+    "source": "Real-time",
+    "summary": "Round 2 \u2014 score 23.0",
+    "logged_at": "2026-04-03T22:44:25.124134+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 22:45",
+    "score": 26.5,
+    "source": "Real-time",
+    "summary": "Round 3 \u2014 score 26.5",
+    "logged_at": "2026-04-03T22:45:32.115762+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 22:46",
+    "score": 29.4,
+    "source": "Real-time",
+    "summary": "Round 4 \u2014 score 29.4",
+    "logged_at": "2026-04-03T22:46:31.020280+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 22:47",
+    "score": 29.9,
+    "source": "Real-time",
+    "summary": "Round 5 \u2014 score 29.9",
+    "logged_at": "2026-04-03T22:47:31.717395+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 22:48",
+    "score": 34.8,
+    "source": "Real-time",
+    "summary": "Round 6 \u2014 score 34.8",
+    "logged_at": "2026-04-03T22:48:25.975540+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 22:49",
+    "score": 34.2,
+    "source": "Real-time",
+    "summary": "Round 7 \u2014 score 34.2",
+    "logged_at": "2026-04-03T22:49:26.268269+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 22:50",
+    "score": 33.4,
+    "source": "Real-time",
+    "summary": "Round 8 \u2014 score 33.4",
+    "logged_at": "2026-04-03T22:50:23.716921+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 22:51",
+    "score": 36.8,
+    "source": "Real-time",
+    "summary": "Round 9 \u2014 score 36.8",
+    "logged_at": "2026-04-03T22:51:23.314481+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 22:52",
+    "score": 36.2,
+    "source": "Real-time",
+    "summary": "Round 10 \u2014 score 36.2",
+    "logged_at": "2026-04-03T22:52:55.820998+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 22:53",
+    "score": 38.0,
+    "source": "Real-time",
+    "summary": "Round 11 \u2014 score 38.0",
+    "logged_at": "2026-04-03T22:53:56.539722+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 22:54",
+    "score": 41.2,
+    "source": "Real-time",
+    "summary": "Round 12 \u2014 score 41.2",
+    "logged_at": "2026-04-03T22:54:55.887449+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 22:55",
+    "score": 40.5,
+    "source": "Real-time",
+    "summary": "Round 13 \u2014 score 40.5",
+    "logged_at": "2026-04-03T22:55:54.293833+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 22:56",
+    "score": 40.3,
+    "source": "Real-time",
+    "summary": "Round 14 \u2014 score 40.3",
+    "logged_at": "2026-04-03T22:56:50.653790+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 22:57",
+    "score": 42.2,
+    "source": "Real-time",
+    "summary": "Round 15 \u2014 score 42.2",
+    "logged_at": "2026-04-03T22:57:49.981197+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 22:58",
+    "score": 42.0,
+    "source": "Real-time",
+    "summary": "Round 16 \u2014 score 42.0",
+    "logged_at": "2026-04-03T22:58:48.609342+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 22:59",
+    "score": 46.0,
+    "source": "Real-time",
+    "summary": "Round 17 \u2014 score 46.0",
+    "logged_at": "2026-04-03T22:59:48.911008+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 23:00",
+    "score": 47.9,
+    "source": "Real-time",
+    "summary": "Round 18 \u2014 score 47.9",
+    "logged_at": "2026-04-03T23:00:45.747093+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 23:01",
+    "score": 53.1,
+    "source": "Real-time",
+    "summary": "Round 19 \u2014 score 53.1",
+    "logged_at": "2026-04-03T23:01:43.879624+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "03 Apr, 23:02",
+    "score": 58.8,
+    "source": "Real-time",
+    "summary": "Round 20 \u2014 score 58.8",
+    "logged_at": "2026-04-03T23:02:18.809241+00:00",
+    "session_id": "20260403T224338"
+  },
+  {
+    "time": "04 Apr, 02:16",
+    "score": 18.0,
+    "source": "Real-time",
+    "summary": "Round 1 \u2014 score 18.0",
+    "logged_at": "2026-04-04T02:16:34.805558+00:00",
+    "session_id": "20260404T021634"
+  },
+  {
+    "time": "04 Apr, 02:17",
+    "score": 17.6,
+    "source": "Real-time",
+    "summary": "Round 2 \u2014 score 17.6",
+    "logged_at": "2026-04-04T02:17:12.806585+00:00",
+    "session_id": "20260404T021634"
+  },
+  {
+    "time": "04 Apr, 02:18",
+    "score": 18.5,
+    "source": "Real-time",
+    "summary": "Round 3 \u2014 score 18.5",
+    "logged_at": "2026-04-04T02:18:05.025613+00:00",
+    "session_id": "20260404T021634"
+  },
+  {
+    "time": "04 Apr, 02:19",
+    "score": 20.7,
+    "source": "Real-time",
+    "summary": "Round 4 \u2014 score 20.7",
+    "logged_at": "2026-04-04T02:19:29.424314+00:00",
+    "session_id": "20260404T021634"
   }
 ]

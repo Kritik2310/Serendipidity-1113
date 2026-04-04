@@ -1,0 +1,85 @@
+{
+  "primary_concern": "SEPSIS_RISK",
+  "clinical_summary": "Report generated from structured agent outputs after outlier removal. Retained lab evidence: Lactate 4.2 (high), Platelets 95.0 (low), Platelets 88.0 (low), Platelets 92.0 (low), Bilirubin 1.4 (high), Hemoglobin 9.8 (low), WBC 14.2 (high). LLM synthesis unavailable.",
+  "prioritized_risks": [
+    {
+      "risk_flag": "SEPSIS_RISK",
+      "status": "supported",
+      "guideline_source": "Sepsis-3 Consensus Definitions",
+      "explanation": "SEPSIS_RISK matched: lactate > 2 mmol/L, WBC > 12 K/uL, creatinine elevated. Guideline from Sepsis-3 Consensus Definitions supports this risk. Evidence: SECTION 1 Sepsis-3 Definitions and Diagnostic Criteria Source: Singer M, et al. The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3). JAMA. 2016;315",
+      "threshold": "Sepsis-3: suspected infection plus acute SOFA increase >= 2"
+    },
+    {
+      "risk_flag": "SEPTIC_SHOCK_RISK",
+      "status": "possible",
+      "guideline_source": "Septic Shock Identification and Management",
+      "explanation": "SEPTIC_SHOCK_RISK matched: lactate > 2 mmol/L. Guideline from Septic Shock Identification and Management supports this risk. Evidence: Septic shock requires sepsis plus persistent hypotension needing vasopressors to maintain MAP >=65 mmHg and lactate >2 mmol/L despite adequate fluid resuscitation.",
+      "threshold": "Septic shock: vasopressor-dependent MAP >= 65 with lactate > 2 mmol/L after fluids"
+    },
+    {
+      "risk_flag": "AKI_RISK",
+      "status": "supported",
+      "guideline_source": "KDIGO AKI Guidelines 2012",
+      "explanation": "AKI_RISK matched: creatinine elevated. Guideline from KDIGO AKI Guidelines 2012 supports this risk. Evidence: KDIGO AKI definition: creatinine rise >=0.3 mg/dL in 48 hours, or >=1.5x baseline in 7 days, or urine output <0.5 mL/kg/hour for >=6 hours.",
+      "threshold": "KDIGO AKI: creatinine rise >= 0.3 mg/dL in 48h or urine output < 0.5 mL/kg/hr for >= 6h"
+    },
+    {
+      "risk_flag": "COAGULOPATHY_RISK",
+      "status": "supported",
+      "guideline_source": "Laboratory Reference Ranges and Clinical Thresholds",
+      "explanation": "COAGULOPATHY_RISK matched: Platelets < 100 K/uL. Guideline from Laboratory Reference Ranges and Clinical Thresholds supports this risk. Evidence: Platelet thresholds: <150 begins SOFA coagulation scoring, <50 indicates severe coagulopathy, and <20 is a score 4 threshold with spontaneous bleeding risk.",
+      "threshold": "SOFA coag score >= 1: platelets < 150 K/uL"
+    }
+  ],
+  "recommended_actions": [
+    "Review prioritized risks with attending clinician.",
+    "Cross-check retained labs against bedside observation.",
+    "Reassess on next clinical review cycle."
+  ],
+  "doctor_handoff": "LLM synthesis failed \u2014 report built from structured data only. Manual review of raw agent outputs is advised.",
+  "disease_progression": [],
+  "agent": "chief_agent",
+  "subject_id": 10002,
+  "hadm_id": 198765,
+  "generated_at": "2026-04-04T01:39:03.460584+00:00",
+  "excluded_outliers": [
+    {
+      "layer": "realtime_delta",
+      "test": "Creatinine",
+      "value": 8.9,
+      "timestamp": "2024-01-12T03:00:00",
+      "z_score": null,
+      "delta": 6.5,
+      "prior_value": 2.4,
+      "prior_ts": "2024-01-11T21:00:00",
+      "reason": "Rapid change detected \u2014 Creatinine changed by 6.5 mg/dL within 6.0h (max allowed: 2.0). Probable measurement error or specimen issue. Section 15.2 \u2014 rise > 2.0 mg/dL in < 6h.",
+      "historical_baseline": null,
+      "status": "pending_confirmation"
+    }
+  ],
+  "outlier_summary": {
+    "total_checked": 8,
+    "total_excluded": 1,
+    "by_layer": {
+      "physiological": 0,
+      "current_admission": 0,
+      "historical_baseline": 0,
+      "realtime_delta": 1
+    }
+  },
+  "data_quality": {
+    "note_parser_available": true,
+    "lab_mapper_available": true,
+    "rag_available": true,
+    "outliers_removed_count": 1,
+    "sofa_coverage_pct": 100.0
+  },
+  "family_communication": {
+    "time_window_hours": 12,
+    "regional_language": "Hindi",
+    "regional_language_code": "hi",
+    "english_summary": "In the last 12 hours, the team has been closely watching your family member's condition. Recent blood test changes being watched include Lactate 4.2, Platelets 88.0. Right now, the main concerns are a serious body-wide infection concern, strain on the kidneys, blood clotting problems. The doctors are continuing close monitoring, repeating important tests, and adjusting treatment based on how the patient responds. The next few hours are important, and the team will keep watching for signs of improvement or any worsening.",
+    "regional_summary": "\u092a\u093f\u091b\u0932\u0947 12 \u0918\u0902\u091f\u094b\u0902 \u092e\u0947\u0902 \u0921\u0949\u0915\u094d\u091f\u0930\u094b\u0902 \u0915\u0940 \u091f\u0940\u092e \u0906\u092a\u0915\u0947 \u092a\u0930\u093f\u0935\u093e\u0930 \u0915\u0947 \u0938\u0926\u0938\u094d\u092f \u0915\u0940 \u0939\u093e\u0932\u0924 \u092a\u0930 \u092c\u0939\u0941\u0924 \u0928\u091c\u093c\u0926\u0940\u0915\u0940 \u0938\u0947 \u0928\u091c\u093c\u0930 \u0930\u0916 \u0930\u0939\u0940 \u0939\u0948\u0964 \u0915\u0941\u091b \u0916\u0942\u0928 \u0915\u0940 \u091c\u093e\u0901\u091a\u094b\u0902 \u092e\u0947\u0902 \u092d\u0940 \u092c\u0926\u0932\u093e\u0935 \u0926\u093f\u0916\u0947 \u0939\u0948\u0902, \u091c\u093f\u0928\u092e\u0947\u0902 Lactate 4.2, Platelets 88.0 \u0936\u093e\u092e\u093f\u0932 \u0939\u0948\u0902\u0964 \u0907\u0938 \u0938\u092e\u092f \u091f\u0940\u092e \u0915\u0940 \u0938\u092c\u0938\u0947 \u092c\u0921\u093c\u0940 \u091a\u093f\u0902\u0924\u093e \u092a\u0942\u0930\u0947 \u0936\u0930\u0940\u0930 \u092e\u0947\u0902 \u0917\u0902\u092d\u0940\u0930 \u0938\u0902\u0915\u094d\u0930\u092e\u0923 \u0915\u0940 \u091a\u093f\u0902\u0924\u093e, \u0917\u0941\u0930\u094d\u0926\u094b\u0902 \u092a\u0930 \u0926\u092c\u093e\u0935 \u092f\u093e \u0915\u092e\u091c\u094b\u0930\u0940, \u0916\u0942\u0928 \u091c\u092e\u0928\u0947 \u0938\u0947 \u091c\u0941\u0921\u093c\u0940 \u0938\u092e\u0938\u094d\u092f\u093e \u0939\u0948\u0964 \u0921\u0949\u0915\u094d\u091f\u0930 \u0932\u0917\u093e\u0924\u093e\u0930 \u0928\u093f\u0917\u0930\u093e\u0928\u0940 \u0915\u0930 \u0930\u0939\u0947 \u0939\u0948\u0902, \u091c\u093c\u0930\u0942\u0930\u0940 \u091c\u093e\u0901\u091a \u0926\u094b\u0939\u0930\u093e \u0930\u0939\u0947 \u0939\u0948\u0902, \u0914\u0930 \u092e\u0930\u0940\u091c \u0915\u0940 \u092a\u094d\u0930\u0924\u093f\u0915\u094d\u0930\u093f\u092f\u093e \u0915\u0947 \u0905\u0928\u0941\u0938\u093e\u0930 \u0907\u0932\u093e\u091c \u0938\u092e\u093e\u092f\u094b\u091c\u093f\u0924 \u0915\u0930 \u0930\u0939\u0947 \u0939\u0948\u0902\u0964 \u0906\u0928\u0947 \u0935\u093e\u0932\u0947 \u0915\u0941\u091b \u0918\u0902\u091f\u0947 \u092e\u0939\u0924\u094d\u0935\u092a\u0942\u0930\u094d\u0923 \u0939\u0948\u0902, \u0914\u0930 \u091f\u0940\u092e \u0915\u093f\u0938\u0940 \u092d\u0940 \u0938\u0941\u0927\u093e\u0930 \u092f\u093e \u092c\u093f\u0917\u0921\u093c\u0928\u0947 \u0915\u0947 \u0938\u0902\u0915\u0947\u0924\u094b\u0902 \u092a\u0930 \u0927\u094d\u092f\u093e\u0928 \u0930\u0916\u0947\u0917\u0940\u0964",
+    "generated_at": "2026-04-04T01:39:03.460558+00:00"
+  }
+}

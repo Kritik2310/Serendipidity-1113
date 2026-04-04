@@ -15,7 +15,7 @@ export function GuidelinesPanel({ guidelines }: GuidelinesPanelProps) {
           <CardTitle className="text-lg font-semibold">Clinical Guidelines</CardTitle>
         </div>
       </CardHeader>
-      <CardContent>
+      <CardContent className="text-lg">
         <div className="flex flex-col gap-3">
           {guidelines.map((guideline) => (
             <div
@@ -26,7 +26,7 @@ export function GuidelinesPanel({ guidelines }: GuidelinesPanelProps) {
                 <h4 className="font-medium text-foreground">{guideline.title}</h4>
                 <ExternalLink className="h-4 w-4 shrink-0 text-muted-foreground" />
               </div>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-lg">
                 {guideline.description}
               </p>
               <p className="mt-2 text-xs text-primary font-medium">

@@ -1,6 +1,8 @@
 import { ArrowLeft, FlaskConical, ShieldCheck, TriangleAlert } from "lucide-react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
+import { formatDate } from "@/lib/format-date";
+
 
 interface PatientHeaderProps {
   subjectId: number
@@ -49,7 +51,7 @@ export function PatientHeader({
             <div className="mt-1 flex items-center gap-4 text-sm text-muted-foreground">
               <span className="font-mono">subject_id: {subjectId}</span>
               <span className="font-mono">hadm_id: {hadmId}</span>
-              <span>Updated {new Date(generatedAt).toLocaleString()}</span>
+              <span>Updated {formatDate(generatedAt)}</span>
             </div>
           </div>
         </div>

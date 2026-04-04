@@ -1,0 +1,68 @@
+{
+  "primary_concern": "Acute Kidney Injury (AKI) Risk",
+  "clinical_summary": "Elevated serum creatinine (2.6 mg/dL) meets KDIGO AKI criteria for acute kidney injury. Concurrent anemia (hemoglobin 9.7 g/dL) raises suspicion for underlying systemic pathology. No sepsis-3 criteria are currently met despite creatinine elevation. Urine output data is required to fully assess AKI stage. Baseline creatinine comparison is needed to confirm 1.5x increase threshold.",
+  "prioritized_risks": [
+    {
+      "risk_flag": "AKI_RISK",
+      "status": "Confirmed",
+      "guideline_source": "KDIGO AKI Guidelines 2012",
+      "explanation": "Creatinine elevation meets KDIGO criteria for AKI (1.5x baseline or \u22650.3 mg/dL increase)",
+      "threshold": "Creatinine rise \u22650.3 mg/dL in 48h or urine output <0.5 mL/kg/hr for \u22656h"
+    },
+    {
+      "risk_flag": "SEPSIS_RISK",
+      "status": "Unconfirmed",
+      "guideline_source": "Sepsis-3 Consensus Definitions",
+      "explanation": "Single organ dysfunction (creatinine elevation) without confirmed infection or SOFA score increase",
+      "threshold": "Suspected infection plus acute SOFA increase \u22652 points"
+    }
+  ],
+  "recommended_actions": [
+    "Obtain baseline creatinine for AKI staging",
+    "Measure urine output over next 6 hours",
+    "Evaluate for occult infection sources",
+    "Consider blood cultures if fever or leukocytosis develops",
+    "Initiate iron studies to investigate anemia etiology"
+  ],
+  "doctor_handoff": "Prioritize urine output measurement and baseline creatinine comparison. Review for sepsis-3 criteria if new infection signs emerge. Monitor hemoglobin trend for transfusion threshold.",
+  "disease_progression": [
+    {
+      "period": "0h",
+      "observation": "Creatinine 2.6 mg/dL (\u2191), Hemoglobin 9.7 g/dL (\u2193)"
+    },
+    {
+      "period": "Next 6h",
+      "observation": "Monitor for urine output <0.5 mL/kg/hr"
+    }
+  ],
+  "agent": "chief_agent",
+  "subject_id": 42321,
+  "hadm_id": 114648,
+  "generated_at": "2026-04-03T22:51:26.228843+00:00",
+  "excluded_outliers": [],
+  "outlier_summary": {
+    "total_checked": 2,
+    "total_excluded": 0,
+    "by_layer": {
+      "physiological": 0,
+      "current_admission": 0,
+      "historical_baseline": 0,
+      "realtime_delta": 0
+    }
+  },
+  "data_quality": {
+    "note_parser_available": true,
+    "lab_mapper_available": true,
+    "rag_available": true,
+    "outliers_removed_count": 0,
+    "sofa_coverage_pct": 66.7
+  },
+  "family_communication": {
+    "time_window_hours": 12,
+    "regional_language": "Hindi",
+    "regional_language_code": "hi",
+    "english_summary": "In the last 12 hours, we noticed your loved one's kidney function has declined, as their creatinine level is higher than normal. This meets medical guidelines for acute kidney injury. They also have lower-than-normal red blood cells (anemia), which we're investigating as a possible sign of a broader health issue. There are no clear signs of infection or sepsis right now. Next steps: We'll measure urine output over the next 6 hours, compare current creatinine to their baseline level, check for hidden infection sources, and test for causes of the anemia. The care team is closely monitoring for any changes.",
+    "regional_summary": "\u092a\u093f\u091b\u0932\u0947 12 \u0918\u0902\u091f\u094b\u0902 \u092e\u0947\u0902 \u0939\u092e\u0928\u0947 \u0926\u0947\u0916\u093e \u0915\u093f \u0906\u092a\u0915\u0947 \u092a\u094d\u0930\u093f\u092f \u0915\u0947 \u0917\u0941\u0930\u094d\u0926\u0947 \u0915\u093e \u0915\u093e\u092e \u0915\u0930\u0928\u093e \u0915\u092e\u091c\u094b\u0930 \u0939\u094b \u0917\u092f\u093e \u0939\u0948 \u0915\u094d\u092f\u094b\u0902\u0915\u093f \u0909\u0928\u0915\u093e \u0915\u094d\u0930\u093f\u090f\u091f\u0940\u0928\u0940\u0928 \u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0938\u0947 \u0905\u0927\u093f\u0915 \u0939\u0948\u0964 \u092f\u0939 \u0917\u0941\u0930\u094d\u0926\u0947 \u0915\u0947 \u0924\u0940\u0935\u094d\u0930 \u0928\u0941\u0915\u0938\u093e\u0928 \u0915\u0947 \u091a\u093f\u0939\u094d\u0928 \u0939\u0948\u0964 \u0935\u0947 \u0932\u093e\u0932 \u0930\u0915\u094d\u0924 \u0915\u094b\u0936\u093f\u0915\u093e\u0913\u0902 \u092e\u0947\u0902 \u092d\u0940 \u0915\u092e\u0940 \u0926\u093f\u0916\u093e \u0930\u0939\u0947 \u0939\u0948\u0902 (\u090f\u0928\u0940\u092e\u093f\u092f\u093e), \u091c\u093f\u0938\u0915\u0940 \u091c\u093e\u0902\u091a \u092c\u0921\u093c\u0940 \u0938\u092e\u0938\u094d\u092f\u093e \u0915\u0947 \u0938\u0902\u0915\u0947\u0924 \u0915\u0947 \u0930\u0942\u092a \u092e\u0947\u0902 \u0915\u0940 \u091c\u093e \u0930\u0939\u0940 \u0939\u0948\u0964 \u0905\u092c \u0924\u0915 \u0938\u0902\u0915\u094d\u0930\u092e\u0923 \u092f\u093e \u0938\u093f\u092a\u094d\u0938\u093f\u0938 \u0915\u0947 \u0938\u094d\u092a\u0937\u094d\u091f \u0932\u0915\u094d\u0937\u0923 \u0928\u0939\u0940\u0902 \u0939\u0948\u0902\u0964 \u0905\u0917\u0932\u0947 \u0915\u0926\u092e: \u0939\u092e \u0905\u0917\u0932\u0947 6 \u0918\u0902\u091f\u094b\u0902 \u092e\u0947\u0902 \u092e\u0942\u0924\u094d\u0930 \u0909\u0924\u094d\u0938\u0930\u094d\u091c\u0928 \u0915\u0940 \u092e\u093e\u0924\u094d\u0930\u093e \u092e\u093e\u092a\u0947\u0902\u0917\u0947, \u0935\u0930\u094d\u0924\u092e\u093e\u0928 \u0915\u094d\u0930\u093f\u090f\u091f\u0940\u0928\u0940\u0928 \u0915\u094b \u0909\u0928\u0915\u0947 \u0906\u0927\u093e\u0930 \u0938\u094d\u0924\u0930 \u0938\u0947 \u0924\u0941\u0932\u0928\u093e \u0915\u0930\u0947\u0902\u0917\u0947, \u091b\u093f\u092a\u0947 \u0938\u0902\u0915\u094d\u0930\u092e\u0923 \u0915\u0947 \u0938\u094d\u0930\u094b\u0924 \u0916\u094b\u091c\u0947\u0902\u0917\u0947, \u0914\u0930 \u090f\u0928\u0940\u092e\u093f\u092f\u093e \u0915\u0947 \u0915\u093e\u0930\u0923\u094b\u0902 \u0915\u0940 \u091c\u093e\u0902\u091a \u0915\u0930\u0947\u0902\u0917\u0947\u0964 \u091a\u093f\u0915\u093f\u0924\u094d\u0938\u093e \u091f\u0940\u092e \u0932\u0917\u093e\u0924\u093e\u0930 \u092c\u0926\u0932\u093e\u0935 \u0915\u0940 \u0928\u093f\u0917\u0930\u093e\u0928\u0940 \u0915\u0930 \u0930\u0939\u0940 \u0939\u0948\u0964",
+    "generated_at": "2026-04-03T22:51:26.228843+00:00"
+  }
+}

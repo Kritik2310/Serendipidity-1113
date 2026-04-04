@@ -6,6 +6,7 @@ import { ArrowLeft, Printer, Download, AlertTriangle, CheckCircle } from "lucide
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { FamilyCommunicationPanel } from "@/components/family/family-communication-panel"
 import {
   deriveRiskLevel,
   fetchReport,
@@ -26,6 +27,7 @@ interface LiveReportViewProps {
 
 export function LiveReportView({ initialReport, analysisId }: LiveReportViewProps) {
   const [report, setReport] = useState(initialReport)
+  const [activeTab, setActiveTab] = useState<"clinical" | "family">("clinical")
 
   useEffect(() => {
     const source = streamPatient(report.subject_id, report.hadm_id, async () => {
@@ -86,6 +88,24 @@ export function LiveReportView({ initialReport, analysisId }: LiveReportViewProp
         </div>
 
         <div className="mx-auto max-w-4xl px-8 py-8">
+          <div className="mb-4 flex items-center gap-3">
+            <Button
+              variant={activeTab === "clinical" ? "default" : "outline"}
+              onClick={() => setActiveTab("clinical")}
+            >
+              Clinical Report
+            </Button>
+            <Button
+              variant={activeTab === "family" ? "default" : "outline"}
+              onClick={() => setActiveTab("family")}
+            >
+              Family Communication
+            </Button>
+          </div>
+
+          {activeTab === "family" ? (
+            <FamilyCommunicationPanel familyCommunication={report.family_communication} />
+          ) : (
           <div className="rounded-xl border border-border bg-card shadow-sm">
             <div className="border-b border-border p-8">
               <div className="flex items-start justify-between">
@@ -309,6 +329,7 @@ export function LiveReportView({ initialReport, analysisId }: LiveReportViewProp
               <p className="text-center text-xs text-muted-foreground">{report.safety_disclaimer}</p>
             </div>
           </div>
+          )}
         </div>
       </div>
     </DashboardLayout>

@@ -1,0 +1,101 @@
+{
+  "primary_concern": "Sepsis risk with acute kidney injury (AKI) and coagulopathy",
+  "clinical_summary": "Elevated lactate (4.2 mmol/L) combined with leukocytosis (14.2 K/uL) and thrombocytopenia (88-95 K/uL) meet Sepsis-3 criteria for sepsis risk. AKI Stage 3 (creatinine 8.9 mg/dL) indicates severe renal dysfunction. Thrombocytopenia (<100 K/uL) meets SOFA coagulation scoring thresholds. Bilirubin elevation (1.4 mg/dL) and anemia (Hgb 9.8 g/dL) suggest possible hepatic involvement or hemolysis.",
+  "prioritized_risks": [
+    {
+      "risk_flag": "SEPSIS_RISK",
+      "status": "Confirmed",
+      "guideline_source": "Sepsis-3 Consensus Definitions",
+      "explanation": "Lactate >2 mmol/L, WBC >12 K/uL, and creatinine elevation meet Sepsis-3 criteria (suspected infection + SOFA increase \u22652)",
+      "threshold": "Suspected infection + acute SOFA increase \u22652"
+    },
+    {
+      "risk_flag": "AKI_RISK",
+      "status": "Confirmed",
+      "guideline_source": "KDIGO AKI Guidelines 2012",
+      "explanation": "AKI Stage 3 confirmed by creatinine rise \u22651.5x baseline and absolute increase \u22650.3 mg/dL over 48 hours",
+      "threshold": "Creatinine rise \u22650.3 mg/dL in 48h or \u22651.5x baseline in 7d"
+    },
+    {
+      "risk_flag": "COAGULOPATHY_RISK",
+      "status": "Confirmed",
+      "guideline_source": "Laboratory Reference Ranges",
+      "explanation": "Platelets <100 K/uL meets SOFA coagulation scoring (threshold: <150 K/uL for SOFA score \u22651)",
+      "threshold": "Platelets <150 K/uL for SOFA coag score \u22651"
+    },
+    {
+      "risk_flag": "SEPTIC_SHOCK_RISK",
+      "status": "Unconfirmed",
+      "guideline_source": "Septic Shock Management",
+      "explanation": "Lactate >2 mmol/L present but vasopressor requirements unknown",
+      "threshold": "Vasopressor-dependent hypotension + lactate >2 mmol/L after fluids"
+    }
+  ],
+  "recommended_actions": [
+    "Initiate broad-spectrum antibiotics per sepsis protocol",
+    "Order blood cultures and infection source workup",
+    "Start renal replacement therapy consultation for AKI Stage 3",
+    "Consider platelet transfusion for <50 K/uL (severe coagulopathy threshold)",
+    "Repeat creatinine measurement to confirm AKI trajectory",
+    "Monitor for signs of disseminated intravascular coagulation (DIC)"
+  ],
+  "doctor_handoff": "Review for source control of infection, assess volume status, confirm vasopressor requirements, and evaluate for DIC. Prioritize renal function stabilization.",
+  "disease_progression": [
+    {
+      "period": "2024-01-10 09:00",
+      "observation": "Baseline abnormalities: WBC 14.2 K/uL, Hgb 9.8 g/dL, Bilirubin 1.4 mg/dL"
+    },
+    {
+      "period": "2024-01-11 09:00",
+      "observation": "AKI Stage 1 (Cr 2.1 mg/dL), Platelets 95 K/uL"
+    },
+    {
+      "period": "2024-01-12 03:00",
+      "observation": "AKI Stage 3 (Cr 8.9 mg/dL), Platelets 88 K/uL"
+    }
+  ],
+  "agent": "chief_agent",
+  "subject_id": 10002,
+  "hadm_id": 198765,
+  "generated_at": "2026-04-03T22:48:55.055485+00:00",
+  "excluded_outliers": [
+    {
+      "layer": "realtime_delta",
+      "test": "Creatinine",
+      "value": 8.9,
+      "timestamp": "2024-01-12T03:00:00",
+      "z_score": null,
+      "delta": 6.5,
+      "prior_value": 2.4,
+      "prior_ts": "2024-01-11T21:00:00",
+      "reason": "Rapid change detected \u2014 Creatinine changed by 6.5 mg/dL within 6.0h (max allowed: 2.0). Probable measurement error or specimen issue. Section 15.2 \u2014 rise > 2.0 mg/dL in < 6h.",
+      "historical_baseline": null,
+      "status": "pending_confirmation"
+    }
+  ],
+  "outlier_summary": {
+    "total_checked": 8,
+    "total_excluded": 1,
+    "by_layer": {
+      "physiological": 0,
+      "current_admission": 0,
+      "historical_baseline": 0,
+      "realtime_delta": 1
+    }
+  },
+  "data_quality": {
+    "note_parser_available": true,
+    "lab_mapper_available": true,
+    "rag_available": true,
+    "outliers_removed_count": 1,
+    "sofa_coverage_pct": 100.0
+  },
+  "family_communication": {
+    "time_window_hours": 12,
+    "regional_language": "Hindi",
+    "regional_language_code": "hi",
+    "english_summary": "In the last 12 hours, your loved one's blood tests show signs of a serious infection (sepsis) affecting multiple organs. Their kidneys are struggling (Stage 3 kidney injury) with very high creatinine levels, and platelet counts remain low, increasing bleeding risk. We've started strong antibiotics, are investigating the infection source, and consulting about kidney support. We're closely watching for worsening kidney function, infection progression, and clotting issues. Next steps include confirming kidney status, managing infection, and supporting organ function.",
+    "regional_summary": "\u092a\u093f\u091b\u0932\u0947 12 \u0918\u0902\u091f\u094b\u0902 \u092e\u0947\u0902 \u0930\u0915\u094d\u0924 \u092a\u0930\u0940\u0915\u094d\u0937\u0923 \u092c\u0924\u093e\u0924\u0947 \u0939\u0948\u0902 \u0915\u093f \u0906\u092a\u0915\u0947 \u092a\u094d\u0930\u093f\u092f\u091c\u0928 \u092e\u0947\u0902 \u0917\u0902\u092d\u0940\u0930 \u0938\u0902\u0915\u094d\u0930\u092e\u0923 (\u0938\u0947\u092a\u094d\u0938\u093f\u0938) \u0939\u0948 \u091c\u094b \u0915\u0908 \u0905\u0902\u0917\u094b\u0902 \u0915\u094b \u092a\u094d\u0930\u092d\u093e\u0935\u093f\u0924 \u0915\u0930 \u0930\u0939\u093e \u0939\u0948\u0964 \u0909\u0928\u0915\u0947 \u0917\u0941\u0930\u094d\u0926\u0947 \u0915\u093e\u092e \u0915\u0930\u0928\u0947 \u092e\u0947\u0902 \u0915\u0920\u093f\u0928\u093e\u0908 \u092e\u0947\u0902 \u0939\u0948\u0902 (\u0924\u0940\u0938\u0930\u0947 \u091a\u0930\u0923 \u0915\u0940 \u0917\u0941\u0930\u094d\u0926\u093e \u0915\u094d\u0937\u0924\u093f) \u0914\u0930 \u0916\u0942\u0928 \u0915\u0947 \u0915\u094d\u0930\u093f\u090f\u091f\u0940\u0928\u0940\u0928 \u0938\u094d\u0924\u0930 \u092c\u0939\u0941\u0924 \u090a\u0901\u091a\u0947 \u0939\u0948\u0902, \u091c\u092c\u0915\u093f \u092a\u094d\u0932\u0947\u091f\u0932\u0947\u091f \u0915\u092e \u092c\u0928\u0947 \u0939\u0941\u090f \u0939\u0948\u0902 \u091c\u094b \u0930\u0915\u094d\u0924\u0938\u094d\u0930\u093e\u0935 \u0915\u093e \u091c\u094b\u0916\u093f\u092e \u092c\u0922\u093c\u093e\u0924\u0947 \u0939\u0948\u0902\u0964 \u0939\u092e\u0928\u0947 \u0936\u0915\u094d\u0924\u093f\u0936\u093e\u0932\u0940 \u090f\u0902\u091f\u0940\u092c\u093e\u092f\u094b\u091f\u093f\u0915 \u0936\u0941\u0930\u0942 \u0915\u0930 \u0926\u093f\u090f \u0939\u0948\u0902, \u0938\u0902\u0915\u094d\u0930\u092e\u0923 \u0915\u0947 \u0938\u094d\u0930\u094b\u0924 \u0915\u0940 \u091c\u093e\u0902\u091a \u0915\u0930 \u0930\u0939\u0947 \u0939\u0948\u0902 \u0914\u0930 \u0917\u0941\u0930\u094d\u0926\u093e \u0938\u092e\u0930\u094d\u0925\u0928 \u0915\u0947 \u092c\u093e\u0930\u0947 \u092e\u0947\u0902 \u092a\u0930\u093e\u092e\u0930\u094d\u0936 \u0915\u0930 \u0930\u0939\u0947 \u0939\u0948\u0902\u0964 \u0939\u092e \u0917\u0941\u0930\u094d\u0926\u0947 \u0915\u0947 \u0915\u093e\u0930\u094d\u092f \u092e\u0947\u0902 \u0916\u0930\u093e\u092c\u0940, \u0938\u0902\u0915\u094d\u0930\u092e\u0923 \u0915\u0947 \u092c\u0922\u093c\u0928\u0947 \u0914\u0930 \u0930\u0915\u094d\u0924 \u091c\u092e\u093e\u0935 \u0915\u0947 \u092e\u0941\u0926\u094d\u0926\u094b\u0902 \u0915\u0940 \u0928\u093f\u0917\u0930\u093e\u0928\u0940 \u0915\u0930 \u0930\u0939\u0947 \u0939\u0948\u0902\u0964 \u0905\u0917\u0932\u0947 \u0915\u0926\u092e \u092e\u0947\u0902 \u0917\u0941\u0930\u094d\u0926\u0947 \u0915\u0940 \u0938\u094d\u0925\u093f\u0924\u093f \u0915\u0940 \u092a\u0941\u0937\u094d\u091f\u093f, \u0938\u0902\u0915\u094d\u0930\u092e\u0923 \u0915\u093e \u092a\u094d\u0930\u092c\u0902\u0927\u0928 \u0914\u0930 \u0905\u0902\u0917\u094b\u0902 \u0915\u0947 \u0915\u093e\u0930\u094d\u092f \u0915\u093e \u0938\u092e\u0930\u094d\u0925\u0928 \u0936\u093e\u092e\u093f\u0932 \u0939\u0948\u0964",
+    "generated_at": "2026-04-03T22:48:55.055485+00:00"
+  }
+}

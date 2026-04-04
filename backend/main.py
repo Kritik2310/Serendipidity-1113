@@ -102,6 +102,14 @@ class AnalyzeRequest(BaseModel):
     subject_id: int
     hadm_id:    int
 
+class FamilyCommunicationResponse(BaseModel):
+    time_window_hours: int
+    regional_language: str
+    regional_language_code: str
+    english_summary: str
+    regional_summary: str
+    generated_at: str
+
 class AnalyzeResponse(BaseModel):
     subject_id:       int
     hadm_id:          int
@@ -117,6 +125,7 @@ class AnalyzeResponse(BaseModel):
     doctor_handoff:      str
     generated_at:        str
     disease_timeline:    list[dict]   
+    family_communication: FamilyCommunicationResponse
     safety_disclaimer:   str
 
 
@@ -195,6 +204,14 @@ def _build_response(chief_report: dict, unified: dict) -> AnalyzeResponse:
         doctor_handoff      = chief_report.get("doctor_handoff", ""),
         generated_at        = chief_report.get("generated_at", ""),
         disease_timeline    = _build_disease_timeline(unified),
+        family_communication= chief_report.get("family_communication", {
+            "time_window_hours": 12,
+            "regional_language": "Hindi",
+            "regional_language_code": "hi",
+            "english_summary": "",
+            "regional_summary": "",
+            "generated_at": chief_report.get("generated_at", ""),
+        }),
         safety_disclaimer   = (
             "⚠ DECISION SUPPORT ONLY — All outputs are AI-generated and must be "
             "reviewed by a qualified clinician before influencing patient care. "

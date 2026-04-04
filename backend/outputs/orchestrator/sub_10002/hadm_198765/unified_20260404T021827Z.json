@@ -1,0 +1,1610 @@
+{
+  "pipeline_run": {
+    "orchestrator": "OrchestratorAgent v1.2",
+    "subject_id": 10002,
+    "hadm_id": 198765,
+    "run_timestamp": "2026-04-04T02:17:32.484478Z",
+    "duration_ms": 55116,
+    "agents_succeeded": [
+      "note_parser",
+      "lab_mapper",
+      "rag_agent"
+    ],
+    "agents_failed": [],
+    "errors": {}
+  },
+  "note_parser_output": {
+    "agent": "note_parser",
+    "subject_id": 10002,
+    "hadm_id": 198765,
+    "summary": {
+      "total_findings": 10,
+      "notes_processed": 8,
+      "notes_available": 11
+    },
+    "patient_timelines": [
+      {
+        "patient_id": 10002,
+        "admission_id": 198765,
+        "symptom_timeline": [
+          {
+            "timestamp": "NaT",
+            "note_type": "Nursing",
+            "findings": [
+              {
+                "symptom": "level of consciousness",
+                "severity": "mild",
+                "category": "mental_status",
+                "value": null,
+                "unit": null,
+                "trend": "improving",
+                "raw_text": "Patient noticeably improved from this morning. Oriented x3 - knows name, hospital, and approximate date"
+              },
+              {
+                "symptom": "glasgow coma scale",
+                "severity": "mild",
+                "category": "mental_status",
+                "value": 14,
+                "unit": null,
+                "trend": "improving",
+                "raw_text": "GCS 14 (E4V5M5)"
+              },
+              {
+                "symptom": "oxygen saturation",
+                "severity": "mild",
+                "category": "vital_sign",
+                "value": 97,
+                "unit": "%",
+                "trend": "stable",
+                "raw_text": "SpO2 97-98% on 3L NC"
+              },
+              {
+                "symptom": "dyspnea",
+                "severity": "mild",
+                "category": "symptom",
+                "value": null,
+                "unit": null,
+                "trend": "improving",
+                "raw_text": "Patient reports dyspnea much improved - 'I can breathe better now.'"
+              },
+              {
+                "symptom": "respiratory rate",
+                "severity": "mild",
+                "category": "vital_sign",
+                "value": 15,
+                "unit": "breaths per minute",
+                "trend": "stable",
+                "raw_text": "RR 15-16"
+              },
+              {
+                "symptom": "blood pressure",
+                "severity": "mild",
+                "category": "vital_sign",
+                "value": 114,
+                "unit": "mmHg",
+                "trend": "stable",
+                "raw_text": "BP 114-120/70-76 mmHg"
+              },
+              {
+                "symptom": "heart rate",
+                "severity": "mild",
+                "category": "vital_sign",
+                "value": 94,
+                "unit": "beats per minute",
+                "trend": "stable",
+                "raw_text": "HR 94 bpm"
+              },
+              {
+                "symptom": "temperature",
+                "severity": "mild",
+                "category": "vital_sign",
+                "value": 37.6,
+                "unit": "C",
+                "trend": "improving",
+                "raw_text": "TEMPERATURE: 37.6C"
+              },
+              {
+                "symptom": "urine output",
+                "severity": "mild",
+                "category": "fluid_output",
+                "value": 40,
+                "unit": "mL/hr",
+                "trend": "improving",
+                "raw_text": "Urine output 1200-2000 (8 hours): 320 mL = 40 mL/hr"
+              },
+              {
+                "symptom": "appetite",
+                "severity": "mild",
+                "category": "symptom",
+                "value": null,
+                "unit": null,
+                "trend": "improving",
+                "raw_text": "Patient ate approximately half of dinner - significant improvement in appetite"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "parsed_symptoms": [
+      {
+        "finding": "level of consciousness",
+        "severity": "mild",
+        "raw_text": "Patient noticeably improved from this morning. Oriented x3 - knows name, hospital, and approximate date",
+        "timestamp": "NaT",
+        "trend": "improving"
+      },
+      {
+        "finding": "glasgow coma scale",
+        "severity": "mild",
+        "raw_text": "GCS 14 (E4V5M5)",
+        "timestamp": "NaT",
+        "trend": "improving"
+      },
+      {
+        "finding": "oxygen saturation",
+        "severity": "mild",
+        "raw_text": "SpO2 97-98% on 3L NC",
+        "timestamp": "NaT",
+        "trend": "stable"
+      },
+      {
+        "finding": "dyspnea",
+        "severity": "mild",
+        "raw_text": "Patient reports dyspnea much improved - 'I can breathe better now.'",
+        "timestamp": "NaT",
+        "trend": "improving"
+      },
+      {
+        "finding": "respiratory rate",
+        "severity": "mild",
+        "raw_text": "RR 15-16",
+        "timestamp": "NaT",
+        "trend": "stable"
+      },
+      {
+        "finding": "blood pressure",
+        "severity": "mild",
+        "raw_text": "BP 114-120/70-76 mmHg",
+        "timestamp": "NaT",
+        "trend": "stable"
+      },
+      {
+        "finding": "heart rate",
+        "severity": "mild",
+        "raw_text": "HR 94 bpm",
+        "timestamp": "NaT",
+        "trend": "stable"
+      },
+      {
+        "finding": "temperature",
+        "severity": "mild",
+        "raw_text": "TEMPERATURE: 37.6C",
+        "timestamp": "NaT",
+        "trend": "improving"
+      },
+      {
+        "finding": "urine output",
+        "severity": "mild",
+        "raw_text": "Urine output 1200-2000 (8 hours): 320 mL = 40 mL/hr",
+        "timestamp": "NaT",
+        "trend": "improving"
+      },
+      {
+        "finding": "appetite",
+        "severity": "mild",
+        "raw_text": "Patient ate approximately half of dinner - significant improvement in appetite",
+        "timestamp": "NaT",
+        "trend": "improving"
+      }
+    ],
+    "flagged_risks": []
+  },
+  "lab_mapper_output": {
+    "agent": "lab_mapper",
+    "subject_id": 10002,
+    "hadm_id": 198765,
+    "timeline_by_test": {
+      "Bilirubin": [
+        {
+          "timestamp": "2024-01-10T09:00:00",
+          "value": 1.4,
+          "unit": "mg/dL",
+          "delta": 0.0,
+          "delta_pct": 0,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "stable",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-10T21:00:00",
+          "value": 1.8,
+          "unit": "mg/dL",
+          "delta": 0.4,
+          "delta_pct": 28.6,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "rising",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-11T09:00:00",
+          "value": 2.3,
+          "unit": "mg/dL",
+          "delta": 0.5,
+          "delta_pct": 27.8,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "rising",
+          "outlier": {
+            "is_outlier": true,
+            "z_score": 3.5,
+            "rolling_mean": 1.6,
+            "rolling_std": 0.2,
+            "redraw_required": true
+          }
+        },
+        {
+          "timestamp": "2024-01-11T21:00:00",
+          "value": 2.6,
+          "unit": "mg/dL",
+          "delta": 0.3,
+          "delta_pct": 13.0,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "rising",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": 2.082,
+            "rolling_mean": 1.833,
+            "rolling_std": 0.368,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-12T09:00:00",
+          "value": 2.4,
+          "unit": "mg/dL",
+          "delta": -0.2,
+          "delta_pct": 7.7,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": 0.505,
+            "rolling_mean": 2.233,
+            "rolling_std": 0.33,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-12T21:00:00",
+          "value": 2.1,
+          "unit": "mg/dL",
+          "delta": -0.3,
+          "delta_pct": 12.5,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": -2.673,
+            "rolling_mean": 2.433,
+            "rolling_std": 0.125,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-13T09:00:00",
+          "value": 1.9,
+          "unit": "mg/dL",
+          "delta": -0.2,
+          "delta_pct": 9.5,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": -2.271,
+            "rolling_mean": 2.367,
+            "rolling_std": 0.205,
+            "redraw_required": false
+          }
+        }
+      ],
+      "Creatinine": [
+        {
+          "timestamp": "2024-01-10T09:00:00",
+          "value": 1.3,
+          "unit": "mg/dL",
+          "delta": 0.0,
+          "delta_pct": 0,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "stable",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          },
+          "aki_stage": "No AKI"
+        },
+        {
+          "timestamp": "2024-01-10T21:00:00",
+          "value": 1.7,
+          "unit": "mg/dL",
+          "delta": 0.4,
+          "delta_pct": 30.8,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "rising",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          },
+          "aki_stage": "No AKI"
+        },
+        {
+          "timestamp": "2024-01-11T09:00:00",
+          "value": 2.1,
+          "unit": "mg/dL",
+          "delta": 0.4,
+          "delta_pct": 23.5,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "rising",
+          "outlier": {
+            "is_outlier": true,
+            "z_score": 3.0,
+            "rolling_mean": 1.5,
+            "rolling_std": 0.2,
+            "redraw_required": true
+          },
+          "aki_stage": "Stage 1"
+        },
+        {
+          "timestamp": "2024-01-11T21:00:00",
+          "value": 2.4,
+          "unit": "mg/dL",
+          "delta": 0.3,
+          "delta_pct": 14.3,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "rising",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": 2.143,
+            "rolling_mean": 1.7,
+            "rolling_std": 0.327,
+            "redraw_required": false
+          },
+          "aki_stage": "Stage 1"
+        },
+        {
+          "timestamp": "2024-01-12T03:00:00",
+          "value": 8.9,
+          "unit": "mg/dL",
+          "delta": 6.5,
+          "delta_pct": 270.8,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "rising",
+          "outlier": {
+            "is_outlier": true,
+            "z_score": 23.831,
+            "rolling_mean": 2.067,
+            "rolling_std": 0.287,
+            "redraw_required": true
+          },
+          "aki_stage": "Stage 3"
+        },
+        {
+          "timestamp": "2024-01-12T09:00:00",
+          "value": 2.3,
+          "unit": "mg/dL",
+          "delta": -6.6,
+          "delta_pct": 74.2,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": -0.691,
+            "rolling_mean": 4.467,
+            "rolling_std": 3.137,
+            "redraw_required": false
+          },
+          "aki_stage": "Stage 1"
+        },
+        {
+          "timestamp": "2024-01-12T21:00:00",
+          "value": 2.0,
+          "unit": "mg/dL",
+          "delta": -0.3,
+          "delta_pct": 13.0,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": -0.82,
+            "rolling_mean": 4.533,
+            "rolling_std": 3.088,
+            "redraw_required": false
+          },
+          "aki_stage": "Stage 1"
+        },
+        {
+          "timestamp": "2024-01-13T09:00:00",
+          "value": 1.8,
+          "unit": "mg/dL",
+          "delta": -0.2,
+          "delta_pct": 10.0,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": -0.816,
+            "rolling_mean": 4.4,
+            "rolling_std": 3.184,
+            "redraw_required": false
+          },
+          "aki_stage": "No AKI"
+        }
+      ],
+      "Hemoglobin": [
+        {
+          "timestamp": "2024-01-10T09:00:00",
+          "value": 9.8,
+          "unit": "g/dL",
+          "delta": 0.0,
+          "delta_pct": 0,
+          "above_normal": false,
+          "below_normal": true,
+          "trend": "stable",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-10T21:00:00",
+          "value": 9.2,
+          "unit": "g/dL",
+          "delta": -0.6,
+          "delta_pct": 6.1,
+          "above_normal": false,
+          "below_normal": true,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-11T09:00:00",
+          "value": 8.6,
+          "unit": "g/dL",
+          "delta": -0.6,
+          "delta_pct": 6.5,
+          "above_normal": false,
+          "below_normal": true,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": -3.0,
+            "rolling_mean": 9.5,
+            "rolling_std": 0.3,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-11T21:00:00",
+          "value": 8.1,
+          "unit": "g/dL",
+          "delta": -0.5,
+          "delta_pct": 5.8,
+          "above_normal": false,
+          "below_normal": true,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": -2.245,
+            "rolling_mean": 9.2,
+            "rolling_std": 0.49,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-12T09:00:00",
+          "value": 8.3,
+          "unit": "g/dL",
+          "delta": 0.2,
+          "delta_pct": 2.5,
+          "above_normal": false,
+          "below_normal": true,
+          "trend": "stable",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": -0.741,
+            "rolling_mean": 8.633,
+            "rolling_std": 0.45,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-12T21:00:00",
+          "value": 8.5,
+          "unit": "g/dL",
+          "delta": 0.2,
+          "delta_pct": 2.4,
+          "above_normal": false,
+          "below_normal": true,
+          "trend": "stable",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": 0.811,
+            "rolling_mean": 8.333,
+            "rolling_std": 0.205,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-13T09:00:00",
+          "value": 8.8,
+          "unit": "g/dL",
+          "delta": 0.3,
+          "delta_pct": 3.5,
+          "above_normal": false,
+          "below_normal": true,
+          "trend": "stable",
+          "outlier": {
+            "is_outlier": true,
+            "z_score": 3.062,
+            "rolling_mean": 8.3,
+            "rolling_std": 0.163,
+            "redraw_required": true
+          }
+        }
+      ],
+      "Lactate": [
+        {
+          "timestamp": "2024-01-10T09:00:00",
+          "value": 2.4,
+          "unit": "mmol/L",
+          "delta": 0.0,
+          "delta_pct": 0,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "stable",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-10T21:00:00",
+          "value": 3.1,
+          "unit": "mmol/L",
+          "delta": 0.7,
+          "delta_pct": 29.2,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "rising",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-11T09:00:00",
+          "value": 3.8,
+          "unit": "mmol/L",
+          "delta": 0.7,
+          "delta_pct": 22.6,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "rising",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": 3.0,
+            "rolling_mean": 2.75,
+            "rolling_std": 0.35,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-11T21:00:00",
+          "value": 4.2,
+          "unit": "mmol/L",
+          "delta": 0.4,
+          "delta_pct": 10.5,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "rising",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": 1.925,
+            "rolling_mean": 3.1,
+            "rolling_std": 0.572,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-12T09:00:00",
+          "value": 3.5,
+          "unit": "mmol/L",
+          "delta": -0.7,
+          "delta_pct": 16.7,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": -0.44,
+            "rolling_mean": 3.7,
+            "rolling_std": 0.455,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-12T21:00:00",
+          "value": 2.8,
+          "unit": "mmol/L",
+          "delta": -0.7,
+          "delta_pct": 20.0,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": true,
+            "z_score": -3.604,
+            "rolling_mean": 3.833,
+            "rolling_std": 0.287,
+            "redraw_required": true
+          }
+        },
+        {
+          "timestamp": "2024-01-13T09:00:00",
+          "value": 2.2,
+          "unit": "mmol/L",
+          "delta": -0.6,
+          "delta_pct": 21.4,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": -2.275,
+            "rolling_mean": 3.5,
+            "rolling_std": 0.572,
+            "redraw_required": false
+          }
+        }
+      ],
+      "Platelets": [
+        {
+          "timestamp": "2024-01-10T09:00:00",
+          "value": 142.0,
+          "unit": "K/uL",
+          "delta": 0.0,
+          "delta_pct": 0,
+          "above_normal": false,
+          "below_normal": true,
+          "trend": "stable",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-10T21:00:00",
+          "value": 118.0,
+          "unit": "K/uL",
+          "delta": -24.0,
+          "delta_pct": 16.9,
+          "above_normal": false,
+          "below_normal": true,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-11T09:00:00",
+          "value": 95.0,
+          "unit": "K/uL",
+          "delta": -23.0,
+          "delta_pct": 19.5,
+          "above_normal": false,
+          "below_normal": true,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": -2.917,
+            "rolling_mean": 130.0,
+            "rolling_std": 12.0,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-11T21:00:00",
+          "value": 88.0,
+          "unit": "K/uL",
+          "delta": -7.0,
+          "delta_pct": 7.4,
+          "above_normal": false,
+          "below_normal": true,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": -1.581,
+            "rolling_mean": 118.333,
+            "rolling_std": 19.189,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-12T09:00:00",
+          "value": 92.0,
+          "unit": "K/uL",
+          "delta": 4.0,
+          "delta_pct": 4.5,
+          "above_normal": false,
+          "below_normal": true,
+          "trend": "stable",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": -0.65,
+            "rolling_mean": 100.333,
+            "rolling_std": 12.815,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-12T21:00:00",
+          "value": 101.0,
+          "unit": "K/uL",
+          "delta": 9.0,
+          "delta_pct": 9.8,
+          "above_normal": false,
+          "below_normal": true,
+          "trend": "rising",
+          "outlier": {
+            "is_outlier": true,
+            "z_score": 3.255,
+            "rolling_mean": 91.667,
+            "rolling_std": 2.867,
+            "redraw_required": true
+          }
+        },
+        {
+          "timestamp": "2024-01-13T09:00:00",
+          "value": 112.0,
+          "unit": "K/uL",
+          "delta": 11.0,
+          "delta_pct": 10.9,
+          "above_normal": false,
+          "below_normal": true,
+          "trend": "rising",
+          "outlier": {
+            "is_outlier": true,
+            "z_score": 3.372,
+            "rolling_mean": 93.667,
+            "rolling_std": 5.437,
+            "redraw_required": true
+          }
+        }
+      ],
+      "WBC": [
+        {
+          "timestamp": "2024-01-10T09:00:00",
+          "value": 14.2,
+          "unit": "K/uL",
+          "delta": 0.0,
+          "delta_pct": 0,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "stable",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-10T21:00:00",
+          "value": 16.8,
+          "unit": "K/uL",
+          "delta": 2.6,
+          "delta_pct": 18.3,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "rising",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": null,
+            "rolling_mean": null,
+            "rolling_std": null,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-11T09:00:00",
+          "value": 19.3,
+          "unit": "K/uL",
+          "delta": 2.5,
+          "delta_pct": 14.9,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "rising",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": 2.923,
+            "rolling_mean": 15.5,
+            "rolling_std": 1.3,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-11T21:00:00",
+          "value": 21.4,
+          "unit": "K/uL",
+          "delta": 2.1,
+          "delta_pct": 10.9,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "rising",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": 2.225,
+            "rolling_mean": 16.767,
+            "rolling_std": 2.082,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-12T09:00:00",
+          "value": 18.7,
+          "unit": "K/uL",
+          "delta": -2.7,
+          "delta_pct": 12.6,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": -0.248,
+            "rolling_mean": 19.167,
+            "rolling_std": 1.88,
+            "redraw_required": false
+          }
+        },
+        {
+          "timestamp": "2024-01-12T21:00:00",
+          "value": 16.2,
+          "unit": "K/uL",
+          "delta": -2.5,
+          "delta_pct": 13.4,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": true,
+            "z_score": -3.11,
+            "rolling_mean": 19.8,
+            "rolling_std": 1.158,
+            "redraw_required": true
+          }
+        },
+        {
+          "timestamp": "2024-01-13T09:00:00",
+          "value": 14.8,
+          "unit": "K/uL",
+          "delta": -1.4,
+          "delta_pct": 8.6,
+          "above_normal": true,
+          "below_normal": false,
+          "trend": "falling",
+          "outlier": {
+            "is_outlier": false,
+            "z_score": -1.868,
+            "rolling_mean": 18.767,
+            "rolling_std": 2.123,
+            "redraw_required": false
+          }
+        }
+      ]
+    },
+    "critical_values": [
+      {
+        "test": "Creatinine",
+        "value": 8.9,
+        "timestamp": "2024-01-12T03:00:00",
+        "direction": "high",
+        "is_outlier": true
+      },
+      {
+        "test": "Lactate",
+        "value": 4.2,
+        "timestamp": "2024-01-11T21:00:00",
+        "direction": "high",
+        "is_outlier": false
+      },
+      {
+        "test": "Platelets",
+        "value": 95.0,
+        "timestamp": "2024-01-11T09:00:00",
+        "direction": "low",
+        "is_outlier": false
+      },
+      {
+        "test": "Platelets",
+        "value": 88.0,
+        "timestamp": "2024-01-11T21:00:00",
+        "direction": "low",
+        "is_outlier": false
+      },
+      {
+        "test": "Platelets",
+        "value": 92.0,
+        "timestamp": "2024-01-12T09:00:00",
+        "direction": "low",
+        "is_outlier": false
+      },
+      {
+        "test": "Bilirubin",
+        "value": 1.4,
+        "direction": "high",
+        "timestamp": "2024-01-10T09:00:00",
+        "is_outlier": false
+      },
+      {
+        "test": "Hemoglobin",
+        "value": 9.8,
+        "direction": "low",
+        "timestamp": "2024-01-10T09:00:00",
+        "is_outlier": false
+      },
+      {
+        "test": "WBC",
+        "value": 14.2,
+        "direction": "high",
+        "timestamp": "2024-01-10T09:00:00",
+        "is_outlier": false
+      }
+    ],
+    "abnormal_values": [
+      {
+        "test": "Bilirubin",
+        "value": 1.4,
+        "timestamp": "2024-01-10T09:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Bilirubin",
+        "value": 1.8,
+        "timestamp": "2024-01-10T21:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Bilirubin",
+        "value": 2.3,
+        "timestamp": "2024-01-11T09:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Bilirubin",
+        "value": 2.6,
+        "timestamp": "2024-01-11T21:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Bilirubin",
+        "value": 2.4,
+        "timestamp": "2024-01-12T09:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Bilirubin",
+        "value": 2.1,
+        "timestamp": "2024-01-12T21:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Bilirubin",
+        "value": 1.9,
+        "timestamp": "2024-01-13T09:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Creatinine",
+        "value": 1.3,
+        "timestamp": "2024-01-10T09:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Creatinine",
+        "value": 1.7,
+        "timestamp": "2024-01-10T21:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Creatinine",
+        "value": 2.1,
+        "timestamp": "2024-01-11T09:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Creatinine",
+        "value": 2.4,
+        "timestamp": "2024-01-11T21:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Creatinine",
+        "value": 8.9,
+        "timestamp": "2024-01-12T03:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Creatinine",
+        "value": 2.3,
+        "timestamp": "2024-01-12T09:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Creatinine",
+        "value": 2.0,
+        "timestamp": "2024-01-12T21:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Creatinine",
+        "value": 1.8,
+        "timestamp": "2024-01-13T09:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Hemoglobin",
+        "value": 9.8,
+        "timestamp": "2024-01-10T09:00:00",
+        "type": "low"
+      },
+      {
+        "test": "Hemoglobin",
+        "value": 9.2,
+        "timestamp": "2024-01-10T21:00:00",
+        "type": "low"
+      },
+      {
+        "test": "Hemoglobin",
+        "value": 8.6,
+        "timestamp": "2024-01-11T09:00:00",
+        "type": "low"
+      },
+      {
+        "test": "Hemoglobin",
+        "value": 8.1,
+        "timestamp": "2024-01-11T21:00:00",
+        "type": "low"
+      },
+      {
+        "test": "Hemoglobin",
+        "value": 8.3,
+        "timestamp": "2024-01-12T09:00:00",
+        "type": "low"
+      },
+      {
+        "test": "Hemoglobin",
+        "value": 8.5,
+        "timestamp": "2024-01-12T21:00:00",
+        "type": "low"
+      },
+      {
+        "test": "Hemoglobin",
+        "value": 8.8,
+        "timestamp": "2024-01-13T09:00:00",
+        "type": "low"
+      },
+      {
+        "test": "Lactate",
+        "value": 2.4,
+        "timestamp": "2024-01-10T09:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Lactate",
+        "value": 3.1,
+        "timestamp": "2024-01-10T21:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Lactate",
+        "value": 3.8,
+        "timestamp": "2024-01-11T09:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Lactate",
+        "value": 4.2,
+        "timestamp": "2024-01-11T21:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Lactate",
+        "value": 3.5,
+        "timestamp": "2024-01-12T09:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Lactate",
+        "value": 2.8,
+        "timestamp": "2024-01-12T21:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Lactate",
+        "value": 2.2,
+        "timestamp": "2024-01-13T09:00:00",
+        "type": "high"
+      },
+      {
+        "test": "Platelets",
+        "value": 142.0,
+        "timestamp": "2024-01-10T09:00:00",
+        "type": "low"
+      },
+      {
+        "test": "Platelets",
+        "value": 118.0,
+        "timestamp": "2024-01-10T21:00:00",
+        "type": "low"
+      },
+      {
+        "test": "Platelets",
+        "value": 95.0,
+        "timestamp": "2024-01-11T09:00:00",
+        "type": "low"
+      },
+      {
+        "test": "Platelets",
+        "value": 88.0,
+        "timestamp": "2024-01-11T21:00:00",
+        "type": "low"
+      },
+      {
+        "test": "Platelets",
+        "value": 92.0,
+        "timestamp": "2024-01-12T09:00:00",
+        "type": "low"
+      },
+      {
+        "test": "Platelets",
+        "value": 101.0,
+        "timestamp": "2024-01-12T21:00:00",
+        "type": "low"
+      },
+      {
+        "test": "Platelets",
+        "value": 112.0,
+        "timestamp": "2024-01-13T09:00:00",
+        "type": "low"
+      },
+      {
+        "test": "WBC",
+        "value": 14.2,
+        "timestamp": "2024-01-10T09:00:00",
+        "type": "high"
+      },
+      {
+        "test": "WBC",
+        "value": 16.8,
+        "timestamp": "2024-01-10T21:00:00",
+        "type": "high"
+      },
+      {
+        "test": "WBC",
+        "value": 19.3,
+        "timestamp": "2024-01-11T09:00:00",
+        "type": "high"
+      },
+      {
+        "test": "WBC",
+        "value": 21.4,
+        "timestamp": "2024-01-11T21:00:00",
+        "type": "high"
+      },
+      {
+        "test": "WBC",
+        "value": 18.7,
+        "timestamp": "2024-01-12T09:00:00",
+        "type": "high"
+      },
+      {
+        "test": "WBC",
+        "value": 16.2,
+        "timestamp": "2024-01-12T21:00:00",
+        "type": "high"
+      },
+      {
+        "test": "WBC",
+        "value": 14.8,
+        "timestamp": "2024-01-13T09:00:00",
+        "type": "high"
+      }
+    ],
+    "outlier_flags": [
+      {
+        "test": "Bilirubin",
+        "value": 2.3,
+        "unit": "mg/dL",
+        "timestamp": "2024-01-11T09:00:00",
+        "z_score": 3.5,
+        "rolling_mean": 1.6,
+        "rolling_std": 0.2,
+        "redraw_required": true,
+        "redraw_confirmed": false
+      },
+      {
+        "test": "Creatinine",
+        "value": 2.1,
+        "unit": "mg/dL",
+        "timestamp": "2024-01-11T09:00:00",
+        "z_score": 3.0,
+        "rolling_mean": 1.5,
+        "rolling_std": 0.2,
+        "redraw_required": true,
+        "redraw_confirmed": false
+      },
+      {
+        "test": "Creatinine",
+        "value": 8.9,
+        "unit": "mg/dL",
+        "timestamp": "2024-01-12T03:00:00",
+        "z_score": 23.831,
+        "rolling_mean": 2.067,
+        "rolling_std": 0.287,
+        "redraw_required": true,
+        "redraw_confirmed": false
+      },
+      {
+        "test": "Hemoglobin",
+        "value": 8.8,
+        "unit": "g/dL",
+        "timestamp": "2024-01-13T09:00:00",
+        "z_score": 3.062,
+        "rolling_mean": 8.3,
+        "rolling_std": 0.163,
+        "redraw_required": true,
+        "redraw_confirmed": false
+      },
+      {
+        "test": "Lactate",
+        "value": 2.8,
+        "unit": "mmol/L",
+        "timestamp": "2024-01-12T21:00:00",
+        "z_score": -3.604,
+        "rolling_mean": 3.833,
+        "rolling_std": 0.287,
+        "redraw_required": true,
+        "redraw_confirmed": false
+      },
+      {
+        "test": "Platelets",
+        "value": 101.0,
+        "unit": "K/uL",
+        "timestamp": "2024-01-12T21:00:00",
+        "z_score": 3.255,
+        "rolling_mean": 91.667,
+        "rolling_std": 2.867,
+        "redraw_required": true,
+        "redraw_confirmed": false
+      },
+      {
+        "test": "Platelets",
+        "value": 112.0,
+        "unit": "K/uL",
+        "timestamp": "2024-01-13T09:00:00",
+        "z_score": 3.372,
+        "rolling_mean": 93.667,
+        "rolling_std": 5.437,
+        "redraw_required": true,
+        "redraw_confirmed": false
+      },
+      {
+        "test": "WBC",
+        "value": 16.2,
+        "unit": "K/uL",
+        "timestamp": "2024-01-12T21:00:00",
+        "z_score": -3.11,
+        "rolling_mean": 19.8,
+        "rolling_std": 1.158,
+        "redraw_required": true,
+        "redraw_confirmed": false
+      }
+    ],
+    "icu_duration_hours": 83.0,
+    "days_of_data": 4,
+    "labs_available": [
+      "Bilirubin",
+      "Creatinine",
+      "Hemoglobin",
+      "Lactate",
+      "Platelets",
+      "WBC"
+    ],
+    "sofa_inputs_available": "{'Platelets', 'Lactate', 'WBC', 'Creatinine', 'Bilirubin', 'Hemoglobin'}",
+    "sofa_coverage_pct": 100.0
+  },
+  "rag_guidelines_output": {
+    "agent": "guideline_rag",
+    "query_used": "Abnormal labs: Creatinine 8.9 elevated, Lactate 4.2 elevated, Platelets 95.0 decreased, Platelets 88.0 decreased, Platelets 92.0 decreased, Bilirubin 1.4 elevated, Hemoglobin 9.8 decreased, WBC 14.2 elevated. Retrieve the most relevant ICU clinical guideline evidence, thresholds, and diagnostic criteria for the flagged risks.",
+    "citations": [
+      {
+        "risk_flag": "SEPSIS_RISK",
+        "source": "Sepsis-3 Consensus Definitions",
+        "category": "sepsis",
+        "page": 3,
+        "rationale": "SEPSIS_RISK matched: lactate > 2 mmol/L, WBC > 12 K/uL, creatinine elevated. Guideline from Sepsis-3 Consensus Definitions supports this risk. Evidence: SECTION 1 Sepsis-3 Definitions and Diagnostic Criteria Source: Singer M, et al. The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3). JAMA. 2016;315",
+        "criteria_met": true,
+        "threshold": "Sepsis-3: suspected infection plus acute SOFA increase >= 2",
+        "matched_findings": [
+          "lactate > 2 mmol/L",
+          "WBC > 12 K/uL",
+          "creatinine elevated"
+        ]
+      },
+      {
+        "risk_flag": "SEPTIC_SHOCK_RISK",
+        "source": "Septic Shock Identification and Management",
+        "category": "septic_shock",
+        "page": 12,
+        "rationale": "SEPTIC_SHOCK_RISK matched: lactate > 2 mmol/L. Guideline from Septic Shock Identification and Management supports this risk. Evidence: Septic shock requires sepsis plus persistent hypotension needing vasopressors to maintain MAP >=65 mmHg and lactate >2 mmol/L despite adequate fluid resuscitation.",
+        "criteria_met": false,
+        "threshold": "Septic shock: vasopressor-dependent MAP >= 65 with lactate > 2 mmol/L after fluids",
+        "matched_findings": [
+          "lactate > 2 mmol/L"
+        ]
+      },
+      {
+        "risk_flag": "AKI_RISK",
+        "source": "KDIGO AKI Guidelines 2012",
+        "category": "aki",
+        "page": 13,
+        "rationale": "AKI_RISK matched: creatinine elevated. Guideline from KDIGO AKI Guidelines 2012 supports this risk. Evidence: KDIGO AKI definition: creatinine rise >=0.3 mg/dL in 48 hours, or >=1.5x baseline in 7 days, or urine output <0.5 mL/kg/hour for >=6 hours.",
+        "criteria_met": true,
+        "threshold": "KDIGO AKI: creatinine rise >= 0.3 mg/dL in 48h or urine output < 0.5 mL/kg/hr for >= 6h",
+        "matched_findings": [
+          "creatinine elevated"
+        ]
+      },
+      {
+        "risk_flag": "COAGULOPATHY_RISK",
+        "source": "Laboratory Reference Ranges and Clinical Thresholds",
+        "category": "lab_thresholds",
+        "page": 20,
+        "rationale": "COAGULOPATHY_RISK matched: Platelets < 100 K/uL. Guideline from Laboratory Reference Ranges and Clinical Thresholds supports this risk. Evidence: Platelet thresholds: <150 begins SOFA coagulation scoring, <50 indicates severe coagulopathy, and <20 is a score 4 threshold with spontaneous bleeding risk.",
+        "criteria_met": true,
+        "threshold": "SOFA coag score >= 1: platelets < 150 K/uL",
+        "matched_findings": [
+          "Platelets < 100 K/uL"
+        ]
+      }
+    ],
+    "guidelines_retrieved": 4,
+    "top_relevance_score": 0.62
+  },
+  "flagged_risks": [
+    {
+      "source": "lab_mapper",
+      "type": "critical_lab",
+      "signal": "Lactate",
+      "value": 4.2,
+      "direction": "high",
+      "timestamp": "2024-01-11T21:00:00"
+    },
+    {
+      "source": "lab_mapper",
+      "type": "critical_lab",
+      "signal": "Platelets",
+      "value": 95.0,
+      "direction": "low",
+      "timestamp": "2024-01-11T09:00:00"
+    },
+    {
+      "source": "lab_mapper",
+      "type": "critical_lab",
+      "signal": "Bilirubin",
+      "value": 1.4,
+      "direction": "high",
+      "timestamp": "2024-01-10T09:00:00"
+    },
+    {
+      "source": "lab_mapper",
+      "type": "critical_lab",
+      "signal": "Hemoglobin",
+      "value": 9.8,
+      "direction": "low",
+      "timestamp": "2024-01-10T09:00:00"
+    },
+    {
+      "source": "lab_mapper",
+      "type": "critical_lab",
+      "signal": "WBC",
+      "value": 14.2,
+      "direction": "high",
+      "timestamp": "2024-01-10T09:00:00"
+    },
+    {
+      "source": "lab_mapper",
+      "type": "outlier_flag",
+      "signal": "Creatinine",
+      "value": 2.1,
+      "z_score": 3.0,
+      "timestamp": "2024-01-11T09:00:00"
+    },
+    {
+      "source": "lab_mapper",
+      "type": "aki_stage",
+      "signal": "AKI Stage 1",
+      "value": 2.1,
+      "timestamp": "2024-01-11T09:00:00"
+    },
+    {
+      "source": "lab_mapper",
+      "type": "aki_stage",
+      "signal": "AKI Stage 3",
+      "value": 8.9,
+      "timestamp": "2024-01-12T03:00:00"
+    }
+  ],
+  "outlier_flags": [
+    {
+      "test": "Bilirubin",
+      "value": 2.3,
+      "unit": "mg/dL",
+      "timestamp": "2024-01-11T09:00:00",
+      "z_score": 3.5,
+      "rolling_mean": 1.6,
+      "rolling_std": 0.2,
+      "redraw_required": true,
+      "redraw_confirmed": false
+    },
+    {
+      "test": "Creatinine",
+      "value": 2.1,
+      "unit": "mg/dL",
+      "timestamp": "2024-01-11T09:00:00",
+      "z_score": 3.0,
+      "rolling_mean": 1.5,
+      "rolling_std": 0.2,
+      "redraw_required": true,
+      "redraw_confirmed": false
+    },
+    {
+      "test": "Creatinine",
+      "value": 8.9,
+      "unit": "mg/dL",
+      "timestamp": "2024-01-12T03:00:00",
+      "z_score": 23.831,
+      "rolling_mean": 2.067,
+      "rolling_std": 0.287,
+      "redraw_required": true,
+      "redraw_confirmed": false
+    },
+    {
+      "test": "Hemoglobin",
+      "value": 8.8,
+      "unit": "g/dL",
+      "timestamp": "2024-01-13T09:00:00",
+      "z_score": 3.062,
+      "rolling_mean": 8.3,
+      "rolling_std": 0.163,
+      "redraw_required": true,
+      "redraw_confirmed": false
+    },
+    {
+      "test": "Lactate",
+      "value": 2.8,
+      "unit": "mmol/L",
+      "timestamp": "2024-01-12T21:00:00",
+      "z_score": -3.604,
+      "rolling_mean": 3.833,
+      "rolling_std": 0.287,
+      "redraw_required": true,
+      "redraw_confirmed": false
+    },
+    {
+      "test": "Platelets",
+      "value": 101.0,
+      "unit": "K/uL",
+      "timestamp": "2024-01-12T21:00:00",
+      "z_score": 3.255,
+      "rolling_mean": 91.667,
+      "rolling_std": 2.867,
+      "redraw_required": true,
+      "redraw_confirmed": false
+    },
+    {
+      "test": "Platelets",
+      "value": 112.0,
+      "unit": "K/uL",
+      "timestamp": "2024-01-13T09:00:00",
+      "z_score": 3.372,
+      "rolling_mean": 93.667,
+      "rolling_std": 5.437,
+      "redraw_required": true,
+      "redraw_confirmed": false
+    },
+    {
+      "test": "WBC",
+      "value": 16.2,
+      "unit": "K/uL",
+      "timestamp": "2024-01-12T21:00:00",
+      "z_score": -3.11,
+      "rolling_mean": 19.8,
+      "rolling_std": 1.158,
+      "redraw_required": true,
+      "redraw_confirmed": false
+    }
+  ],
+  "data_completeness": {
+    "note_parser_available": true,
+    "lab_mapper_available": true,
+    "rag_available": true,
+    "sofa_coverage_pct": 100.0,
+    "labs_available": [
+      "Bilirubin",
+      "Creatinine",
+      "Hemoglobin",
+      "Lactate",
+      "Platelets",
+      "WBC"
+    ],
+    "total_flagged_risks": 8,
+    "outlier_flags_active": 8,
+    "guidelines_retrieved": 4
+  }
+}
